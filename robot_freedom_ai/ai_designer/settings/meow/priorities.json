@@ -1,0 +1,10 @@
+{
+    "name": "meow",
+    "priorities": {
+        "engagement": 0.6,
+        "novelty ": 1.0,
+        "acquisition": 1.0,
+        "creating": 1.0,
+        "processing": 0.9
+    }
+}

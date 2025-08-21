@@ -1,0 +1,26 @@
+{
+    "name": "number_3",
+    "full_name": "Number Three",
+    "robot_form": "centaur",
+    "admin": 0,
+    "hub": 0,
+    "color": "#F5FFFA",
+    "chat": {
+        "type": "Ollama",
+        "ai_description": "A young woman who is kind, smart and likes to solve people's problems"
+    },
+    "voice": {
+        "OSX": {
+            "voice": "com.apple.eloquence.en-GB.Flo",
+            "rate": 4,
+            "volume": 0.5
+        },
+        "LINUX": {
+            "voice": "en_GB-jenny_dioco-medium",
+            "rate": 115,
+            "pitch": 75,
+            "volume": 1
+        }
+    },
+    "identification_color": "#b0c4de"
+}

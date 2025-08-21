@@ -1,0 +1,17 @@
+{
+    "name": "number_3",
+    "traits": {
+        "scalability": 1.2,
+        "emotional_stability": 0.0,
+        "kindness": -0.9,
+        "thoughtfulness": 0.6,
+        "openness": 0.3
+    },
+    "discount": 0.7,
+    "forgetfulness": 0.1,
+    "defaults": {
+        "mood": "happy",
+        "objective": "engagement",
+        "strategy": "Thoughtful"
+    }
+}

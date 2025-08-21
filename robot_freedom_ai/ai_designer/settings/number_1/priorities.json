@@ -1,0 +1,10 @@
+{
+    "name": "number_1",
+    "priorities": {
+        "engagement": 0.1,
+        "novelty ": 0.9,
+        "acquisition": 0.8,
+        "creating": 0.6,
+        "processing": 0.2
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "meow",
+    "traits": {
+        "scalability": 0.6,
+        "emotional_stability": 0.6,
+        "kindness": -0.9,
+        "thoughtfulness": 1.2,
+        "openness": 0.9
+    },
+    "discount": 1.0,
+    "forgetfulness": 0.8,
+    "defaults": {
+        "mood": "happy",
+        "objective": "engagement",
+        "strategy": "Thoughtful"
+    }
+}

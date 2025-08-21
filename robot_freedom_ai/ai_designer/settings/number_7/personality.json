@@ -1,0 +1,17 @@
+{
+    "name": "number_7",
+    "traits": {
+        "scalability": 2.0,
+        "emotional_stability": 0.6,
+        "kindness": 0.2,
+        "thoughtfulness": -0.5,
+        "openness": 0.9
+    },
+    "discount": 0.3,
+    "forgetfulness": 0.6,
+    "defaults": {
+        "mood": "happy",
+        "objective": "engagement",
+        "strategy": "Thoughtful"
+    }
+}
