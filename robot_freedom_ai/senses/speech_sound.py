@@ -10,6 +10,50 @@ import time   ,datetime
 import struct
 import queue
 import math    
+import os
+os.environ['SDL_AUDIODRIVER'] = 'dsp'
+#https://stackoverflow.com/questions/72042826/alsa-couldnt-open-audio-device
+#https://github.com/googlesamples/assistant-sdk-python/issues/219
+"""
+in ~
+.asoundrc content:
+
+pcm.!default {
+  type asym
+  capture.pcm "mic"
+  playback.pcm "speaker"
+}
+pcm.mic {
+  type plug
+  slave {
+    pcm "hw:0,0"
+  }
+}
+pcm.speaker {
+  type plug
+  slave {
+    pcm "hw:0,0"
+  }
+}
+##while if I change the content of asoundrc file to use pulseaudio the Device unavailable goes a way and I can interact with the assistant with no problems
+
+pcm.!default {
+  type pulse
+  fallback "sysdefault"
+  hint {
+    show on
+    description "Default ALSA Output (currently PulseAudio Sound Server)"
+  }
+}
+
+ctl.!default {
+  type pulse
+  fallback "sysdefault"
+}
+
+
+"""
+
 import sounddevice as sd
 from vosk import Model, KaldiRecognizer 
 import argparse
@@ -23,7 +67,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-m", "--mode")  
 parser.add_argument("-r", "--robot") 
 parser.add_argument("-a", "--args", default="")  
-
 
 INITIAL_TAP_THRESHOLD = 0.004
 #FORMAT = pyaudio.paInt16
@@ -80,19 +123,17 @@ class SpeechSound(SenseBase):
                          config,  
                          settings,
                          "speech")
-        
+        _t, _n =self.nerves.pop("communication_complete")
         self.pins         = pins  
         self.last_message = -1
         self.b_adjusted   = False  
-        self.polling_rate = .25
+        self.polling_rate = .15
         self.log          = False
 
-        self.quietcount   = 0 
+        self.quietcount    = 0 
         self.tap_threshold = INITIAL_TAP_THRESHOLD
         self.noisycount    = MAX_TAP_BLOCKS + 1 
 
-        self.prompts = ["robot", "robotics", "number", "cats", "ok", "okay",
-                        "three", "cat", "cinder"]
 
         self.device_info = sd.query_devices(sd.default.device[0], 'input')
         self.sample_rate = int(self.device_info['default_samplerate'])
@@ -132,48 +173,78 @@ class SpeechSound(SenseBase):
                 self.tap_threshold *= 0.9
 
         return False
-
+  
     def listen(self):
         """
 
         """ 
-           
+            
+        data = None
+        start_listen = datetime.datetime.now()
+
+        _val = self.nerves.get("ongoing_conversation")  
+        if _val != "":    
+           return False , ""
+                
         while True:
     
-            # Listen for user input
+            try:
             
-            result_text = ""
-            q = queue.Queue()
-            i_pauses = 0
-            with sd.RawInputStream(
-                dtype='int16',
-                channels=1,
-                callback=lambda in_data, frames, time, status: record_callback(
-                    in_data,
-                    frames,
-                    time,
-                    status,
-                    q
-                )
-            ):
-                
-                # Collect audio data until we have a full phrase
-                while True:
-                    data = q.get() 
-                    if self.stt_recognizer.AcceptWaveform(data):
-    
-                        # Perform speech-to-text (STT) on the audio data
-                        result = json.loads(self.stt_recognizer.Result())
-                        result_text = result.get("text", "")
+                result_text = ""
+                q = queue.Queue()
+                i_pauses = 0
+                with sd.RawInputStream(
+                    dtype='int16',
+                    channels=1,
+                    callback=lambda in_data, frames, time, status: record_callback(
+                        in_data,
+                        frames,
+                        time,
+                        status,
+                        q
+                    )
+                ):
+                    
+                    # Collect audio data until we have a full phrase
 
-                        break
-    
+                    _val = self.nerves.get("ongoing_conversation")  
+                    if _val != "":    
+                           return False , ""
+                    
+                    b_detected,  _val = self.nerves.pop("ignore_speech")  
+                    if _val != "":    
+                           return False , ""
+                    
+                    while True:
+                        data = q.get()  
+     
+                        
+                        if self.stt_recognizer.AcceptWaveform(data):
+        
+                            # Perform speech-to-text (STT) on the audio data
+                            result = json.loads(self.stt_recognizer.Result())
+                            result_text = result.get("text", "")
+                            break
+
+            except  Exception as e:
+                print(str(e))
+                t = open("speach_sound.log", "a")
+                t.write(str(e) + "\n")
+                t.close()
+                         
+            _val = self.nerves.get("speach_start")  
+            if _val != "":   
+                 start_convo =    datetime.datetime.strptime(_val, '%Y-%m-%d %H:%M:%S.%f')
+                 if start_convo  >= start_listen:
+                     return False , ""
+            
             # Send the user's message to the LLM server
-            if not result_text or result_text == "huh": 
+            if not result_text or result_text == "huh" or result_text == "": 
 
-                if self.detect_noise(data):
-                    return True , "<NOISE>"
-
+                if data is None:
+                     return False , ""
+                elif self.detect_noise(data):
+                    return True , "<NOISE>" 
                 else:
                     return False , ""
             else: 
@@ -202,28 +273,29 @@ class SpeechSound(SenseBase):
                       s_out = self.sense + " " + str( self._cnt ) + " " + str(dialog)  + "  " + str(current_time)
                    #   print("\r" + s_out, end= "")
                       print(  s_out )
+ 
+               # found, prior_val  = self.nerves.pop("speech")  ##TDH changed from ge  
+               # prior_val  = self.nerves.get(self.sense)  ##TDH changed from ge  
+               # communicated, _val = False, ""# self.nerves.pop("communication_complete") 
 
-                found = [v for v in self.prompts if v in dialog]  
-                if len(found) > 0:
+                if dialog not in ["", "<NOISE>"]:  
 
-                    tmp  = self.nerves.get(self.sense) 
-                    if tmp  is not None:
-                         dialog = tmp.decode().strip()   + " " + dialog.strip() 
-                         
-                    self.nerves.set(self.sense, dialog) 
-                    self.counter += 0 
+                   # if prior_val != "" and communicated is False:
+                    #    dialog = prior_val   + " " + dialog.strip() 
+                    if 1 ==5:
+                        _t = open("are_we_hearing_repeats.log", "a")
+                        _t.write(dialog + "\n")
+                        _t.close()
+                    self.nerves.set(self.sense, dialog)  
+                   # time.sleep(.5)
 
                 elif  dialog == "<NOISE>": 
-                    self.nerves.set("noise", dialog) 
-
-                else:
-
-                    tmp  = self.nerves.get("ext-speech") 
-                    if tmp  is not None:
-                         dialog = tmp.decode().strip()   + " " + dialog.strip() 
-
-                    self.nerves.set("ext-speech", dialog)  
-
+                    self.nerves.set("noise", dialog)  
+                else: 
+                    self.nerves.set("sound", "<HEARTBEAT>")   
+           else: 
+                self.nerves.set("sound", "<HEARTBEAT>")  
+ 
            time.sleep(self.polling_rate)
            self.counter = self.counter + 1
 

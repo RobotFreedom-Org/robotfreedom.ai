@@ -37,10 +37,15 @@ class Camera(object):
            from picamera2 import Picamera2, Preview
 
         elif self.os == "OSX": 
-         # from  AppKit import NSSpeechSynthesizer 
-          #nssp = NSSpeechSynthesizer
-          self.camera = None #nssp.alloc().init()  
-          
+            # try:
+                import pygame
+                import pygame.camera
+                pygame.camera.init()
+                cams = pygame.camera.list_cameras()
+                self.camera = cams[0]
+             #except:
+              #   print("no camera")
+
     def video(self):
 
         if self.os == "LINUX":
@@ -61,24 +66,35 @@ class Camera(object):
         """
         
         """
-        if self.os == "LINUX":
+        try:
+            if self.os == "LINUX":
           
-            from picamera2 import Picamera2, Preview
-            picam = Picamera2()
-            config = picam.create_preview_configuration()
-            picam.configure(config)
-            picam.start_preview(Preview.QTGL)
+                from picamera2 import Picamera2, Preview
+                picam = Picamera2()
+                config = picam.create_preview_configuration()
+                picam.configure(config)
+                picam.start_preview(Preview.QTGL)
+    
+                picam.start()
+                
+                time.sleep(1)
+                time_srt =  datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+                picam.capture_file( self.config.OUTPUT_PATH + str(time_srt) + ".jpg")
+                picam.close()  
 
-            picam.start()
-            
-            time.sleep(1)
-            time_srt =  datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-            picam.capture_file( self.config.OUTPUT_PATH + str(time_srt) + ".jpg")
-            picam.close()  
-
-        elif self.os == "OSX":
-            self.camera.capture()
-
+            elif self.os == "OSX":
+                 
+                 import pygame
+                 time_srt =  datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+                 cam = pygame.camera.Camera(self.camera, (640, 480))  
+                 cam.start()                                      
+                 img = cam.get_image()                            
+                 pygame.image.save(img, self.config.OUTPUT_PATH + str(time_srt) + ".jpg") 
+                 cam.stop()  
+                 
+        except Exception as e:
+            print(e)
+            print("$$$$$$$$$$$$$$$$$$")
     
     def runAndWait(self): 
         """

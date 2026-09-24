@@ -6,6 +6,7 @@ License: MIT License
 https://www.electronicshub.org/raspberry-pi-dht11-humidity-temperature-sensor-interface/
 """
 import json  
+import time, datetime
 try:
    from ._sense  import SenseBase
 except:
@@ -45,40 +46,83 @@ class  TemperatureHumidity(SenseBase):
     def poll(self):
         """
         """ 
-           
+        self.debug = True
+        response = {}
+        response["temperature"] = [False, 0.0]
+        response["humidity"]    = [False, 0.0]
         if self.os == "LINUX":
-            self.dhtDevice.trigger()
+            #self.dhtDevice.trigger()
             try:
                 temperature_c = self.dhtDevice.temperature
             except:
-                return [False, "", ""]
+                temperature_c = 32.0
+            
+            if temperature_c is None:
+                temperature_c = 0
             temperature_f = temperature_c * (9 / 5) + 32 
+             
             try:
                  humidity      = self.dhtDevice.humidity
             except:
-                return [False, "", ""]
+                 humidity     = 0
+
+            if humidity is None:
+                humidity = 0
+
             if self.debug:
-              #  print("Temp: {:.1f} F / {:.1f} C    Humidity: {}% ".format(temperature_f, temperature_c, humidity))
-                print("")
+                print("Temp: {:.1f} F / {:.1f} C    Humidity: {}% ".format(temperature_f, temperature_c, humidity))
+                
+
             if abs(temperature_f - self.start_temp) > 10: 
                self.start_temp =    temperature_f                      
-               return [True ,temperature_f,  "temperature"]
+               response["temperature"] = [True, temperature_f]  
+            else:       
+               response["temperature"] = [False,temperature_f]
             
             if abs(humidity - self.start_humid) > 10:       
                self.start_humid =    humidity       
-               return [True , humidity, "humidity"]
+               response["humidity"]    = [True, humidity]
+            else:
+               response["humidity"]    = [False, humidity]
             
         elif self.os == "OSX":
             
            if self.counter  >= self.args["max"]:
-               self.counter = 0
-               return [True, "timeout"]
-
+               self.counter            = 0
+               response["temperature"] = [True, 10 ]
+               response["humidity"]    = [True, 50 ]
+               return response 
+           
+        return response
+    
+    def serve_forever(self): 
+        """
         
-        return [False, ""]
-     
+        """
+        if self.debug:
+            print("Testing " + self.sense)
 
+        while True:
+           ret = self.poll()
+           for sense in ["temperature", "humidity"]:
+             detected, val   = ret[sense]
+             self.nerves.set(sense + "_reading", str(val))  
+             
+             if detected: 
+                 if self.debug:
+                      self._cnt    += 1 
+                      current_time  = datetime.datetime.now() 
+                      s_out = self.sense + " " + str(self._cnt) + " " + str(ret) + " " +str(val)  + "  " + str(current_time)
+                      print("\r" + s_out, end= "")  
+                 self.nerves.set(sense, str(val))  
 
+              #else:
+               #   self.nerves.set(sense, str(val))  
+                 
+ 
+           self.counter = self.counter + 1
+           time.sleep(self.polling_rate) 
+ 
 if __name__ == "__main__":
     """ 
      python3  temperature_humidity.py -r number_2 -m test

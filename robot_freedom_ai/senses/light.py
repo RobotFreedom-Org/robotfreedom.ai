@@ -42,18 +42,20 @@ class  Light(SenseBase):
         self.sense  = "light" 
         self.counter = 0 
         self.args["max"] = 20
+        
     def poll(self):
         """
         """ 
            
         if self.os == "LINUX":
             
-            light_level = self.GPIO.input(self.channel)    
+            light_level = self.GPIO.input(self.channel)  
+            self.nerves.set("light" + "_reading", str(light_level))     
             print("light", light_level)
 
             if abs(light_level - self.current_light_level) == 1:       
-               self.current_light_level = light_level        
-               return [True , "light"]  
+               self.current_light_level = light_level    
+               return [True , str(light_level)]  
             
             self.current_light_level = light_level   
 
@@ -61,6 +63,7 @@ class  Light(SenseBase):
             
            if self.counter  >= self.args["max"]:
                self.counter = 0
+               self.nerves.set("light" + "_reading", str(10))   
                return [True, "timeout"]
 
         
