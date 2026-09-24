@@ -12,8 +12,7 @@ License: MIT License
 from os import system
 import time
 import os 
-import json
-import numpy as np  
+import json 
 import subprocess 
 import pyaudio   
  
@@ -244,7 +243,7 @@ class Voice(object):
                i_cnt = 0
                while not self.voice_engine.isSpeaking():
                    i_cnt += 1
-                   if i_cnt > 1200:
+                   if i_cnt > 1500:
                        break
                    time.sleep(.1)
  
@@ -274,10 +273,10 @@ class Voice(object):
 
                if acmds[0] == "speak-w":
                    
-                   found, val = self.nerves.pop("spoke" ) 
+                   found, val = self.nerves.pop("spoke" )  
                    self.speak(acmds[2])  
                    self.wait()     
-                   self.nerves.set("spoke", "Done")   
+                   self.nerves.set("spoke", "Done")    
 
                elif acmds[0] == "speak":
                      
