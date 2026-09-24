@@ -7,32 +7,33 @@ Author: HipMonsters.com
 License: MIT License  
 """ 
 import json  
-from nltk.sentiment import SentimentIntensityAnalyzer
- 
+from nltk.sentiment import SentimentIntensityAnalyzer  
 
 class Motivations(object):
 
    def __init__(self, robot,config, cognitive_control, motivations, 
-                personality ,    low_memory_mode ):
+                personality , lt_memory, triples,  low_memory_mode ):
       """
       
       """
       self.robot        = robot   
       self.config       = config
-      self.personality = personality
-      self.discount    = personality.discount
-      self.novelty     = 1 - self.discount 
-      self.motivations  =  motivations 
+      self.personality  = personality
+      self.discount     = personality.discount
+      self.novelty      = 1 - self.discount 
+      self.motivations  = motivations 
+      self.lt_memory    = lt_memory
+      self.triples      = triples
 
       self.low_memory_mode   = low_memory_mode 
       self.sia = SentimentIntensityAnalyzer() 
       
       self.cognitive_control  = cognitive_control
-      self.G          = cognitive_control.G
-      self.objectives = cognitive_control.objectives
-      self.scrs       = cognitive_control.scrs
-      self.f_scr      = 0 
-      self.debug      = False
+      self.episodic_memory    = cognitive_control.episodic_memory
+      self.objectives         = cognitive_control.objectives
+      self.scrs               = cognitive_control.scrs
+      self.f_scr              = 0 
+      self.debug              =  False
 
       with open(self.config.DATA_PATH + self.robot + "/priorities.json") as f:
            data = ''
@@ -64,8 +65,43 @@ class Motivations(object):
          should be with sentences.
        """ 
        self.scrs = self.sia.polarity_scores(resp) 
-       print("scrs", self.scrs)
-       if self.scrs["pos"] > self.scrs["neg"]:
+        
+       if (self.scrs["neu"] > self.scrs["pos"])  and (self.scrs["neu"] > self.scrs["neg"]):
+            temp_scr = 0
+           
+       elif self.scrs["pos"] > self.scrs["neg"]:
+            temp_scr = self.scrs["pos"] 
+       else:
+            temp_scr =  -1 * self.scrs["neg"] 
+
+       if temp_scr == 0:
+          self.f_scr =  .1
+       else: 
+          self.f_scr =  temp_scr
+
+   def analyze_stimuli(self, stimuli, stimuli_history):
+       """
+         {'neg': 0.0, 'neu': 0.266, 'pos': 0.734, 'compound': 0.8516}
+         should be with sentences.
+       """   
+       #  _pos = moods["happy"]
+       #  _neu = moods["bored"]
+       #  _neg = moods["sad"] + moods["anger"] + moods["disgust"] 
+
+       ##do grph databse. 
+       stimuli_history     =  [v["stimuli_class"] for v in stimuli_history] 
+       resp =  stimuli_history[4:] + [stimuli]  
+
+       _scrs     = self.lt_memory.stimuli_resp(resp)  
+ 
+       self.scrs = _scrs[0]  
+
+
+       if (self.scrs["neu"] > self.scrs["pos"])  and (self.scrs["neu"] > self.scrs["neg"]):
+            temp_scr = 0
+       #    xzx xzz
+      # need ot have objects and strageties change more often
+       elif self.scrs["pos"] > self.scrs["neg"]:
             temp_scr = self.scrs["pos"] 
        else:
             temp_scr =  -1 * self.scrs["neg"] 
@@ -86,8 +122,8 @@ class Motivations(object):
        p_iunmet = 0
        p_met    = 0
 
-       edges = [(u2,v2,e2) for u2,v2,e2  in [self.G.edges(v, data=True ) for u,v,e in self.G.edges("objectives", data=True) ][0] if e2["class"] == "objectives" and v2 != "objectives"]
-    
+      # edges = self.episodic_memory.related( objective, "objectives", None , return_data = True) 
+ 
        scores = {}
        for key, val in self.objectives.items(): 
            
@@ -105,21 +141,18 @@ class Motivations(object):
            scores[key] = (1*iunmet + .8*imet + .5*imood)*factor
 
        sorted_scores =  sorted(scores.items(), key=lambda item: item[1],reverse=True)
-       objective = sorted_scores[0][0]
-       if self.debug:
-           print(self.motivations)
-           print(met)
-           print(unmet)
-           print(mood)
-           print(sorted_scores)
+       objective = sorted_scores[0][0] 
   
        self.current_object = objective     
 
-       return objective
-
-       
+       return objective, scores
    
-   def goal_achievement(self, stimuli, stimuli_class, signal,  amplitude, adjusted, stimuli_datetime, epoch):
+   def stimuli_goal_factors(self, stimuli_class):
+        
+        edges = self.episodic_memory.related( stimuli_class, "stimuli_goal_factors", None , return_data = True) 
+        return [[e["s"], e["o"], e["data"] ] for e, scr, v in edges]
+ 
+   def goal_achievement(self, stimuli, stimuli_class,stimuli_history, signal,  amplitude, adjusted, stimuli_datetime, epoch):
       """
       """
        
@@ -135,27 +168,34 @@ class Motivations(object):
           for key, wrds in self.cognitive_control.reaction_keywords.items():
                reaction[key] = sum([v for k, v in wrds if k in signal])
       else:
-          adjusted  = 1
-
-      for key, val in self.motivations.items():
-          self.motivations[key] = val * self.discount 
-
+          self.analyze_stimuli(stimuli_class, stimuli_history) 
+          adjusted  = self.f_scr   
+          reaction["sentiment"] = self.f_scr  
  
-      edges = [(u2,v2,e2) for u2,v2,e2  in [self.G.edges(v, data=True ) for u,v,e in self.G.edges("stimuli_goal_factors", data=True)  if v == stimuli_class  ][0] if e2["class"] == "stimuli_goal_factors"]
+      for key, val in self.motivations.items():
+          self.motivations[key] = val * self.discount
+
+      edges = self.episodic_memory.related( stimuli_class, "stimuli_goal_factors", None , return_data = True) 
+      edges =  [[e["s"], e["o"], e["data"] ] for e, scr, v in edges]
+ 
+      if edges == None:
+          t = open("do_graph_edges.error.log", "a")
+          t.write(stimuli_class + "\n")  
+
+      if len(edges) == 0:
+          t = open("do_graph_edges.error.log", "a")
+          t.write(stimuli_class + "\n")   
+ 
+ 
       if self.debug:
           print(edges)
       
       for frm, goal, prop in edges: 
-            
-            if goal != 'stimuli_goal_factors': 
-               wght = prop["weight"] *5
+                
+               wght = prop["weight"] * 5
 
-               if self.debug:
-                 #  print("novelty  " , self.novelty )
-                 #  print("adjusted " , adjusted )
-                #   print("f_scr    " , self.f_scr ) 
-                   print("wght     " , wght )
-               #    print("[goal]   " , self.motivations[goal]  )
+               if self.debug: 
+                   print("wght     " , wght ) 
                    print("tot      " , adjusted*wght*self.novelty*amplitude  )
 
                adj = adjusted*wght*self.novelty 

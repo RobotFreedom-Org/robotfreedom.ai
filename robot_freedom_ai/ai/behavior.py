@@ -11,10 +11,12 @@ import json
 from ai.motivations          import Motivations
 from ai.emotions             import Emotions
 from ai.experience           import Experience 
+from ai.wayfinder            import WayFinder   
+from ai.sensors_fusion       import SensorFusion  
 
 class Behavior():
 
-   def __init__(self, robot, config, settings , personality, cognitive_control, st_memory , lt_memory, low_memory_mode ):
+   def __init__(self, robot, config, settings , personality, cognitive_control, st_memory , lt_memory, triples, low_memory_mode ):
        """
        S-O-R Theory with Personality Traits
        
@@ -36,6 +38,7 @@ class Behavior():
        self.indif          = "" 
        self.mood           = "" 
        self.objective      = ""  
+       self.objectives     = []  
        self.robot                  = robot
        self.config                 = config
        self.settings               = settings
@@ -47,16 +50,22 @@ class Behavior():
 
        self.last_stimuli      = None
        self.stimuli_time      = -1
-       self.epoch            = None
+       self.epoch            = 0
        self.last_update      = None 
+       self.situation   ={}
               
        
        self.debug       = False
        self.personality = personality  
+
        self.discount    = self.personality.discount 
        self.novelty     = 1 - self.discount  
        self.objective   = self.personality.defaults["objective"]
        self.strategy    = self.personality.defaults["strategy"]
+
+       self.triples      = triples
+       self.wayfinder    = WayFinder(0,  1, 0)   
+       self.sensor_fusion = SensorFusion(st_memory , lt_memory, triples)
 
        row = self.st_memory.last_memory
        if "moods" in row:
@@ -84,6 +93,8 @@ class Behavior():
                                       self.cognitive_control,
                                       motivations,
                                       self.personality,  
+                                      self.lt_memory,
+                                      self.triples,
                                       self.low_memory_mode)
        
        self.experience  = Experience(self.robot , 
@@ -110,6 +121,9 @@ class Behavior():
        """
        return event + " " + cat
    
+   def remember(self, n = 5):
+        _t  = self.st_memory.memory["stimuli_sequence"][-n: ]
+        return [self.st_memory.memory["stimuli"][v] for v in _t ]       
  
    def save_memory(self, stimuli ,stimuli_class, signal ,  amplitude , 
                    prior_response, scr, scrs, mood, moods,  objective ,  strategy,  motivations,  
@@ -120,7 +134,35 @@ class Behavior():
         
        str_stimuli_time = str(stimuli_time) 
 
+       time_stamp =stimuli_time.timestamp()
+       self.st_memory.memory["kb"].update("emotion"     , "current", mood, time_stamp)  
+       self.st_memory.memory["kb"].update("objective"   , "current", objective, time_stamp)
+       self.st_memory.memory["kb"].update("strategy"    , "current", str(strategy), time_stamp)
+       self.st_memory.memory["kb"].update("stimuli_class", "current", stimuli_class, time_stamp)    
 
+       for key, prop in self.situation.items(): 
+          if key != "last_stimuli":
+              self.st_memory.memory["kb"].update(key, "current", prop["code"] ,time_stamp, prop) 
+ 
+       for  goal in self.met : 
+              self.st_memory.memory["kb"].add(goal, "current", "umet" , prop) 
+  
+       for  goal in self.met : 
+              self.st_memory.memory["kb"].add(goal, "current", "met" , prop) 
+  
+       for  goal in self.met : 
+              self.st_memory.memory["kb"].add(goal, "current", "indif" , prop) 
+
+       maxwgt = -1000
+       primary_motivation = "unknown"
+       for motivation, wgt in  motivations.items(): 
+          if wgt > maxwgt:
+             primary_motivation = motivation  
+             maxwgt = wgt 
+          
+       self.st_memory.memory["kb"].add("motivation"  , "current", primary_motivation)  
+       
+       self.st_memory.memory["stimuli_sequence"].append(str_stimuli_time)
        self.st_memory.memory["stimuli"][str_stimuli_time] = {"stimuli" :  stimuli ,
                                                              "stimuli_class" : stimuli_class, 
                                                              "amplitude" : amplitude ,
@@ -132,11 +174,15 @@ class Behavior():
                                                              "mood" : mood ,
                                                              "moods" : moods ,
                                                              "objective" : objective ,
-                                                             "strategy" : strategy ,
+                                                             "strategy" : str(strategy) ,
                                                              "emotional_suppressors" : emotional_suppressors,
                                                              "stimuli_time" : str_stimuli_time ,
                                                              "event_interval" : interval,
-                                                             "epoch" : epoch }
+                                                             "situation": self.situation,
+                                                             "epoch" : epoch ,
+                                                              "met"   :    self.met,   
+                                                              "umet" :    self.umet, 
+                                                              "indif" :    self.indif }
        ## move to main as some point
        with open(self.config.DATA_PATH + self.robot + "/stimuli.json", "a") as f:
             f.write( json.dumps(self.st_memory.memory["stimuli"][str_stimuli_time])  + "\n")
@@ -166,13 +212,16 @@ class Behavior():
         return True   
           
                 
-   def stimuli(self, stimuli_type, stimuli_class, signal,  amplitude, prior_response,
-               epoch, stimuli_time , last_moved,   last_talked, interval, other={}):
+   def stimuli(self, stimuli_type, stimuli_class, signal,  amplitude, prior_response,user_detected,
+               epoch, stimuli_time , last_moved,   last_talked, interval, chatting, 
+               mobile=False, time_since_last_change=-1, current_direction="f",other={}):
        """
        S-O-R Theory with Personality Traits
        Stimuli Observation Response
        Stimuli -> personality + desires + experience -> emotions -> response
-       
+  AES hormone profiles (cortisol, adrenaline, testosterone suppression, dopamine deficit, oxytocin block, serotonin depletion)
+
+  
        """
 
 
@@ -185,7 +234,14 @@ class Behavior():
        #4. Do a follow up questions when confused ask "do you feel engaged?"
       
        #5. the use xgboost to learn score to pick strategy
-        
+
+ 
+       
+       stimuli_history         = self.remember()
+
+      
+       self.epoch          = epoch
+       self.user_detected  = user_detected
        self.prior_response = prior_response
        self.stimuli_type   = stimuli_type 
        self.stimuli_class  = stimuli_class
@@ -203,13 +259,20 @@ class Behavior():
        adjusted_modifier       = self.cognitive_control.event_modifier(stimuli_type, 
                                                                        stimuli_class, 
                                                                        amplitude)
-
  
        ## Check status of motivations
        met, umet, indif, scr, scrs, reaction = self.motivations.goal_achievement(stimuli_type, 
-                                                                       stimuli_class,signal,
+                                                                       stimuli_class,
+                                                                       stimuli_history,
+                                                                       signal,
                                                                        amplitude, adjusted_modifier , 
                                                                        stimuli_time,  epoch) 
+       
+       self.sensor_fusion.update(stimuli_class,amplitude,stimuli_time , user_detected, scr, scrs) 
+       
+       self.situation = self.sensor_fusion.reason() 
+
+
        self.scrs  = scrs
        self.scr   = scr 
        self.met   = met
@@ -219,22 +282,36 @@ class Behavior():
        self.emotions.stimuli(stimuli_type, 
                              stimuli_class, 
                              adjusted_modifier,  
-                             self.emotional_suppressors )
+                             self.emotional_suppressors  )
+       
+       #self.emotions.situation(self.situation) 
        
        if self.debug:
-           print((met, umet , indif,  adjusted_modifier , scr ) )
-           
-
+           print((met, umet, indif, adjusted_modifier, scr))
+            
        # update emotions based on class and modifier
        self.emotions.reflection(met, umet , indif,  adjusted_modifier , reaction ) 
        self.mood = self.emotions.mood() 
     
-       self.objective          = self.motivations.objective(met, umet, indif ,self.mood ) 
-       self.strategy           = self.experience.strategy(self.objective, 
+       self.objective    ,self.objectives      = self.motivations.objective(met, umet, indif ,self.mood ) 
+       self.strategy      = self.experience.strategy(self.objective, 
                                                           interval , 
                                                           last_moved,
                                                           last_talked, 
-                                                          self.mood)
+                                                          self.mood,
+                                                          chatting)
+       
+       if mobile: 
+           self.locomotion_goals = []
+           x,y,z,dist = self.wayfinder.calc_x_y_z(time_since_last_change, 1, 1, 0, 1)
+
+           if ["distance", "proximity-foward-left", "proximity-foward-right"] :  
+                self.wayfinder.sense(["wall", x, y, z])
+       
+           self.wayfinder.reasoning(current_direction, 
+                                    time_since_last_change, 
+                                    self.locomotion_goals)   
+
        # calculate new emotion 
        self.save_memory(stimuli_type ,stimuli_class, signal , amplitude , self.prior_response,
                         self.scr, self.scrs,  self.mood, self.emotions.moods, 

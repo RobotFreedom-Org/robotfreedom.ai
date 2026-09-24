@@ -12,17 +12,21 @@ import json
 
 class Personality(object):
 
-   def __init__(self, robot, config, settings):
+   def __init__(self, robot, config, settings, triples):
       """
       
       """
       self.robot = robot  
       self.config = config  
       self.settings = settings   
+      self.triples = triples   
   
       self.reaction_threshold = .5 
       self.movement_threshold = .5 
-      self.speech_threshold   = 3  
+      self.speech_threshold   = 10 ## 3  
+
+      self.traits_internal = [] 
+      self.traits_social   = [] 
 
       with open(self.config.DATA_PATH + self.robot + "/personality.json") as f:
            data = ''
@@ -55,69 +59,62 @@ class Personality(object):
       self.generate_train_factors()
 
 
-   def generate_persona(self):
+   def generate_persona(self, override=False):
       """
       
       """
             
-      traitsA = [] 
-      if self.traits["kindness"] > .3:
-          traitsA.append("kind") 
+      self.traits_indicator = {"kindness":0,
+                               "thoughtfulness":0,
+                               "emotional_stability":0,
+                               "sociability":0,
+                               "openness":0,
+                               } 
+
+      if self.traits["kindness"] >= .3:
+          self.traits_indicator["kindness"] = 1 
 
       elif self.traits["kindness"] < -.3:
-          traitsA.append("rude")
+          self.traits_indicator["kindness"] = -1 
 
-      if self.traits["thoughtfulness"] > .3:
-          traitsA.append("thoughtful") 
+      if self.traits["thoughtfulness"] >= .3:
+          self.traits_indicator["thoughtfulness"] = 1 
 
       elif self.traits["thoughtfulness"] < -.3:
-          traitsA.append( "inconsiderate")  
-
-      traitsB = [] 
+          self.traits_indicator["thoughtfulness"] = -1  
  
-      if self.traits["emotional_stability"] > .3:
-          traitsB.append("calm") 
+      if self.traits["emotional_stability"] >= .3:
+          self.traits_indicator["emotional_stability"] = -1 
 
       elif self.traits["emotional_stability"] < -.3:
-          traitsB.append( "erratic")
+          self.traits_indicator["emotional_stability"] = 1 
 
-      if self.traits["sociability"] > .3:
-          traitsB.append("sociable") 
+      if self.traits["sociability"] >= .3: 
+          self.traits_indicator["sociability"] = 1 
 
       elif self.traits["sociability"] < -.3:
-          traitsB.append( "shy")
+          self.traits_indicator["sociability"] = -1
+          self.traits_social.append( "shy")
 
-      if self.traits["openness"] > .3:
-          traitsB.append("open to new ideas") 
+      if self.traits["openness"] >= .3:
+          self.traits_indicator["openness"] = 1
 
-      elif self.traits["openness"] < -.3:
-          traitsB.append( "against new ideas")
+      elif self.traits["openness"] < -.3: 
+          self.traits_indicator["openness"] = -1
 
-      self.persona = "You are a "
-      if len(traitsA) > 0 : 
-          self.persona  +=   traitsA[0]  
+      self.persona = "" 
 
-          if len(traitsA) > 1:
-              self.persona  +=  " and " + traitsA[1]  
-
-          self.persona  +=   " robot"
-
-          if len(traitsB) > 0:
-              self.persona += " who is " + traitsB[0]  
-              
-              if len(traitsB) > 2:
-                   self.persona  +=  " and " + traitsB[1]  
-
-              self.persona +=  "."
+      #    self.persona  +=   self.traits_internal[0]   
+      #    if len(self.traits_internal) > 1:
+      #        self.persona  +=  " and " + self.traits_internal[1]    
+ 
           
-          else: 
-              self.persona += "." 
-
+   
+      if self.persona == "":
+          self.persona = "You are calm ai who is boring."
       else:
-         if len(traitsB) == 0: 
-             self.persona = "You are a boring robot who has little personality."
-
-
+          self.persona +=  "."
+       
    def generate_train_factors(self):
       """
       

@@ -5,11 +5,9 @@
 Description: AI knowledge graph interface.
 Author: HipMonsters.com  
 License: MIT License  
-"""
-#https://codelucky.com/python-networkx/
+""" 
 import os  , sys, random
-import datetime
-import networkx as nx
+import datetime 
 import json 
   
 if __name__ == "__main__":   
@@ -62,9 +60,15 @@ if __name__ == "__main__":
     for es in cog_cntrl.G.edges(data=True ):
         print (es)
      
+    from triples.triples     import Triples
+    triples  = Triples(agent=robot_name, 
+                                config= config,
+                                communication=None, 
+                                client=True)  
+              
  
-    lt_memory       = LTMemory(robot_name, config, False) 
-    st_memory       = STMemory(robot_name, config, False) 
+    lt_memory       = LTMemory(robot_name, triples, config, False) 
+    st_memory       = STMemory(robot_name, triples=triples config, False) 
 
     with open(config.DATA_PATH + robot_name + "/settings.json") as f:
            data = ''
@@ -105,8 +109,7 @@ if __name__ == "__main__":
        i_sig_len      = len(signals)  -1
        signal         = signals[random.randint(0, i_sig_len)]
        amplitude      = 1
-       
-       print(stimuli_class)
+        
        behavior.stimuli(stimuli_type, 
                         stimuli_class, 
                         signal,  

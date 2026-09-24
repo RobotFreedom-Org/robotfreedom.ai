@@ -4,59 +4,39 @@
 
 """ 
 import warnings
-warnings.filterwarnings("ignore")
- 
-import csv
-import time 
-import json
-import os  
-import pickle 
-import string   
-import random 
-import re   
-import shutil    
+warnings.filterwarnings("ignore")  
+import re    
 import tokenize     
-import io 
-import joblib 
-import sys
-
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_ollama.llms import OllamaLLM 
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity 
+import io  
 import nltk
-from nltk.stem import WordNetLemmatizer   
-
 tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-try:
-   nltk.download('popular', quiet=True)    
-except:
-    pass
-
-import yake 
-kw_extractor = yake.KeywordExtractor(lan="en",n=1) 
-
 
 is_noun = lambda pos: pos[:2] == 'NN'
     
 ROBOT_ROLES = ["interviewing", "educating", "conversing"]  
 
-ROLES       =  ["ai","response", "robot" , "assistant" ,  "machine" , "two", "three", "four", "with",
+ROLES       =  ["ai","response", "robot" , "assistant" ,  
+                "machine" , "two", "three", "four", "with",
                 "stranger",   "man", "human", "system", ]  
 
+""" 
+
+
+try:
+   nltk.download('popular', quiet=True)    
+except:
+    pass
+ 
+from nltk.stem import WordNetLemmatizer   
 lemmer = WordNetLemmatizer()
-def LemTokens(tokens):
-    """
-    """
+def LemTokens(tokens): 
     return [lemmer.lemmatize(token) for token in tokens]
     
 remove_punct_dict = dict((ord(punct), None) for punct in string.punctuation)
 
-def LemNormalize(text): 
-    """
-    """
+def LemNormalize(text):  
     return LemTokens(nltk.word_tokenize(text.lower().translate(remove_punct_dict)))
-     
+"""     
   
 def parser(dialogue):
     """
@@ -78,7 +58,8 @@ def parser(dialogue):
     dialogue  =  dialogue.replace( "]", " BRACKETRIGHT") 
     dialogue  =  dialogue.replace( ",", "COMMA") 
 
-    for phrase in ["The robot replied,", "The human asked the robot," , 
+    for phrase in ["The robot replied,", 
+                   "The human asked the robot," , 
                    "The robot responded," ]:
          dialogue  =  dialogue.replace(phrase ,":") 
      
@@ -144,10 +125,11 @@ def cleanup_prompt(dialogue, topic):
     """ 
 
     a_dialogue   = tokenizer.tokenize(dialogue)   
+    scr = 1.0
     if len(a_dialogue) > 3:
-        return  " ".join(a_dialogue[-3:])
+        return  " ".join(a_dialogue[-3:]) , scr
     else:
-        return dialogue
+        return dialogue, scr
  
 def return_sentence(dialogue, topic):
     """

@@ -8,9 +8,8 @@ License: MIT License
 """
 
 import random 
-import json
-  
-
+import json 
+import traceback     
 
 class Interactions(object):
    ""
@@ -18,32 +17,80 @@ class Interactions(object):
 
    ""
 
-   def __init__(self, robot, config, cognitive_control, lt_memory,  low_memory_mode,  llm=False):
+   def __init__(self, robot, config, nerves, cognitive_control, lt_memory, triples,  low_memory_mode):
       """
       
       """
       self.robot              = robot
       self.config             = config
-      self.low_memory_mode    = low_memory_mode
-      self.b_llm              = llm
-      self.cognitive_control  = cognitive_control  
+      self.nerves             = nerves
+      self.low_memory_mode    = low_memory_mode 
+      self.cognitive_control  = cognitive_control   
       self.mapped_strategies  = self.cognitive_control.mapped_strategies
       self.vocalization       = self.cognitive_control.vocalization
-      self.movement           = self.cognitive_control.movement
+      self.movement           = self.cognitive_control.movement 
+      
+      self.lt_memory          = lt_memory   
+      self.chat               = self.lt_memory.memory   
+      self.triples            = triples 
 
-      self.lt_memory          = lt_memory  
-      self.set_chat_responses = self.lt_memory.set_chat_responses 
-      self.chat               = self.lt_memory.memory 
 
+   def try_tool(self, prompt):
+
+       resp  = ""
+       b_cmd = False
+       potential_tools = self.triples.router.search(prompt.split(" "))   
+       pot_tool = potential_tools[0] 
+       t_out = open("tools.log", "a")
+       t_out.write(prompt + " " + str(pot_tool) + "\n") 
+
+       if  pot_tool[-1] >= 1.8: 
+           cmd = pot_tool[1]["function"]  
+           if cmd in ["date", "time"]:
+                _p = prompt.split(cmd) 
+                _s , _o = "", "" 
+                if pot_tool[-1] >= .8:  
+                    if "s" in pot_tool[1]:
+                         _s =  pot_tool[1]["s"]
+                     
+                    if "o" in pot_tool[1]:
+                         _o =  pot_tool[1]["o"]
+                      
+                params = ["", ""]
+                if len(_p) == 1: 
+                     params[0] = _p[0]  
+                else:
+                     params[0] = _p[0] 
+                     params[1] = _p[1]   
+
+                if _s != "":
+                     params[0] = _s
+
+                if _o != "": 
+                     params[1] = _o   
  
+                try:     
+
+                    t_out.write("  >ran " + str(cmd) + "\n")
+                    resp =   getattr(self.triples, "%s" % cmd.lower().strip())(params[0], params[1])   
+                    t_out.write("  >out " + str(resp) + "\n")
+
+                    if type(resp) is str:
+                        resp = [resp]
+                        b_cmd = True 
+
+                    elif type(resp) is float:
+                        resp = [str(resp)]
+                        b_cmd = True 
+                        
+                    elif type(resp) is list: 
+                        b_cmd = True  
  
-   def greeting(self, sentence): 
-        """
-        If user's input is a greeting, return a greeting response
-        """
-        for word in sentence.split():
-            if word.lower() in self.set_chat_responses["greeting_inputs"]:
-                return random.choice(self.set_chat_responses["greeting_responses"])
+                except Exception as e:  
+                     print(e)
+                     print(  traceback.print_exc())
+  
+       return [b_cmd,  resp]
 
    def get_stimuli_summary(self,  behavior):
        """
@@ -60,39 +107,79 @@ class Interactions(object):
  
        return stimuli 
     
-   def return_self_eval(self, behavior, mood, template_id):
-            """
-            """
-       
-            template =  self.set_chat_responses["templates"][template_id]
-            
-            if template["source"] == "mood":
-               resp = template["template"]
-               response = [resp.replace("<INSERT>", mood )]
 
-            elif template["source"] =="stimuli":
-               resp = template["template"]
-               stimuli = self.get_stimuli_summary(behavior)
-               _len = len(stimuli) -1
-               _int = random.randint(0, _len)
-               stim = list(stimuli.keys())[_int]
-               cnt  =  stimuli[stim]
-               resp1 = " I experienced "
-               resp1 +=  stim + " " + str(cnt) + " times today, " 
-               response  = [resp.replace("<INSERT>", resp1 ) ]
+   def get_thoughts(self, behavior):
+       """ """
 
-            return response
+       ## move to graph
+       stim_resp = {"tilt":["better be careful", "wow"],
+                    "light":["who changed the lights"],
+                    "sound":["something out there", "hello", "is anyone there"],
+                    "tempature":["am i in the sun"],
+                    "humidity":["i hoppe my metal does not rust"],
+                    "touch":["hello", "how are you", "thank you"], 
+                    "distance":["hello there"], 
+                    "movement":["a lot is going on"], 
+                    }
+
+       itype = random.randint(0, 18)
+       response = []
+
+       if behavior.stimuli_class in stim_resp and itype < 5:
+            response  = random.choice(stim_resp[behavior.stimuli_class])
+
+       if  itype  == 0:  
+            response = ["stimuli detected " +  behavior.stimuli_class] 
+       elif  itype  == 1:  
+            response = ["current mood " + behavior.emotions.mood()]
+       elif  itype  == 2: 
+            response = ["current objective " + behavior.objective]
+       elif  itype  == 3: 
+             response = ["current strategy " + behavior.strategy]
+       elif  itype  == 4: 
+            if len(behavior.met) == 0: 
+                response = ["no goals are met"]
+            else:
+                response = ["goals met are " + " ".join(behavior.met)]
+
+       elif  itype  == 5: 
+            if len(behavior.umet) == 0: 
+                response = ["no goals are umet"]
+            else:
+                response = ["goal unmet are " + " ".join(behavior.umet)]
+
+       elif  itype  == 6: 
+            if  behavior.scr < 0:
+                response = ["stimuli impact negative "  ]
+            else:
+                response = ["stimuli impact positive "  ] 
+       elif  itype  == 7:  
+            response = ["epoch is " + str(behavior.epoch)] 
+
+       elif  itype  >= 8:  
+           stimuli = self.get_stimuli_summary(behavior)
+           _len = len(stimuli) -1
+           _int = random.randint(0, _len)
+           stim = list(stimuli.keys())[_int]
+           cnt  =  stimuli[stim]   
+           response  = [   stim + " detected  " + str(cnt) + " times today"]
+ 
+       return response 
    
-   def responses(self, topic, category, prompt,  behavior, interactive, get_chat_response):
+   def responses(self, topic, category, prompt,  behavior, interactive, get_chat_response, b_just_move = False):
        """ 
 
        """ 
+ 
 
        mood      = behavior.emotions.mood()
        objective = behavior.objective
        strategy  = behavior.strategy  
+       
+       if strategy == "quiet":
+          return {"speech" : "", "movement":[]}
        result = {}
-       result["topic"]          =  topic 
+       result["topic"]          =  topic #should be gotten from sth
        result["category"]       =  category     
        result["stimuli"]        =  behavior.stimuli_type       
        result["stimuli_class"]  =  behavior.stimuli_class
@@ -106,13 +193,22 @@ class Interactions(object):
        result["mood"]           =  behavior.mood   
        result["objective"]      =  behavior.objective    
        result["strategy"]       =  behavior.strategy    
-       result["stimuli_time"]   = str(behavior.stimuli_time) 
+       result["stimuli_time"]   =  str(behavior.stimuli_time)  
 
-       if self.b_llm:
-           response = self.__responses_llm(topic, category, prompt,  behavior, interactive, get_chat_response)
+      
+ 
+       if strategy in self.cognitive_control.non_verbal_strategies or b_just_move:
+           response = {}
+           response["speech"] = ""
+           if strategy == "quiet":
+                response["movement"] = [""]
+           else:
+                #i_max = len(self.movement[objective][0]) - 1 #added [0]
+                i_index = 0# random.randint(0,i_max)
+                response["movement"] =  [self.movement[objective][i_index] ]  
        else:
-           response = self.__responses_csim(topic, category, prompt,  behavior, interactive, get_chat_response)
-       
+             response = self.__response_verbal(topic, category, behavior.stimuli_class, prompt,  behavior, interactive, get_chat_response) 
+ 
        if len(response["speech"]) > 0 or  len(response["movement"]) > 0:
            result["prompt"]         = prompt
            result["response"]       = response
@@ -121,143 +217,178 @@ class Interactions(object):
 
        return response    
    
-   def __responses_llm(self, topics, category, prompt,  behavior, interactive, get_chat_response):
+   def __response_verbal(self, topics, category,stimuli_class, prompt,  behavior, interactive, get_chat_response):
        """
        
        """
        
-       response  = {"speech" : "", "movement":[]}
-       mood      = behavior.emotions.mood()
-       objective = behavior.objective
-       strategy  = behavior.strategy  
-       """
-       if prompt == "":
-           prompt = "Hi there!"
-       resp = get_chat_response(prompt, mood, strategy, topics ,
-                                             objective, strategy ) 
-       resp = [resp]  
-       print(prompt, mood, strategy, topics ,  objective, strategy )
-       """ 
-         
-       if interactive:
-           """
-           Self Reflection
-           """
-           if prompt.strip() == "":
-               resp = ["hello? Anyone there?"]
-           else:
-               b_self_reflect = False
-               for query, details in self.set_chat_responses["queries"].items(): 
-                 matches = [1 for w in prompt.split() if w in query.split()] 
-                 if len(matches) / float(len(prompt.split())) > .7: 
-                    template_id = details["template"] 
-                    resp = self.return_self_eval( behavior, mood, template_id)
-                    b_self_reflect = True
-    
-               if  b_self_reflect is False:
-                   resp = get_chat_response(prompt, mood, strategy, topics ,
-                                             objective, strategy ) 
-                   resp = [resp] 
+       response   = {"speech" : "", "movement":[]}
+       mood       = behavior.emotions.mood()
+       objective  = behavior.objective
+       strategy   = behavior.strategy     
+       situation  = behavior.situation     
 
-           response["speech"]  =  resp
+       if interactive: 
+            b_cmd,  resp = self.try_tool( prompt)   
+            if  b_cmd is False:
+                resp = get_chat_response(prompt, 
+                                         mood, 
+                                         strategy, 
+                                         topics,
+                                         objective, 
+                                         situation )   
+                resp = [resp]   
+            response["speech"]  =  resp 
+       else:   
+           i_index = random.randint(0,10)    
 
-       elif strategy in self.cognitive_control.non_verbal_strategies:
-            response["speech"] = [""] 
-       else: 
+           if  i_index <=  3:
+                resp  =  self.lt_memory.memory["moods"].search_tfidf.similarities([mood], 1000) 
 
-           i_index = random.randint(0,10)  
-           if  i_index <= 5:
-              i_max = len(self.chat["initiate"][strategy]) - 1  
-              i_index = random.randint(0, i_max) 
-              init_response  = self.chat["initiate"][strategy][i_index]["response"]
-           
-              resp = [init_response]
-           else:     
-              i_max = len(self.set_chat_responses["queries"].keys()) - 1   
-              i_index = random.randint(0, i_max) 
-              details  = self.set_chat_responses["queries"][list(self.set_chat_responses["queries"].keys())[i_index]]
-              template_id = details["template"] 
-
-              resp = self.return_self_eval( behavior, mood, template_id)
-             
-           response["speech"]  =  resp 
+                if   resp  is None:  
+                     resp= self.get_thoughts(behavior) 
+                elif  len(resp) == 0:  
+                     resp= self.get_thoughts(behavior) 
+                else:
+                     resp = random.choice(resp)  
+                     resp  = [resp[1]]     
+           else:      
+                resp= self.get_thoughts(behavior)
+  
+           response["speech"]  =  resp   
             
        i_max = len(self.movement[objective]) -1
        i_index = random.randint(0,i_max)
        response["movement"] =  [self.movement[objective][i_index]]  
 
-       return  response
-   
-   def __responses_csim(self, topics, category, prompt,  behavior, chat, get_chat_response):
-       """
-       
-       """
-       response  = {"speech" : "", "movement":[]}
-       mood      = behavior.emotions.mood()
-       objective = behavior.objective
-       strategy  = behavior.strategy  
-       self.non_verbal_strategies = ["meditative",  "shy", "focused", "silent"]
-       if chat and strategy not in self.non_verbal_strategies: 
-           
-           if prompt.strip() == "":
-               resp = ["Hello? Anyone there?"]
-           else:
-                b_self_reflect = False
-                for query, details in self.set_chat_responses["queries"].items(): 
-                 matches = [1 for w in prompt.split() if w in query.split()] 
-                 if len(matches) / float(len(query.split())) > .7:
-                    set_response = details 
-                    template_id = set_response["template"] 
-                    resp = self.return_self_eval( behavior, mood, template_id)   
-                    b_self_reflect = True
-
-                if b_self_reflect is False: 
-                    resp = get_chat_response(prompt)    
-                    resp = [resp]
-
-           if resp[0] == "": 
-               response["speech"]  =  ["I could not hear you."]
-           else:
-              response["speech"]   =  resp
-
-       elif strategy in  self.non_verbal_strategies:
-            response["speech"] = [ ""] 
-       else: 
  
-           i_max = len(self.chat["initiate"][strategy]) -1 
-           i_index = random.randint(0, i_max) 
-           init_response  = self.chat["initiate"][strategy][i_index]["response"]
-           response["speech"] = [init_response ] 
-           
-       i_max = len(self.movement[objective]) -1
-       i_index = random.randint(0,i_max)
-       response["movement"] =  [self.movement[objective][i_index]] 
-
        return  response
-   
-   def built_in_tools(self, prompt): 
-        """
-        
-        """
-        response = {"speech" : "", "movement":[]} 
-        prompt = prompt.lower()
+       
+if __name__ == "__main__":
 
-        if  prompt.startswith('roll 20d'):
-            response["speech"] = [str(random.randint(1, 20)) ]
-        elif  prompt.startswith('roll 12d'):
-            response["speech"] = [str(random.randint(1, 12)) ]
-        elif  prompt.startswith('roll 6d'):
-            response["speech"] = [str(random.randint(1, 6)) ]
-        elif  prompt.startswith('roll 10d'):
-            response["speech"] = [str(random.randint(1, 10)) ]
-        elif  prompt.startswith('roll 4d'):
-            response["speech"] = [str(random.randint(1, 4)) ]
-        elif  prompt.startswith('roll 100d'):
-            response["speech"] = [str(random.randint(1, 100)) ]
-        elif  prompt.startswith('flip'):
-            response["speech"] = [str(random.randint(1, 2)) ]
-        elif  prompt.startswith('roll 8d'):
-            response["speech"] = [str(random.randint(1, 8)) ]
-        elif  prompt.startswith(':hello'):
-            response["speech"] = ["Hi there!\nMay the dice be with you!" ] 
-        return response
+    """
+    python3 launcher.py  -monitor
+  
+    """
+    import os , sys
+
+    print("source ~/venv_rf/bin/activate")
+    os.chdir('../')
+    sys.path.insert(0, os.path.abspath('./')) 
+    import config
+    from ai.cognitive_control import CognitiveControl 
+    from ai.personality import Personality 
+    from memory.st_memory import STMemory
+    from memory.lt_memory import LTMemory
+    from communication.nerves import Nerves  
+    from responders.chat_responder import ChatResponder 
+    from ai.behavior import Behavior
+
+    from triples.triples     import Triples
+    s_robot       = "number_3"
+    nerves        = Nerves(s_robot) 
+    triples       = Triples(agent=s_robot, 
+                            config=  config,
+                            communication=None,
+                            nerves =nerves,
+                            client=False)    
+    st_mem        =  STMemory(s_robot, 
+                              config,
+                              triples, 
+                              False) 
+    lt_mem        =  LTMemory(s_robot, 
+                              config, 
+                              triples= triples, 
+                              load_all=True) 
+    
+    personality    = Personality("squirrel" ,
+                                  config,
+                                  triples,
+                                  {} )
+    stimuli_class = "movement"
+    
+        
+    with open(config.DATA_PATH + s_robot + "/settings.json") as f:
+        data = ''
+        for row in f:
+              data += row  
+        settings = json.loads(data)
+
+    cognitive_control = CognitiveControl(s_robot, 
+                                         config, 
+                                         settings, 
+                                         personality, 
+                                         triples, 
+                                         False)
+
+    interactions = Interactions(s_robot, config, nerves, cognitive_control, lt_mem, triples,  False)
+        
+    from ai.sensors_fusion       import SensorFusion  
+
+    sensor_fusion = SensorFusion(st_mem  , lt_mem , triples)
+    behavior      = Behavior(s_robot               , 
+                          config              ,
+                          settings            ,
+                          personality         ,
+                          cognitive_control   ,
+                          st_mem          , 
+                          lt_mem            ,
+                          triples             ,
+                          False) 
+    behavior.situation =  sensor_fusion.reason() 
+    polling_rate = .1
+    import time
+    chat_wait_length= 3000
+    def get_chat_response(self, prompt, 
+                              mood="happy",
+                              tone="Appreciative", 
+                              topics=["cat"], 
+                              objective="engagement",
+                              situation= {}):
+            """
+            
+            """
+            
+            param = {}
+            prompt = prompt.replace("'", "<aprostophy>").replace("`", "<aprostophy>")
+            param["action"]     = "respond"
+            param["prompt"]     = prompt.replace("'", "<aprostophy>")
+            param["mood"]       = mood 
+            param["tone"]       = tone 
+            param["topics"]     = topics
+            param["objective"]  = objective
+            param["situation"]  = situation   
+            nerves.set("chat" , json.dumps(param) )
+     
+            time.sleep( polling_rate)
+            i_cnt = 0
+            while True:
+                detect, val =  nerves.pop("chat_responses")  
+                i_cnt += 1
+                if detect:
+                    nerves.set("speech", "")   
+                    print(val)
+                    return val   
+                 
+                elif i_cnt >  chat_wait_length:
+     
+    
+                    nerves.set("speech", "")   
+                    return  "aeeeir"  
+                
+                time.sleep(polling_rate)
+
+    while True:
+       user_input = input('CHAT: ') 
+       resp = interactions.responses("cat", 
+                                     "speech", 
+                                     user_input, 
+                                     behavior, 
+                                     True,
+                                     get_chat_response)
+
+       if "processed" in resp: 
+                print("INTENT: " +   resp["processed"]["Intent"][0]    )
+                print("LOGIC : "  + str( resp["processed"]["Logic"]  )  )
+       
+       print(  resp )  

@@ -20,8 +20,8 @@ class Emotions():
        self.moods       = moods 
 
        self.cognitive_control   = cognitive_control
-       self.G                   = self.cognitive_control.G 
-       self.low_memory_mode   = low_memory_mode    
+       self.episodic_memory     = self.cognitive_control.episodic_memory
+       self.low_memory_mode    = low_memory_mode    
         
        self.emotion_factors =  self.cognitive_control.emotion_factors
        self.emotion_flip    =  self.cognitive_control.emotion_flip
@@ -38,21 +38,15 @@ class Emotions():
        
        """ 
 
-       edges = [(u2,v2,e2) for u2,v2,e2  in [self.G.edges(v, data=True ) for u,v,e in self.G.edges("emotion_factors", data=True)  if v == stimuli_class  ][0] if e2["class"] == "emotion_factors"]
-       
-       ## how much you can control you emotions
-     #  print("edges, " , edges, stimuli_class)
-       abj_fac = .001
-       for frm, mood, prop in edges:
-            if frm == stimuli_class and  mood != "emotion_factors": 
-             #  print(prop)
-               wght = prop["weight"]
-
-               adj = 1#prop["adj"]*abj_fac
+       edges = self.episodic_memory.related( stimuli_class, "emotion_factors", None , return_data = True) 
  
+       abj_fac = .001
+       for edge, scr, val in edges: 
+               wght = edge["data"]["weight"]
+               mood = edge["o"] 
+               adj = 1  
                self.moods[mood] = self.moods[mood]  +  amplitude*wght + adj
-    
-           #    print(mood, self.moods[mood] , amplitude*wght + adj)
+     
                self.moods[mood]  = round( self.moods[mood], 5)  
                if  self.moods[mood] < 0:
                    self.moods[mood] = 0
@@ -64,8 +58,35 @@ class Emotions():
           if mood in  self.moods:  
              # self.moods[mood] = (1 - abj_fac_2)*self.moods[mood]  +  weight*abj_fac_2  
               self.moods[mood]  = round( self.moods[mood], 5)   
-            #  print(mood, self.moods[mood] , weight)
+          
+
+   def situation(self, situations,   amplitude ,emotional_suppressors  ):
+       """
        
+       """ 
+       for situation in situations:
+
+         edges = self.episodic_memory.related( situation, "situational_factors", None , return_data = True) 
+         
+         abj_fac = .001
+
+       for edge, scr, val in edges: 
+               wght = edge["data"]["weight"]
+               mood = edge["o"]   
+               adj = 1#prop["adj"]*abj_fac 
+               self.moods[mood] = self.moods[mood]  +  amplitude*wght + adj
+     
+               self.moods[mood]  = round( self.moods[mood], 5)  
+               if  self.moods[mood] < 0:
+                   self.moods[mood] = 0
+               elif  self.moods[mood] > 100:
+                   self.moods[mood] = 100 
+                      
+       abj_fac_2 = .001
+       for mood, weight in emotional_suppressors.items():   
+          if mood in  self.moods:  
+             # self.moods[mood] = (1 - abj_fac_2)*self.moods[mood]  +  weight*abj_fac_2  
+              self.moods[mood]  = round( self.moods[mood], 5)   
             
             
    def reflection(self, met , unmet ,indif, amplitude, reactions ):
@@ -116,21 +137,20 @@ class Emotions():
        elif i_indif > i_met + i_unmet:  
           self.moods["bored"]                =  self.moods["bored"]      +  amplitude
           self.moods["surprised"]            =  self.moods["surprised"]  -  amplitude 
-     
-
+      
        if self.f_scr < -.8:
-          self.moods["sad"]                 =  self.moods["sad"]     + 2.5*amplitude
-          self.moods["happy"]               =  self.moods["happy"]   - 1.5*amplitude 
-          self.moods["disgust"]             =  self.moods["disgust"] + 2.5*amplitude 
-          self.moods["fear"]                =  self.moods["fear"]    + 2.5*amplitude 
+          self.moods["sad"]                 =  self.moods["sad"]     + 6*amplitude
+          self.moods["happy"]               =  self.moods["happy"]   - 6*amplitude 
+          self.moods["disgust"]             =  self.moods["disgust"] + 3*amplitude 
+          self.moods["fear"]                =  self.moods["fear"]    + 6*amplitude 
           self.moods["anger"]               =  self.moods["anger"]   + amplitude 
           self.moods["bored"]               =  self.moods["bored"]   - amplitude
            
        elif self.f_scr < -.5:
-          self.moods["sad"]                 =  self.moods["sad"]     + 2*amplitude
-          self.moods["happy"]               =  self.moods["happy"]   - 2*amplitude 
+          self.moods["sad"]                 =  self.moods["sad"]     + 4*amplitude
+          self.moods["happy"]               =  self.moods["happy"]   - 4*amplitude 
           self.moods["disgust"]             =  self.moods["disgust"] + 2*amplitude 
-          self.moods["fear"]                =  self.moods["fear"]    + 2*amplitude 
+          self.moods["fear"]                =  self.moods["fear"]    + 4*amplitude 
           self.moods["bored"]               =  self.moods["bored"]   - amplitude
 
        elif self.f_scr < 0:  ##-.1
@@ -144,18 +164,18 @@ class Emotions():
           self.moods["fear"]                 =  self.moods["fear"]    - amplitude  
 
        elif self.f_scr >.8:
-          self.moods["sad"]                 =  self.moods["sad"]     - 2.5*amplitude
-          self.moods["happy"]               =  self.moods["happy"]   + 2.5*amplitude 
-          self.moods["disgust"]             =  self.moods["disgust"] - 2.5*amplitude 
-          self.moods["fear"]                =  self.moods["fear"]    - 2.5*amplitude 
+          self.moods["sad"]                 =  self.moods["sad"]     - 6*amplitude
+          self.moods["happy"]               =  self.moods["happy"]   + 6*amplitude 
+          self.moods["disgust"]             =  self.moods["disgust"] - 6*amplitude 
+          self.moods["fear"]                =  self.moods["fear"]    - 6*amplitude 
           self.moods["anger"]               =  self.moods["anger"]   - amplitude 
           self.moods["bored"]               =  self.moods["bored"]   - amplitude
 
        elif self.f_scr >.5:
-          self.moods["sad"]                 =  self.moods["sad"]     - 2*amplitude
-          self.moods["happy"]               =  self.moods["happy"]   + 2*amplitude 
-          self.moods["disgust"]             =  self.moods["disgust"] - 2*amplitude 
-          self.moods["fear"]                =  self.moods["fear"]    - 2*amplitude 
+          self.moods["sad"]                 =  self.moods["sad"]     - 4*amplitude
+          self.moods["happy"]               =  self.moods["happy"]   + 4*amplitude 
+          self.moods["disgust"]             =  self.moods["disgust"] - 4*amplitude 
+          self.moods["fear"]                =  self.moods["fear"]    - 4*amplitude 
           self.moods["anger"]               =  self.moods["anger"]   - amplitude 
           self.moods["bored"]               =  self.moods["bored"]   - amplitude
 
@@ -166,8 +186,7 @@ class Emotions():
           self.moods["disgust"]             =  self.moods["disgust"] - amplitude 
           self.moods["fear"]                =  self.moods["fear"]    - amplitude 
           self.moods["anger"]               =  self.moods["anger"]   - amplitude 
-        #  print("anger or happy?", self.moods["anger"], self.moods["happy"],amplitude )
-
+       
        
        
    def mood(self):

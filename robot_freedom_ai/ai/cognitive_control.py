@@ -5,25 +5,23 @@
 Description: AI knowledge graph interface.
 Author: HipMonsters.com  
 License: MIT License  
-"""
-#https://codelucky.com/python-networkx/
-import os  
-import networkx as nx
-import json 
+""" 
+import os   
+#import numpy as np
+import json   
 
-
-##CognitiveControl 
 class CognitiveControl(object):
    """
    
    """
    
-   def __init__(self, robot, config, settings, personality, low_memory_mode,  update_from_experience = True):
+   def __init__(self, robot, config, settings, personality, triples, low_memory_mode,  update_from_experience = True):
       """
       
-      """
+      """ 
       self.robot            =  robot
       self.config           =  config
+      self.triples          =  triples
       self.settings         =  settings   
       self.personality      =  personality
       self.low_memory_mode  =  low_memory_mode   
@@ -55,22 +53,95 @@ class CognitiveControl(object):
        
       self.mapped_stimuli =  [ 'speech', 'noise', 'touch', "light", "temperature", 
                                "humidity", "balance",   "movement", "distance", "quiet"]
-       
-      ##explore?  
+
+      #intergate
+      self.interaction_goals =[""] 
+      #name, interests,age,.. with action
+      def update_stm(stm, ent, prop, value):
+          if ent not in stm:
+              stm[ent] = {}
+          stm[ent][prop] = value
+
+      def retrieve_stm(stm, ent, prop):
+          if ent not in stm:
+              return "NA"
+          if prop not in stm[ent]:
+              return "NA"
+          return stm[ent][prop] 
+      """     
+      self.interaction_sub_goals = {"user:name": update_stm("current_user", "name", "?"),
+                                    "user:interest": update_stm("current_user", "interest", "?"),
+                                    "user:age": update_stm("current_user", "age", "?"),
+                                    }  
+      """
       
-      self.mapped_strategies =  ['Diplomatic', 'Animated', 'Callous', 'Inspirational', 'Apologetic',
-                'Cautionary', 'Bitter', 'Belligerent', 'Appreciative', 'Assertive', 
-                'Accusatory', 'Amused', 'Admiring', 'Aggressive', 'Apathetic',
-                'Caustic', 'Thoughtful', 'Ardent', 'Acerbic', 'Benevolent', 'Absurd',
-                'Aggrieved', 'Altruistic', 'Witty', 'Direct', 
-                'Angry', 'Ambivalent', 'Candid', 'Informative', 'Arrogant', 
-                "meditative", "shy", "focused", "silent" ]
+      self.interaction_stragies =[""]
+
+      """  
+
+DESCRIPTION = [
+    "**Extraversion**: outgoing, energetic, talkative, active, assertive, etc.",
+    "**Neuroticism**: worrying, self-pitying, unstable, tense, anxious, etc.",
+    "**Agreeableness**: sympathetic, forgiving, generous, kind, appreciative, etc.",
+    "**Conscientiousness**: responsible, organized, reliable, efficient, planful, etc.",
+    "**Openness**: artistic, curious, imaginative, insightful, original, wide interests, etc.",
+]
+
+     "Apologetic", 'Aggrieved' , 'Bitter' ,   'Angry' ,  'Accusatory',  'Aggressive' 
+     https://www.simplypsychology.org/big-five-personality.html
+      """  
+      self.traits_2_strategies = {
+       "sociability":        {1:['Animated' , "Inspirational", 'Assertive', 'Angry' ],               
+                              0:["Candid","Direct" ],
+                             -1:[ "Apologetic" ]},
+       "emotional_stability": {1:['Cautionary', "Apologetic", 'Aggressive'],              
+                              0:[ "Candid","Direct" ],
+                             -1:['Arrogant','Angry' ,]},
+       "thoughtfulness":     {1:["Benevolent", "Admiring", "Diplomatic", 'Appreciative'], 
+                              0:[ "Candid","Direct" ],
+                             -1:['Callous','Caustic','Belligerent', 'Accusatory','Acerbic' ]},
+       "kindness":          {1:["Altruistic", "Apologetic", 'Informative'],              
+                              0:[  "Candid","Direct" ],
+                             -1:['Apathetic','Aggrieved'] },
+       "openness":          {1:["Absurd" , "Amused" , 'Thoughtful', 'Witty'],              
+                              0:[ "Candid","Direct" ],
+                             -1:["Ardent" , 'Bitter']}
+       }  
+    
+      self.non_verbal_strategies = ["meditative", "fidgety", "shy","restless","sleeping",
+                                    "thoughtful" "focused", "silent", "daydreaming"]
+      self.traits_2_non_verbal_strategies = {
+       "sociability":        {1:["fidgety" ],               
+                              0:["sleeping" ],
+                             -1:["shy" ]},
+       "emotional_stability": {1:["shy" ],              
+                                0:["silent" ],
+                               -1:["restless" ]},
+       "thoughtfulness":     {1:["daydreaming"], 
+                              0:["focused" ],
+                             -1:["silent" ]},
+       "kindness":          {1:["meditative" ],              
+                              0:["focused",  ],
+                             -1:["restless" ]},
+       "openness":          {1:["fidgety"],              
+                              0:["silent"],
+                             -1:["shy" ]}
+       }  
+      self.mapped_strategies =  [ 
+                       'Animated',    'Callous' ,    'Cautionary' ,  'Bitter' , 
+                       'Belligerent', 'Appreciative','Assertive' ,   'Accusatory' ,  
+                       'Aggressive',  'Apathetic' ,  'Caustic' ,  'Thoughtful' , 
+                       'Acerbic',     'Aggrieved' ,  'Witty' ,  'Direct' ,
+                       'Angry',       'Informative', 'Arrogant' ,  "Apologetic" ,
+                       "Amused" ,     "Ardent" ,     "Inspirational" ,     "Ambivalent" ,
+                       "Altruistic",  "Benevolent",  "Candid"  ,  "Diplomatic" ,
+                       "Admiring",    "Absurd",      
+                       "meditative", "fidgety", "shy","restless","sleeping",
+                       "thoughtful" "focused", "silent", "daydreaming"]
       
-       
-      self.non_verbal_strategies = ["meditative",  "shy", "focused", "silent"]
-      #if G not exits
+        
       self.create_graph() 
-      self.load_interactions()
+      self.load_interactions() 
 
       if self.update_from_experience:
            self.update_weights() 
@@ -79,7 +150,7 @@ class CognitiveControl(object):
       """
       
       """ 
-
+      #replace with cosinr sim
       with open(self.config.DATA_PATH + self.robot + "/interactions.json") as f:
            data = ''
            for row in f:
@@ -104,87 +175,82 @@ class CognitiveControl(object):
                   try:
                       _t.append(json.loads(line.strip()) ) 
                   except:
-                       print(line)
-                       raise
+                       print(line) 
 
          self.new_weights  = _t[-1]
          with open(self.config.DATA_PATH + self.robot + "/experience.words.json", "r", encoding='utf-8') as f:
               for line in  f: 
-                  _t.append(json.loads(line.strip()) ) 
+                  try:
+                     _t.append(json.loads(line.strip()) ) 
+                  except:
+                       print(line) 
+                       
          self.new_words = _t[-1]
       else:
            self.new_weights = new_weights
            self.new_words   = new_words 
-        
-      #objectives_2_moods    emotional_suppressors 
-      #senses_2_moods        emotion_factors  
-      #objective_2_strategy  objective_2_strategy
-      if "objective_2_strategy" not in self.new_weights:
-          return True
-      print("Updating objective_2_strategy")  
+          
+      print("Updating objective_2_strategy")   
+
       for key, models in self.new_weights["objective_2_strategy"].items(): 
           if type(models) is dict: 
-                for objective, wgts in models.items(): 
-                      edges =    [(u2,v2 ,e2) for u2,v2,e2  in [self.G.edges(v, data=True ) for u,v,e in self.G.edges(objective, data=True)  if v == objective + "_tones"  ][0] if e2["class"] == "objective_2_strategy" and e2["from"] == objective]
-                     # potentials =    [(v2,e2) for u2,v2,e2  in [self.G.edges(v, data=True ) for u,v,e in self.G.edges(objective, data=True)  if v == objective + "_tones"  ][0] if e2["class"] == "objective_2_strategy" and e2["from"] == objective]
-                    # print(potentials)
-                      cat = edges[0][0]
+                for objective, wgts in models.items():  
+                      print(type(objective), objective)
+                      edges = self.episodic_memory.related( objective, "objective_2_strategy", None , return_data = True)  
+                      cat = edges[0][0]["o"]  
+                     # links =  self.episodic_memory.related(objective,   cat, None)   
                       for strategy, wgt in wgts:   
+                          
+                          strategy  = str(strategy)
+                          #if type(strategy) == np.str_:
+                          #. strategy = strategy.tostring()  
+                          trple_id = self.episodic_memory.triple_id(objective, cat, strategy)
 
-                          if self.G.has_edge(cat ,strategy):
-                               self.G.edges[cat ,strategy]['weight'] = wgt  
+                          if trple_id in self.episodic_memory.triple_data:
+                               self.episodic_memory.triple_data[trple_id]['abs_weight'] = abs(wgt) 
+                               self.episodic_memory.triple_data[trple_id]['weight'] = wgt   
                           else:   
-                               if wgt != 1 and strategy != "event_interval":
-                                   self.G.add_edge(cat, strategy , weight=wgt)
-                                   prop = {"class": "objective_2_strategy"  , "from": objective }
-                                   attrs = {(cat, strategy): prop}
-                                   nx.set_edge_attributes(self.G, attrs)
-                                   print("new strategy") 
-                    
-                     # potentials =    [(v2,e2)  for u2,v2,e2  in [self.G.edges(v, data=True ) for u,v,e in self.G.edges(objective, data=True)  if v == objective + "_tones"  ][0] if e2["class"] == "objective_2_strategy" and e2["from"] == objective]
-                     # print(potentials)
-                             
+                               prop1 = {"class":"objective_2_strategy", "from": "mood", "weight":wgt, "abs_weight": abs(wgt) }
+                               self.episodic_memory.add(objective, cat, strategy, prop1 )  
+                               print("new strategy", strategy) 
+                         
  
       print("Updating emotional_suppressors")
-      print("DONE") 
- 
-      for objective, weights in self.new_weights["objectives_2_moods"]["weights"].items():  
+      print("DONE")  
+      for objective, weights in self.new_weights["objectives_2_moods"]["weights"].items():   
            
-           
-           edges = [(u2,v2,e2) for u2,v2,e2  in [self.G.edges(v, data=True ) for u,v,e in self.G.edges("emotional_suppressors", data=True)  if v == objective  ][0] if e2["class"] == "emotional_suppressors"]
-           #print("what", edges, weights) 
-
+           edges = self.episodic_memory.related( objective, "emotional_suppressors", None , return_data = True)    
            for mood, wgt in weights: 
-             if mood != "event_interval":  
-                 if self.G.has_edge(objective, mood):
-                      self.G.edges[objective ,mood]['weight'] = wgt 
-                 else:
-                      self.G.add_edge(objective, mood , weight=wgt)
-                      prop = {"class": "emotional_suppressors"  , "from": objective }
-                      attrs = {(objective, mood): prop}
-                      nx.set_edge_attributes(self.G, attrs)
-                      print("learned new objective to mood")
-                      
+             if mood != "event_interval":   
+                 trple_id = self.episodic_memory.triple_id(objective, "emotional_suppressors", mood)
+
+                 if trple_id in self.episodic_memory.triple_data:
+                       self.episodic_memory.triple_data[trple_id]['abs_weight'] = abs(wgt) 
+                       self.episodic_memory.triple_data[trple_id]['weight'] = wgt   
+                 else:  
+                       prop1 = {"class":"emotional_suppressors", "from": "mood", "weight":wgt, "abs_weight": abs(wgt) }
+                       self.episodic_memory.add(objective, "emotional_suppressors", mood, prop1 )  
+                       print("learned new objective to mood", objective, cat, mood) 
+                
       ####  Done
       print("Updating emotion_factors")   
       for sense, weights in self.new_weights["senses_2_moods"]["weights"].items(): 
            stimuli_class = sense
-           edges = [(u2,v2,e2) for u2,v2,e2  in [self.G.edges(v, data=True ) for u,v,e in self.G.edges("emotion_factors", data=True)  if v == stimuli_class  ][0] if e2["class"] == "emotion_factors"]
-           #print("what", edges, weights) 
 
+           edges = self.episodic_memory.related( stimuli_class, "emotion_factors", None , return_data = True)    
            for mood, wgt in weights:  
           
              if mood != "event_interval":   
-                 if self.G.has_edge(sense, mood):
-                      self.G.edges[sense ,mood]['adj'] = wgt 
+                 trple_id = self.episodic_memory.triple_id(stimuli_class, "emotion_factors", mood)
+                 
+                 if trple_id in self.episodic_memory.triple_data:
+                       self.episodic_memory.triple_data[trple_id]['abs_weight'] = abs(wgt) 
+                       self.episodic_memory.triple_data[trple_id]['weight'] = wgt   
                  else:
-                      self.G.add_edge(sense, mood , weight=wgt)
-                      prop = {"class": "emotion_factors"  , "from": sense }
-                      attrs = {(sense, mood): prop}
-                      nx.set_edge_attributes(self.G, attrs)
-                      print("learned new sense to mood") 
-          # edges = [(u2,v2,e2) for u2,v2,e2  in [self.G.edges(v, data=True ) for u,v,e in self.G.edges("emotion_factors", data=True)  if v == stimuli_class  ][0] if e2["class"] == "emotion_factors"]
-          # print(edges)
+                      prop1 = {"class":"emotion_factors", "from": "mood", "weight":wgt, "abs_weight": abs(wgt) }
+                      self.episodic_memory.add(stimuli_class, "emotion_factors", mood, prop1 )   
+                      print("learned new sense to mood",stimuli_class,  mood, prop1) 
+     
       return True        
 
    def create_graph(self):
@@ -192,23 +258,8 @@ class CognitiveControl(object):
       
       """
       
-      self.G  = nx.Graph() 
-
-      def add_node(G, label, props = {}): 
-         if G.has_node(label) is False:
-             G.add_node(label)
-         return label 
-      
-      def add_edge(G, frm, to, wght=1 , prop = {}): 
-          if G.has_edge(frm, to):
-              print(frm,to)
-              xcs
-          else:
-              G.add_edge(frm, to , weight=wght)
-              attrs = {(frm, to): prop}
-              nx.set_edge_attributes(G, attrs)
-               
-              return  True 
+      self.episodic_memory  = self.triples.TrplGraph()
+ 
           
       self.maoped_objectives = ["engagement"   ,
                                "confrontational",    
@@ -219,6 +270,41 @@ class CognitiveControl(object):
                                "inspire",           
                                "explore" ,
                                "altruism"] 
+      
+      self.Conversation_Motives = {
+              "TO_INFORM"    : {"description":"inform"} ,
+              "TO_EDUCATE"   : {"description":"educate"} ,
+              "TO_MOTIVATE"  : {"description":"motivate"} ,
+              "TO_RELATE"    : {"description":"relate"} ,
+              "TO_PROMOTE"   : {"description":"promote"} ,
+              "TO_ENTERTAIN" : {"description":"entertain"} ,
+              }
+      
+      self.priminary_data_structures = {"new_user": {"": ["user","name"], 
+                                                     "": ["user","location"],
+                                                     "": ["user","school"],
+                                                     "": ["user","schcolorool"],
+                                                     },
+                                         "new_idea":{
+                                             
+                                         }
+                                        
+                                        
+                                        }
+      
+      #self.objective_to_situation   = {}
+      
+      self.objective_description   =   {"engagement":  "You want to encourage the conversation forward.", 
+                               "confrontational": "You want to keep everyone calm.", 
+                               "disengagement":  "You are trying to get someone to relax." , 
+                               "defuse": "You are helping a friend calm down." , 
+                               "relax" : "You want to keep everyone calm.", 
+                               "defend": "You are defending youself." , 
+                               "inspire" :  "You want to inspire people.",  
+                               "explore": "You are trying to learn new things." , 
+                               "altruism": "You are helping a friend with a problem." , 
+                               "quiet":  "You are trying to get someone to be quiet." ,
+                               "*":        "You are trying to get someone to relax."  } 
 
       self.emotional_suppressors = {"engagement": {"happy":0.0, "sad":0.0, "fear":0.0, "disgust":0.0, "anger":0.0, 
                                                      "bored":0.0, "surprise":0.0, "time_delta":0.0, "stimuli_class":0.0} ,
@@ -242,23 +328,13 @@ class CognitiveControl(object):
                                    }
   
       s_class = "emotional_suppressors"
-      prop = {"class":s_class, "from":""}
-      add_node(self.G, s_class) 
-      for sense, reactions in self.emotional_suppressors.items():
-              
-              add_node(self.G, sense) 
-              add_edge(self.G, s_class, sense , 1, prop)
+      prop = {"class":s_class, "from":""} 
+      for sense, reactions in self.emotional_suppressors.items(): 
               for reaction, wght in reactions.items():
-                   prop1 = {"class":s_class, "from": s_class}
-                   add_node(self.G, reaction)
-                   add_edge(self.G,sense, reaction, wght, prop1 )
+                   prop1 = {"class":s_class, "from": s_class, "weight":wght}
+                   self.episodic_memory.add(sense, s_class, reaction, prop1 ) 
 
-      
-      #################
-      ###
-      ### Not 
-      ###
-      #################  sharing empathy curiosity processing
+       
       self.objectives = {"engagement":      {"mood": {"happy":1}            , "met" :{"processing":1}                          , "unmet":{"sharing":1 ,"empathy":1}   }, 
                           "confrontational":{"mood": {"anger":1}            , "met" :{"empathy":1,"sharing":1 }                , "unmet":{"sharing":1 ,"empathy":1}   }, 
                           "disengagement":  {"mood": {"disgust":1}          , "met" :{"empathy":1,"sharing":1 }                , "unmet":{"processing":1 }   }, 
@@ -272,19 +348,18 @@ class CognitiveControl(object):
         
        
       s_class = "objectives"
-      prop = {"class":s_class, "from":""}
-      add_node(self.G, s_class) 
-      for objective, reactions in self.objectives.items():
-          add_node(self.G, objective)
-          add_edge(self.G, s_class, objective, 1, prop ) 
-          for reaction, cats in reactions.items():
-              add_node(self.G, reaction)
-              add_edge(self.G,objective, reaction, 1 , prop)
-              for cat ,wght in cats.items():
-                  s_cat = objective + "_" + reaction + "_" + cat
-                  add_node(self.G, s_cat)
-                  prop2 = {"class": s_class, "from":reaction}
-                  add_edge(self.G,reaction, s_cat, wght , prop2) 
+      prop = {"class":s_class, "from":""} 
+      for objective, reactions in self.objectives.items(): 
+          for reaction, cats in reactions.items():  
+
+              id = self.episodic_memory.get_id()
+              prop = {"class":s_class, "linked_id":id, "weight":1} 
+              self.episodic_memory.add(objective ,s_class , reaction, prop1 )  
+
+              for cat , wght in cats.items(): 
+
+                  prop = {"class":s_class, "linked_id":id, "weight":wght} 
+                  self.episodic_memory.add(objective ,reaction , cat, prop1 )  
    
       ###
       ##
@@ -327,16 +402,11 @@ class CognitiveControl(object):
 
 
       s_class = "stimuli_goal_factors"
-      prop = {"class":s_class, "from":""}
-      add_node(self.G, s_class) 
-      for sense, reactions in self.stimuli_goal_factors.items():
-              add_node(self.G, sense) 
-              add_edge(self.G,  s_class, sense, 1, prop )
-              for reaction, wght in reactions.items():
-                   add_node(self.G, reaction)
-                   prop1 = {"class":s_class, "from": sense}
-                   add_edge(self.G,sense, reaction, wght , prop1)
-
+      prop = {"class":s_class, "from":""} 
+      for sense, reactions in self.stimuli_goal_factors.items(): 
+              for reaction, wght in reactions.items():  
+                   prop1 = {"class":s_class, "from": sense, "weight":wght}
+                   self.episodic_memory.add(sense, s_class, reaction, prop1 )  
              
       ###
       ##
@@ -346,18 +416,28 @@ class CognitiveControl(object):
  
       self.traits          = self.personality.traits
       self.trait_factors   = self.personality.trait_factors
+
       self.emotion_factors = self.personality.emotion_factors
+
+      """ 
+      s_class = "traits_factors"
+      prop = {"class":s_class, "from":""} 
+      print(self.trait_factors)
+ 
+      for trait, reactions in self.trait_factors.items(): 
+              
+              for reaction, wght in reactions.items(): 
+                   prop1 = {"class":s_class, "from": reaction, "adj":0.0, "weight":1}  
+                   self.episodic_memory.add(sense, s_class, reaction, prop1 )  
+      """
+
       
       s_class = "emotion_factors"
-      prop = {"class":s_class, "from":""}
-      add_node(self.G, s_class) 
-      for sense, reactions in self.emotion_factors.items():
-              add_node(self.G, sense) 
-              add_edge(self.G, s_class, sense , 1, prop)
-              for reaction, wght in reactions.items():
-                   add_node(self.G, reaction)
-                   prop1 = {"class":s_class, "from": reaction, "adj":0.0}
-                   add_edge(self.G,sense, reaction, wght, prop1 )
+      prop = {"class":s_class, "from":""} 
+      for sense, reactions in self.emotion_factors.items(): 
+              for reaction, wght in reactions.items(): 
+                   prop1 = {"class":s_class, "from": reaction, "adj":0.0, "weight":1}  
+                   self.episodic_memory.add(sense, s_class, reaction, prop1 )  
 
      
       self.emotion_flip = {"happy" : "unpleased" ,
@@ -369,11 +449,9 @@ class CognitiveControl(object):
                             "surprise": "nonplussed" }
 
       for emot, flip  in self.emotion_flip.items():
-              prop = {"class":"flip"}
-              add_node(self.G, emot) 
-              add_node(self.G, flip)
-              add_edge(self.G, emot, flip , 1, prop) 
-
+              prop = {"class":"flip"} 
+              self.episodic_memory.add(emot, "opposite of", flip, prop1 )  
+              self.episodic_memory.add(flip, "opposite of", emot, prop1 )   
 
       ###########
       ###
@@ -395,26 +473,16 @@ class CognitiveControl(object):
 
 
       s_class = "stimuli_factors"
-      prop = {"class":s_class, "from":""}
-      add_node(self.G, s_class)  
-      for sense, reactions in self.stimuli_factors.items():
-              add_node(self.G, sense) 
-              add_edge(self.G,  s_class, sense, 1, prop ) 
-             
-              for reaction, wght in reactions.items():
-                   add_node(self.G, reaction)
-                   prop1 = {"class":s_class, "from": reaction}
-                   add_edge(self.G, sense, reaction, wght , prop1)  
-           
-   
-
-      s_class = "strategies"
-      prop = {"class":s_class, "from":""}
-      add_node(self.G, s_class)
-      for key  in self.mapped_strategies: 
-          add_node(self.G, key)
-          prop = {"class":"mapped_strategies"}
-          add_edge(self.G, s_class, key, 1 , prop)
+      prop = {"class":s_class, "from":""} 
+      for sense, reactions in self.stimuli_factors.items():  
+              for reaction, wght in reactions.items(): 
+                   prop1 = {"class":s_class, "from": reaction, "weight":wght}  
+                   self.episodic_memory.add(sense, s_class, reaction, prop1 )  
+            
+      s_class = "strategies" 
+      for key  in self.mapped_strategies:  
+          prop = {"class":"mapped_strategies", "weight":1}  
+          self.episodic_memory.add(key, "mapped", "strategy", prop1 )  
 
       ###
       ##
@@ -445,7 +513,7 @@ class CognitiveControl(object):
       self.target_moods          = ["happy"]
 
       self.objective_2_strategy  =  { "engagement" :   {"tones" : {'Absurd':1, 'Witty':1, 'Amused':1} },   
-                                      "confrontational" : {"tones": {'Angry':1,  'Arrogant':1,   'Belligerent':1,   'Aggressive':1,   'Caustic':1, 'Acerbic':1}}, 
+                                      "confrontational": {"tones": {'Angry':1,  'Arrogant':1,   'Belligerent':1,   'Aggressive':1,   'Caustic':1, 'Acerbic':1}}, 
                                       "defend" :       {"tones" : {'Candid':1,  'Direct': 1 ,'Accusatory':1, 'Ardent': 1,  'Assertive': 1, 'Bitter':1 ,'Callous':1 ,'Aggrieved':1, }},  
                                       "defuse" :       {"tones" : {'Diplomatic':1, 'Cautionary':1 , 'Apologetic': 1}},  
                                       "inspire":       {"tones" : {'Inspirational':1, 'Informative':1, 'Animated':1,  'Thoughtful':1} }, 
@@ -454,40 +522,83 @@ class CognitiveControl(object):
                                       "altruism"  :    {"tones" : {'Altruistic':1, 'Benevolent':1, 'Appreciative':1, 'Admiring':1, }},
                                       "relax"  :       {"tones" : {"meditative":1,   "shy":1}},
                                     } 
+      
+      self.objective_2_traits =  { "engagement" :   {"traits" :  ["sociability","kindness"] },   
+                                      "confrontational":{"traits":  ["thoughtfulness"] }, 
+                                      "defend" :       {"traits" :  ["emotional_stability"] },  
+                                      "defuse" :       {"traits" :  ["openness"] },  
+                                      "inspire":       {"traits" :  ["sociability"] }, 
+                                      "disengagement": {"traits" :  ["kindness"] }, 
+                                      "explore" :      {"traits" :  ["emotional_stability"] },  
+                                      "altruism"  :    {"traits" :  ["thoughtfulness"]},
+                                      "relax"  :       {"traits" :  ["openness"] },
+                                    }   
+    
+      self.non_verbal_strategies_wgt = {}
+      for trait , details in self.traits_2_non_verbal_strategies.items(): 
+         strats = details[self.personality.traits_indicator[trait]]
+         for strat in strats:
+             if strat in self.non_verbal_strategies_wgt:
+                 self.non_verbal_strategies_wgt[strat] = self.non_verbal_strategies_wgt[strat]  + 1 
+             else:
+                 self.non_verbal_strategies_wgt[strat] =  1  
+       
+      self.objective_2_strategy = {} 
+      for key , traits in self.objective_2_traits.items():
+         trait = traits["traits"][0] 
+         tones = self.traits_2_strategies[trait][self.personality.traits_indicator[trait]]
+         self.objective_2_strategy[key]  = {}
+         self.objective_2_strategy[key]["tones"] = {tone: 1 for tone in tones}
         
+      """
+     "sociability":    "emotional_stability" "thoughtfulness":     "kindness":   "openness":    
+     ["extraversion","agreeableness"] }
+["conscientiousness"] }, 
+["neuroticism"] },  
+["openness"] },  
+["extraversion"] }, 
+["agreeableness"] }, 
+["neuroticism"] },  
+["conscientiousness"]},
+["openness"] },      
+                     
+     """
       s_class = "objective_2_strategy"
-      prop = {"class": s_class, "from":""}
-      add_node(self.G, key) 
+      prop = {"class": s_class, "from":""} 
      
-      for key, details  in self.objective_2_strategy.items():
-          add_node(self.G, key) 
-          add_edge(self.G, s_class, key, wght, prop )
-
-          for s_type, strats,  in details.items():
-              unique_type = key + "_" + s_type
-              add_node(self.G, unique_type)
-              add_edge(self.G, key, unique_type, 1, prop )
+      for key, details  in self.objective_2_strategy.items():  
+          for s_type, strats,  in details.items(): 
  
-              for tone, wght,  in strats.items():
-                  add_node(self.G, tone)
-                  prop2 = {"class": s_class, "from":key}
-                  add_edge(self.G, unique_type, tone, wght, prop2 )
+              id = self.episodic_memory.get_id()
+              prop1 = {"class":s_class, "linked_id":id, "weight":1}  
+              self.episodic_memory.add(key, s_class, s_type, prop1 )   
+ 
+              for tone, wght,  in strats.items():  
+                  self.episodic_memory.add(key, s_type, tone, prop1 )     
+
 
    def event_modifier(self, stimuli, stimuli_class,  magnitude=0):
 
       """
       """ 
       adjusted     = magnitude   
-      edges = [(u2,v2,e2) for u2,v2,e2  in [self.G.edges(v, data=True ) for u,v,e in self.G.edges("stimuli_factors", data=True)  if v == stimuli_class  ][0] if e2["class"] == "stimuli_factors"]
-   
-      for frm, trait, prop in edges:
-            if frm != stimuli_class: 
+      """  
+      try: 
+          edges = self.episodic_memory.related( stimuli_class, "traits_factors", None , return_data = True) 
+         # edges = self.episodic_memory.related( stimuli_class, "emotion_factors", None , return_data = True) 
+          #print(edges)
+          edges =  [[e["s"], e["o"], e["data"] ] for e, scr, v in edges] 
+          print(edges)
+          for frm, trait, prop in edges: 
                  wght = prop["weight"]
                  if wght >= 0:
                      adjusted += self.traits[trait]*wght
                  else:
                      adjusted +=  (1 - self.traits[trait])*wght 
-
+      except Exception as e:
+          print("ERROR in event_modifier" ) 
+          xcv
+      """     
       return adjusted
    
       
@@ -500,8 +611,8 @@ class CognitiveControl(object):
       i_met   = len(met)
       i_unmet = len(unmet)
  
-      edges = [(u2,v2,e2) for u2,v2,e2  in [self.G.edges(v, data=True ) for u,v,e in self.G.edges("stimuli_factors", data=True)  if v == stimuli_class  ][0] if e2["class"] == "stimuli_factors"]
-  
+      edges = self.episodic_memory.related( stimuli_class, "stimuli_factors", None , return_data = True) 
+      edges =  [[e["o"], e["s"], e["data"] ] for e, scr, v in edges] 
       for frm, trait, prop in edges: 
                  wght = prop["weight"]
                  if wght >= 0:
@@ -524,66 +635,48 @@ if __name__ == "__main__":
     import os, sys
     os.chdir('../')
     sys.path.insert(0, os.path.abspath('./')) 
+    
+    
     import config
+    from memory.st_memory import STMemory
+    from memory.lt_memory import LTMemory
+    from communication.nerves import Nerves 
+    
+    from triples.triples     import Triples
+    s_robot       = "squirrel"
+    nerves        = Nerves(s_robot) 
+    triples       = Triples(agent=s_robot, 
+                             config=  config,
+                             communication=None,
+                             nerves =nerves,
+                             client=False)    
 
+    st_mem        = STMemory(s_robot, config,triples,  False) 
+    
     from ai.personality          import Personality
-
     personality    = Personality("squirrel" ,
-                                 config,
-                                 {} )
+                                  config,
+                                  triples,
+                                  {} )
     stimuli_class = "movement"
-    t = CognitiveControl("squirrel", config, {},personality, False)
-    edges = [(u2,v2,e2) for u2,v2,e2  in [t.G.edges(v, data=True ) for u,v,e in t.G.edges("emotion_factors", data=True)  if v == stimuli_class  ][0] if e2["class"] == "emotion_factors"]
-  
     
-    edges   = [((u2,v2),e2) for u2,v2,e2  in t.G.edges(data=True ) if "weight" in e2]
- 
-    if 1==1: 
-       
-       import matplotlib.pyplot as plt
-      # pos = nx.forceatlas2_layout(t.G) #spring_layout(G)
-       edges,weights = zip(*nx.get_edge_attributes(t.G,'weight').items())
-       pos = nx.forceatlas2_layout(t.G) # nx.spring_layout(t.G)
-       nx.draw(t.G, pos, with_labels = False)  
         
-       nx.draw(t.G, pos, node_color='b',
-                edgelist=edges, 
-                edge_color=weights, 
-                width=1.0, 
-                edge_cmap=plt.cm.Blues)
-       plt.savefig('edges.png')
-       
-    if 1==1:
-      from pyvis.network import Network 
-      nt = Network('500px', '500px')
-      nt.from_nx(t.G)
-      nt.repulsion()
-      #nt.show_buttons(filter_=['physics'])
-      nt.show('nx.html', notebook=False)
- 
-    #https://stackoverflow.com/questions/13437284/animating-network-growth-with-networkx-and-matplotlib
+    with open(config.DATA_PATH + s_robot + "/settings.json") as f:
+        data = ''
+        for row in f:
+              data += row  
+        settings = json.loads(data)
 
-    if 2 == 3:
-        import pylab
-        from matplotlib.pyplot import pause
-        import networkx as nx
-        pylab.ion()
-        
-        G = t.G 
-     
-        edges,width = zip(*nx.get_edge_attributes(G,'width').items())
-        width = [wgt*10 for wgt in width]
-        def get_fig(): 
-            nx.draw(G, edge_color=width) #, pos=nx.get_node_attributes(graph,'Position')) 
-
-        pylab.show() 
-        pylab.draw()
-        pause(21) 
+    cog_c = CognitiveControl(s_robot, 
+                            config, 
+                            settings, 
+                            personality, 
+                            triples, 
+                            False)
     
-        num_plots = 50
-        for i in range(num_plots): 
-            #pylab.clf()
-            get_fig()
-            #pylab.cla()
-           # pylab.draw()
-            pause(2) 
+
+    edges = cog_c.episodic_memory.related( stimuli_class, "emotion_factors",None , return_data = True)
+
+    print(edges)
+ 
+   

@@ -10,7 +10,8 @@ License: MIT License
 import os
 import datetime 
 import json  
-import numpy as np  
+##import numpy as np  
+import random 
 
 
 if __name__ == "__main__": 
@@ -33,9 +34,10 @@ class Experience():
        self.novelty                 = 1 - self.discount 
        self.prior_statement         = "" 
        self.cognitive_control       = cognitive_control
-       self.G                       = cognitive_control.G
+       self.episodic_memory                       = cognitive_control.episodic_memory
        self.st_memory               = st_memory 
        self.lt_memory               = lt_memory 
+       self.verbose =False# verbose 
      
 
        self.low_memory_mode   = low_memory_mode 
@@ -67,9 +69,15 @@ class Experience():
        self.experience["strategy_2_mood"]      = {}
        self.experience["objectives_2_mood"]    = {}
 
+       self.current_strategy   = None
+       self.current_strategies     = []
+       self.current_nonverbal_strategy = None
+       
+       self.prior_mood       = None 
+
+       self.prior_nonverbal_strategy = None
        self.prior_strategy   = None
-       self.prior_strategy_1 = None
-       self.prior_mood       = None
+       self.prior_strategies     = []
        
  
    def save(self ):
@@ -82,52 +90,81 @@ class Experience():
       with open(self.config.DATA_PATH + self.robot + "/experience.words.json", "a") as f:
          f.write( json.dumps(self.words )  + "\n")   
 
-   def strategy(self, objective, interval, last_moved, last_talked, mood ):
+   def strategies(self,objective): 
+        
+       edges = self.episodic_memory.related(objective, "objective_2_strategy", None , return_data = True) 
+       cat = edges[0][0]["o"]  
+       edges = self.episodic_memory.related( objective, cat, None , return_data = True)  
+       potentials = [[e["o"], e["data"] ]for e , scr, _t in edges] 
+       return potentials
+   
+  
+
+   def strategy(self, objective, interval, last_moved, last_talked, mood, chatting ):
        """    
     
-       """ 
+       """   
+
+       self.prior_strategy   = self.current_strategy
+       self.prior_strategies = self.current_strategies 
+       self.prior_mood       = mood
+
+       wght_adg = {}
+       wght_adg[self.prior_strategy] = 1
+       if self.prior_strategy is not None and mood == "happy":
+           wght_adg[self.prior_strategy] = 3 
+       elif  self.prior_strategy is not None and self.prior_mood == "happy" and mood != "happy":
+           wght_adg[self.prior_strategy] = .5 
+   
+       unique_type = objective  
+
+        
+       edges = self.episodic_memory.related(objective, "objective_2_strategy", None , return_data = True) 
+       cat = edges[0][0]["o"]  
+       edges = self.episodic_memory.related( objective, cat, None , return_data = True)  
+       potentials = [[e["o"], e["data"] ]for e , scr, _t in edges]  
+  
+       self.current_strategies = potentials
+
+       probs  = [e["weight"] for v ,e in potentials] 
+       #probs  =  np.random.dirichlet(probs, size=1)[0]   
+       
+       draw = random.choices([v for v, e in potentials], weights=probs, k=1)
+       self.current_strategy   = draw[0] #_t
+       #while True:
+           #  TODO loop through to check emotiuon strageiy alignment 
+
+        #   draw = random.choices([v for v, e in potentials], weights=probs, k=1)
+           #draw   = np.random.choice([v for v, e in potentials], 
+           #       1,
+           #       p=probs) 
+         #  _t = draw[0]
+           #if _t != "Angry" :
+           #    self.current_strategy   = _t
+           #    break 
+
            
-       if last_moved <  self.movement_threshold: 
-           return   "silent"
+       _pots = list(self.cognitive_control.non_verbal_strategies_wgt.keys())
+
+      # self.current_nonverbal_strategy =  np.random.choice(_pots,1)[0]
+       self.current_nonverbal_strategy =  random.choice(_pots  )[0]
+
+       if self.verbose: 
+          print("~~~~~~~~~   start   ~~~~~~~~~~~~~~") 
+          print(self.current_strategy )
+          print(self.current_nonverbal_strategy) 
+
+       if last_moved <  self.movement_threshold:  
+              self.current_nonverbal_strategy  = "quiet" 
+
+       if chatting:
+           if last_talked < self.speech_threshold*.25: 
+               return  self.current_nonverbal_strategy 
+       else:
+           if last_talked < self.speech_threshold: 
+               return  self.current_nonverbal_strategy 
        
-       elif last_talked < self.speech_threshold : 
-           return   "silent"  
-       
-       elif self.prior_strategy is not None and mood == "happy":
-           return self.prior_strategy
-       
-       elif self.prior_strategy_1 is not None and self.prior_mood == "happy" and mood != "happy":
-           self.prior_strategy =self.prior_strategy_1
-           self.prior_mood  = mood
-           return self.prior_strategy_1
-         
-         
-       self.prior_mood  = mood
-    #   potentials =       list(self.cognitive_control.objective_2_strategy[objective]["tones"].keys())
-       unique_type = objective + "_tones"
-       # potentials =    [v2  for u2,v2,e2  in [self.G.edges(v, data=True ) for u,v,e in self.G.edges(objective, data=True)  if v == unique_type  ][0] if e2["class"] == "objective_2_strategy" and e2["from"] == objective]
-       # i_len = len(potentials) - 1 
-       # potentials[random.randint(0,i_len)]
- 
- 
-       potentials =    [(v2,e2)  for u2,v2,e2  in [self.G.edges(v, data=True )
-                                                    for u,v,e in self.G.edges(objective, data=True) 
-                                                      if v == unique_type ][0]
-                                                        if e2["class"] == "objective_2_strategy" 
-                                                        and e2["from"] == objective
-                                                          and v2 != "event_interval"]
- 
-       
-       probs  = [e["weight"] for v ,e in potentials]
-       probs =  np.random.dirichlet(probs,size=1)[0] 
-       draw = np.random.choice([v for v, e in potentials], 
-                  1,
-                  p=probs) 
-       
-       self.prior_strategy_1 = self.prior_strategy
-       self.prior_strategy = draw[0]
- 
-       return  self.prior_strategy
+       return  self.current_strategy
 
    def emotional_suppressors(self, 
                              objective, 
@@ -137,8 +174,10 @@ class Experience():
        """
        
        """ 
-       return   {v2 : e2["weight"]  for u2,v2,e2  in self.G.edges(objective, data=True)  if e2["class"] == "emotional_suppressors" and e2["from"] == "emotional_suppressors"}
-     
+
+       edges = self.episodic_memory.related( objective, "emotional_suppressors", None , return_data = True) 
+       return {e["o"]:e["data"]["weight"]  for  e,s,v in edges}
+ 
    
    def __moods_expand(self, ds):  
        """
@@ -154,19 +193,18 @@ class Experience():
    
    def __motivations_expand(self,ds  ): 
         """
-            self.goals
+             
         """
         row  = []
         cols = [] 
         for key , val in ds.items():
            row.append(val  )    
-           cols.append(key  )   
-        #  feats +=  round((_row[goals] / 1000.0 ), 5)
+           cols.append(key  )    
         return row ,cols   
    
    def __strategy_ohe(self,ds  ): 
         """
-            self.goals
+             
         """
         row  = []
         cols = [] 
@@ -199,7 +237,7 @@ class Experience():
    
    def __stimuli_ohe(self,ds  ): 
         """
-            self.goals
+            
         """
         row  = []
         cols = [] 
@@ -230,7 +268,7 @@ class Experience():
             
    def __objective_ohe(self,ds  ): 
         """
-            self.goals
+            
         """
         row  = []
         cols = [] 
@@ -343,7 +381,7 @@ class Experience():
 
                  if feats is None:
                      feats = _feats
-
+ 
         else: 
           for key, details in short_term_memory["stimuli"].items(): 
           
@@ -363,9 +401,8 @@ class Experience():
                  if feats is None:
                      feats = _feats 
         LR = 0.000001
+
         for seg  in segments:
-            if len(Y[seg]) < 10:
-                continue
             prior_weights =  None
             if model_name in self.experience:
                 if "weights" in self.experience[model_name]:
@@ -374,11 +411,15 @@ class Experience():
 
             if prior_weights is None:
                 prior_weights = [1.0 for v in  feats]  
- 
-            gds  = GDS(X1[seg], Y[seg],  prior_weights, LR)
-            gds.train()    
+  
+            if len(Y[seg]) < 10:  
+                gds  = GDS(X1[seg], Y[seg],  prior_weights, LR)
+                gds.train()  
+                weights = gds.weights()
+            else:
+               weights =  prior_weights
 
-            weights = gds.weights()
+
             mdl_results["weights"]  = {}
             for irow, feat in enumerate(feats):
                if seg not in mdl_results["weights"]:
@@ -392,6 +433,11 @@ class Experience():
         mdl_results["segments"] = list(segments )
         mdl_results["epoch"]    = self.epoch 
         self.experience[model_name] = mdl_results
+
+       # X1["result"] = Y
+
+       # t = open("all_weights.csv","a")
+       # t.write(json.dumps(X1 )+ "|" + json.dumps(Y ) + "\n")
 
 
    
@@ -516,7 +562,7 @@ class Experience():
            word_weights  =  self.words["word_weights"] 
        else:
            word_weights = {}
-
+       avg_weights = {'neg': 0.33, 'neu': .33, 'pos': 0.33, 'compound': 0.0}
        for key, details in short_term_memory["stimuli"].items():
           if key in self.dates_done_words:
               continue  
@@ -533,12 +579,25 @@ class Experience():
               for word in prior_statement.split():
                   if len(word) <= 3:
                        continue 
-                  
                   if word in word_weights:
                       old = word_weights[word] 
                       _vals = {}
+
+                      if "query" in scrs: 
+                        if scrs["query"] == "failed":
+                           scrs = avg_weights
+                      else: 
+                          for k , v in scrs.items(): 
+                              avg_weights[k] = .5*avg_weights[k]  + .5*v
+                           
                       for k , v in scrs.items():
-                          _vals[k] = .5*old[k]  + .5*v
+                          if k == "query":
+                             continue   
+                          
+                          if k in old:
+                              _vals[k] = .5*old[k]  + .5*v
+                          else:
+                              _vals[k] =  1
 
                       word_weights[word] = _vals
                   else:
@@ -567,7 +626,7 @@ class Experience():
         self.gen_mood_src(short_term_memory)
 
         self.senses_2_moods( short_term_memory) 
-
+          
         self.strategy_2_mood(short_term_memory)
         self.strategy_2_mood_scr(short_term_memory)
 
@@ -593,15 +652,23 @@ if __name__ == "__main__":
     from memory.st_memory import STMemory 
     from memory.lt_memory import LTMemory
 
-    cognitive_control = CognitiveControl("squirrel", config, {}, False)
+    from triples.triples     import Triples
+    s_robot       = "squirrel" 
+    triples       = Triples(agent=s_robot,  
+                             client=False)    
 
-    st_memory = STMemory("squirrel", config, False)
-    lt_memory = LTMemory("squirrel", config, False)
+    personality = Personality("squirrel", config, {} ) 
+    #robot, config, settings, personality, low_memory_mode,  update_from_experience = True):
+       
+    cognitive_control = CognitiveControl("squirrel", config, {}, personality,False,False)
 
-    personality = Personality("squirrel", config, {}, cognitive_control )   
-    exp =  Experience("squirrel" , config, cognitive_control, personality,  st_memory, lt_memory,False)
+    st_memory = STMemory("squirrel", config, triples, False)
+    lt_memory = LTMemory("squirrel", config, triples=triples,load_all=False)
+  
+    exp =  Experience("squirrel" , config, cognitive_control,
+                       personality,  st_memory, lt_memory,False)
 
-    exp.reflect()
+    exp.reflect() #True)
 
     #for key, val in exp.experience.items():
     #    print (key, val)
