@@ -14,7 +14,8 @@ import time
 import json
 from .protocol import Protocol
  
- 
+from responders.chat_responder import MoodDisplay
+
 import argparse
 parser = argparse.ArgumentParser() 
 parser.add_argument("-r", "--robot"        , default="")    
@@ -40,11 +41,10 @@ class Chat(Protocol):
     @handle_exceptions  
     def initiate(self, directives):
         """ 
-        monitor
+        Chat init
         """ 
-        self.interval              = (datetime.datetime.now() - self.last_stimuli).total_seconds()   
-       
-        self.last_time_user_spoke = datetime.datetime.now()
+        self.interval              = (datetime.datetime.now() - self.last_stimuli).total_seconds()    
+        self.last_time_user_spoke  = datetime.datetime.now()
         i_quiet = 0
         self.chat = True
         self.agent.interactions.low_memory_mode = True
@@ -88,24 +88,24 @@ class Chat(Protocol):
                 else:
                     print("UNKNOWN COMMAND", commands)
         
-            detect, commands = self.nerves.pop("remote_cmd") 
-            
-            if detect:
-                self.respond_to_request(commands,self) 
-                _t =  {k: v for k,v in self.behavior.emotions.moods.items()}
-                _t["mood"] =  self.behavior.emotions.mood()  
-                self.nerves.set("emotions", json.dumps(_t))  
-                continue 
+            detect, commands = self.nerves.pop("remote_cmd")  
+            if detect: 
+                if commands.startswith("chat") is False:
+                      self.respond_to_request(commands, self)   
+                else:  
+                     commands = commands.split(":")
+                     prompt =   commands[1].replace("'", '').replace('"', '').strip() 
+                     self.quick_chat(prompt) 
+                     continue 
 
             detect, commands = self.nerves.pop("chat")   
-            if detect:
-                self.respond_to_request(commands,self) 
-                _t =  {k: v for k,v in self.behavior.emotions.moods.items()}
-                _t["mood"] =  self.behavior.emotions.mood()  
-                self.nerves.set("emotions", json.dumps(_t))  
-                continue 
+            if detect: 
+                     commands = commands.split(":")
+                     prompt =   commands[1].replace("'", '').replace('"', '').strip() 
+                     self.quick_chat(prompt)
+                     continue 
 
-            monitor_sense = ["movement", "ext-speech", "speech", "sound"]  
+            monitor_sense = ["movement",  "ext-speech", "speech", "noise"]  
 
             for sense in  monitor_sense:
   
@@ -125,13 +125,33 @@ class Chat(Protocol):
 
                 if detect:  
                     if sense != "quiet":
-                         i_quiet = 0 
+                         i_quiet = 0  
 
-                    _t =  {k: v for k,v in self.behavior.emotions.moods.items()}
+                    last_cmd_any           = (datetime.datetime.now() - self.last_remote_cd).total_seconds()  
+                    user_detected = 0
+                    if last_cmd_any > 120:
+                         user_detected  = 1
+                         
+
+                    interval  = (datetime.datetime.now() - self.last_stimuli).total_seconds()   
+                    self.behavior.stimuli("sense", sense, amplitude,  1, 
+                               self.prior_response ,
+                               user_detected,
+                               self.epoch, 
+                               datetime.datetime.now(), 
+                               self.last_moved,  
+                               self.last_talked, 
+                               interval,
+                               self.chat) 
+
+                    _t =  {k: v for k,v in self.behavior.emotions.moods.items()} 
                     _t["mood"] =  self.behavior.emotions.mood()  
-                    self.nerves.set("emotions", json.dumps(_t))  
+                    self.nerves.set("emotions", json.dumps(_t))   
 
-                    result  = self._detected(sense, i_quiet, amplitude)
+                    responses = {"speech":[""], "movement": ["random"], "locomotion":[]}  
+                    self.log_sense(sense, amplitude, responses)  
+
+                    #result  = self._detected(sense, i_quiet, amplitude)
 
                    # if i_quiet >= self.self_reflection_threshold:
                    #     i_quiet = 0
