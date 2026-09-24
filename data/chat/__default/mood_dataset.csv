@@ -1,0 +1,342 @@
+text,mood
+I'm feeling so happy today!,happy
+This is the best day ever!,happy
+I love everything right now!,happy
+I'm really sad about the news.,sad
+I feel so down and gloomy.,sad
+Life is tough and depressing.,sad
+This makes me so anger!,anger
+I can't believe how furious I am!,anger
+This is so infuriating!,anger
+I'm excited about the upcoming event.,excited
+I can't wait for the party!,excited
+So thrilled for the trip!,excited
+I'm feeling a bit anxious.,fear
+I have a lot of worries on my mind.,fear
+I'm nervous about the exam.,fear
+I'm relaxed and calm right now.,calm
+Feeling so peaceful and at ease.,calm
+Everything feels serene and tranquil.,calm
+I'm absolutely thrilled!,thrilled
+This is beyond exciting!,thrilled
+I can't contain my excitement!,thrilled
+I'm feeling down and depressed.,depressed
+Everything feels hopeless.,depressed
+I'm in a dark place emotionally.,depressed
+I'm furious about the mistake.,furious
+I can't believe this happened!,furious
+This is so upsetting!,furious
+I'm feeling quite content.,content
+Life is good and satisfying.,content
+I have no complaints at all.,content
+I can't wait,excited
+hello,neutral
+I'm feeling good today!,happy
+Had a great lunch!,happy
+What a lovely weather!,happy
+It’s been a productive day!,happy
+That made me laugh so hard.,happy
+Finally got some good news!,happy
+I miss those old days.,sad
+Why does everything feel so empty?,sad
+Not feeling it today.,sad
+"Tried so hard, still failed.",sad
+Some days are just grey.,sad
+I feel so left out.,sad
+They totally messed it up!,anger
+I’m not okay with this at all.,anger
+That was so unnecessary!,anger
+I've had it with them.,anger
+Stop wasting my time!,anger
+I swear I’m going to lose it!,anger
+what an upsetting task,disgust
+Why is nothing working?!,disgust
+I’m tired of explaining myself.,disgust
+"Ugh, again with the same issue!",disgust
+This is getting on my nerves.,disgust
+Why do I even bother?,disgust
+It’s so annoying!,disgust
+My hands are literally shaking.,nervous
+I’ve got butterflies in my stomach.,nervous
+I hope I don’t mess this up.,nervous
+This presentation is making me nervous.,nervous
+I hate speaking in public.,nervous
+Not sure I’m ready for this.,nervous
+We really need to talk.,serious
+This is not a joke.,serious
+I want an honest answer.,serious
+Don’t take this lightly.,serious
+This is important to me.,serious
+Let’s not mess around.,serious
+There’s literally nothing to do.,bored
+This class is dragging on forever.,bored
+I’m bored out of my mind.,bored
+Scrolling mindlessly again.,bored
+"Same routine, different day.",bored
+Everything feels so dull.,bored
+I barely slept last night.,tired
+Exhausted doesn’t even cover it.,tired
+"I need a nap, like now.",tired
+Running on fumes today.,tired
+Work has drained me completely.,tired
+"So sleepy, can’t function.",tired
+Can you not right now?,irritated
+That’s so irritating!,irritated
+Why can’t people just listen?,irritated
+This noise is killing me.,irritated
+I need some space.,irritated
+"Seriously, stop it.",irritated
+That was an uncomfortable silence.,awkward
+Did I just say that out loud?,awkward
+I don’t know where to look.,awkward
+Totally embarrassed myself.,awkward
+This is super weird.,awkward
+No clue how to respond.,awkward
+Just taking it slow today.,calm
+"No rush, just peace.",calm
+I feel centered.,calm
+Everything’s under control.,calm
+Enjoying the quiet.,calm
+Letting the day flow.,calm
+Everything’s going fine.,content
+"No drama, just peace.",content
+I’m happy where I am.,content
+"Nothing special, but I’m good.",content
+Stable and chilled today.,content
+I’ve got no complaints.,content
+What just happened?,confused
+I don’t get it.,confused
+"Wait, what’s the point?",confused
+Now I’m really lost.,confused
+"I thought I understood, but nope.",confused
+Can someone explain again?,confused
+I know things will get better.,hopeful
+Every day is a new chance.,hopeful
+Trying to stay optimistic.,hopeful
+Just trusting the process.,hopeful
+There’s light at the end of this tunnel.,hopeful
+I’m keeping the faith.,hopeful
+Too much on my plate.,stressed
+Deadlines are killing me.,stressed
+Everything’s piling up.,stressed
+I need a break badly.,stressed
+I can’t think straight.,stressed
+So much pressure right now.,stressed
+Really appreciate everything today.,grateful
+So lucky to have this moment.,grateful
+Feeling blessed right now.,grateful
+That meant a lot to me.,grateful
+Can’t thank you enough.,grateful
+Grateful for the little things.,grateful
+No one really checks in.,lonely
+Just me and my thoughts.,lonely
+I feel invisible sometimes.,lonely
+I wish someone was here.,lonely
+Even surrounded by people, I feel alone.,lonely
+I need someone to talk to.,lonely
+What’s the plan for today?,neutral
+Let’s grab a coffee.,neutral
+Running a bit late.,neutral
+Stuck in traffic again.,neutral
+Can’t wait to go home.,neutral
+Let me know when you’re free.,neutral
+hello,neutral 
+having a great day,happy
+this is wonderful,happy
+love how things are going,happy
+feeling pretty good today,happy
+doing amazing,happy
+beautiful weather today,happy
+got so much accomplished,happy
+haha that was hilarious,happy
+finally some good news,happy
+everything is going perfectly,happy
+feeling kinda down today,sad
+life is hard sometimes,sad
+miss the old days,sad
+everything feels empty,sad
+not having a good day,sad
+tried hard but didn't work out,sad
+feeling low,sad
+feel left out,sad
+nothing matters,sad
+no one cares,sad
+just me and my thoughts,sad
+wish someone was here,sad
+feel alone even with people,sad
+need someone to talk to,sad
+isolated from everyone,sad
+disconnected from the world,sad
+this is making me so mad,anger
+I'm really anger about this,anger
+driving me crazy,anger
+they totally screwed up,anger
+I'm not cool with this,anger
+that was so dumb,anger
+I'm done with them,anger
+stop wasting my time,anger
+about to lose it,anger
+this is ridiculous,anger
+I can do this all day,excited
+this is amazing,excited
+I can't wait,excited
+this is gonna be amazing,excited
+this is awesome,excited
+onepiece is real,excited
+this is incredible,excited
+I'm so hyped,excited
+I'm so excited,excited
+this is beyond exciting,excited
+this is the best thing ever,excited
+dream come true,excited
+feeling pretty relaxed,calm
+everything is peaceful,calm
+so calm right now,calm
+taking it easy today,calm
+no rush today,calm
+feeling centered,calm
+got everything under control,calm
+enjoying the quiet,calm
+just going with the flow,calm
+feeling balanced,calm
+feeling really down,depressed
+everything feels hopeless,depressed
+done with life,depressed
+don't see the point,depressed
+feels meaningless,depressed
+drowning in sadness,depressed
+I can't do this anymore,depressed
+feel empty inside,depressed
+everything is falling apart,depressed
+lost in darkness,depressed
+I'm so furious right now,furious
+you are done for this,furious
+getting on my nerves,furious
+I'm seeing red,furious
+this is unacceptable,furious
+don't mess with me,furious
+pushed me over the edge,furious
+boiling with rage,furious
+this is the last straw,furious
+never been so anger,furious
+feeling pretty content,content
+life's good,content
+no complaints here,content
+everything's fine,content
+no drama today,content
+happy where I am,content
+nothing special but good,content
+chill day,content
+got no complaints,content
+life's treating me well,content
+losing my patience,disgust
+why this isn't working,disgust
+same problem again,disgust
+why do I bother,disgust
+this is so frustrating,disgust
+nothing's going right,disgust
+this is upsetting,disgust
+can't believe how frustrating this is,disgust
+how things turned out is frustrating,disgust
+this is so annoying,disgust
+deeply disgust by this,disgust
+we need to talk,serious
+this isn't a joke,serious
+want an honest answer,serious
+don't take this lightly,serious
+this matters to me,serious
+let's not mess around,serious
+need you to focus,serious
+this needs attention,serious
+stakes are high,serious
+gotta be professional,serious
+nothing to do,bored
+this class is so long,bored
+bored out of my mind,bored
+just scrolling mindlessly,bored
+same thing every day,bored
+everything's so dull,bored
+need some excitement,bored
+this is putting me to sleep,bored
+dying of boredom,bored
+when will this end,bored
+barely slept last night,tired
+I'm exhausted,tired
+need a nap right now,tired
+I need rest so bad,tired
+work drained me,tired
+so sleepy,tired
+completely worn out,tired
+no energy left,tired
+I'm so tired,tired
+tired of explaining,tired
+can you not,irritated
+that's so irritating,irritated
+why can't people listen,irritated
+this noise is killing me,irritated
+need some space,irritated
+seriously stop,irritated
+getting under my skin,irritated
+this is so irritating,irritated
+everything's bothering me,irritated
+easily annoyed today,irritated
+what just happened,confused
+I don't get it,confused
+wait what's the point,confused
+now I'm lost,confused
+thought I understood but nope,confused
+can someone explain again,confused
+this makes no sense,confused
+I'm puzzled,confused
+my brain's scrambled,confused
+no idea what's going on,confused
+things will get better,hopeful
+new day new chance,hopeful
+trying to stay positive,hopeful
+trusting the process,hopeful
+there's light ahead,hopeful
+keeping the faith,hopeful
+tomorrow will be better,hopeful
+believe in good outcomes,hopeful
+things are looking up,hopeful
+staying optimistic,hopeful
+it's killing me,stressed
+need a break badly,stressed
+can't think straight,stressed
+so much pressure,stressed
+overwhelmed with everything,stressed
+at my breaking point,stressed
+need to decompress,stressed
+feeling worried,stressed
+nervous about the test,stressed
+hands are shaking,stressed
+hope I don't mess up,stressed
+this is scary,stressed
+hate public speaking,stressed
+not sure I'm ready,stressed
+what if it goes wrong,stressed
+feeling really nervous,stressed
+can't stop thinking,stressed
+having second thoughts,stressed
+confidence is shaking,stressed
+this sucks,stressed
+really appreciate today,grateful
+so lucky right now,grateful
+feeling blessed,grateful
+that meant a lot,grateful
+can't thank you enough,grateful
+grateful for small things,grateful
+thankful for this chance,grateful
+life's been kind,grateful
+appreciate the support,grateful
+blessed beyond measure,grateful
+hey,neutral
+what's the plan today,neutral
+let's grab coffee,neutral
+running a bit late,neutral
+stuck in traffic,neutral
+hello,neutral
+let me know when you're free,neutral
+just another day,neutral
+nothing much happening,neutral
+how's your day,neutral

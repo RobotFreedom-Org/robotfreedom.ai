@@ -1,0 +1,791 @@
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["speech", "speech", "noise"], "completion": {"neg": 0.688, "neu": 0.312, "pos": 0.0, "compound": -0.296}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 0.27, "pos": 0.73, "compound": 0.4019}}
+{"prompt": ["speech", "speech", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise", "noise"], "completion": {"neg": 0.0, "neu": 0.61, "pos": 0.39, "compound": 0.4939}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["speech", "speech", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "quiet"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 0.345, "pos": 0.655, "compound": 0.2263}}
+{"prompt": ["speech", "speech", "noise"], "completion": {"neg": 0.0, "neu": 0.345, "pos": 0.655, "compound": 0.2263}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 0.423, "pos": 0.577, "compound": 0.4767}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 0.704, "pos": 0.296, "compound": 0.4939}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 0.756, "pos": 0.244, "compound": 0.7003}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 0.682, "pos": 0.318, "compound": 0.4215}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.16, "neu": 0.571, "pos": 0.269, "compound": 0.2263}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 0.493, "pos": 0.507, "compound": 0.7351}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.183, "neu": 0.743, "pos": 0.074, "compound": -0.4404}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["speech", "speech", "balance"], "completion": {"neg": 0.293, "neu": 0.707, "pos": 0.0, "compound": -0.4404}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.34}}
+{"prompt": ["speech", "speech", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "noise", "noise"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.34}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 0.723, "pos": 0.277, "compound": 0.3182}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.526, "neu": 0.306, "pos": 0.168, "compound": -0.5709}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.036, "neu": 0.9, "pos": 0.063, "compound": 0.0258}}
+{"prompt": ["speech", "speech", "distance", "balance", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "balance", "balance"], "completion": {"neg": 0.155, "neu": 0.7, "pos": 0.145, "compound": -0.0516}}
+{"prompt": ["speech", "speech", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "balance", "balance"], "completion": {"neg": 1.0, "neu": 0.0, "pos": 0.0, "compound": -0.3182}}
+{"prompt": ["speech", "speech", "balance"], "completion": {"neg": 0.13, "neu": 0.87, "pos": 0.0, "compound": -0.2732}}
+{"prompt": ["speech", "speech", "balance"], "completion": {"neg": 0.0, "neu": 0.217, "pos": 0.783, "compound": 0.3818}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "balance", "balance"], "completion": {"neg": 0.131, "neu": 0.809, "pos": 0.06, "compound": -0.5267}}
+{"prompt": ["speech", "speech", "balance", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "noise", "noise", "balance", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "balance", "noise", "noise", "noise"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "balance"], "completion": {"neg": 0.145, "neu": 0.683, "pos": 0.171, "compound": 0.079}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 0.312, "pos": 0.688, "compound": 0.296}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.189, "neu": 0.811, "pos": 0.0, "compound": -0.2732}}
+{"prompt": ["speech", "speech", "balance"], "completion": {"neg": 0.0, "neu": 0.718, "pos": 0.282, "compound": 0.5423}}
+{"prompt": ["speech", "speech", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["touch", "movement", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.737, "pos": 0.263, "compound": 0.3612}}
+{"prompt": ["movement", "movement", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "light", "movement", "movement", "touch"], "completion": {"neg": 0.379, "neu": 0.621, "pos": 0.0, "compound": -0.7579}}
+{"prompt": ["speech", "movement", "balance", "light", "movement"], "completion": {"neg": 0.0, "neu": 0.232, "pos": 0.768, "compound": 0.5118}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.725, "pos": 0.275, "compound": 0.2263}}
+{"prompt": ["movement", "distance", "balance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "noise", "movement", "balance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["light", "movement", "movement", "movement", "light"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "touch", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "touch", "movement", "light"], "completion": {"neg": 0.0, "neu": 0.385, "pos": 0.615, "compound": 0.1531}}
+{"prompt": ["light", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "noise", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.303, "pos": 0.697, "compound": 0.3182}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "touch", "light", "movement", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "light", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.762, "pos": 0.238, "compound": 0.3612}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "distance", "balance", "movement", "movement"], "completion": {"neg": 1.0, "neu": 0.0, "pos": 0.0, "compound": -0.296}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 0.169, "pos": 0.831, "compound": 0.5994}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "noise", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "touch"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "balance", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.4019}}
+{"prompt": ["touch", "balance", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "light", "movement", "touch"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.5574}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "movement", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "touch", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.312, "pos": 0.688, "compound": 0.296}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["movement", "movement", "noise", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "distance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["touch", "balance", "distance", "distance", "movement"], "completion": {"neg": 0.0, "neu": 0.217, "pos": 0.783, "compound": 0.7351}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "distance", "touch", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.351, "pos": 0.649, "compound": 0.5719}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["distance", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "light", "movement", "touch"], "completion": {"neg": 0.0, "neu": 0.408, "pos": 0.592, "compound": 0.4404}}
+{"prompt": ["distance", "light", "movement", "light", "movement"], "completion": {"neg": 0.259, "neu": 0.741, "pos": 0.0, "compound": -0.6369}}
+{"prompt": ["movement", "movement", "light", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 0.175, "pos": 0.825, "compound": 0.5719}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2732}}
+{"prompt": ["movement", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.7269}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.615, "pos": 0.385, "compound": 0.3612}}
+{"prompt": ["movement", "movement", "noise", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.345, "pos": 0.655, "compound": 0.2263}}
+{"prompt": ["movement", "balance", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "light", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "light", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.769, "pos": 0.231, "compound": 0.6369}}
+{"prompt": ["movement", "light", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 1.0, "neu": 0.0, "pos": 0.0, "compound": -0.296}}
+{"prompt": ["movement", "balance", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "light", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "touch", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "movement", "touch"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "touch", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "light", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "distance", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "movement", "movement", "movement"], "completion": {"neg": 1.0, "neu": 0.0, "pos": 0.0, "compound": -0.296}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["speech", "movement", "distance", "touch", "light"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "distance", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "light", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "movement", "movement", "movement", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "light"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.286, "neu": 0.39, "pos": 0.325, "compound": 0.0772}}
+{"prompt": ["movement", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["movement", "balance", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "movement", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "light", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "light", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "movement", "balance", "light", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "noise", "movement", "light"], "completion": {"neg": 0.211, "neu": 0.544, "pos": 0.245, "compound": 0.0946}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "balance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["balance", "light", "movement", "movement", "movement"], "completion": {"neg": 1.0, "neu": 0.0, "pos": 0.0, "compound": -0.34}}
+{"prompt": ["speech", "speech", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.787, "pos": 0.213, "compound": 0.2263}}
+{"prompt": ["movement", "movement", "light", "movement", "light"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.5859}}
+{"prompt": ["distance", "light", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.429, "pos": 0.571, "compound": 0.6124}}
+{"prompt": ["movement", "distance", "distance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.444, "pos": 0.556, "compound": 0.3612}}
+{"prompt": ["light", "movement", "touch", "light", "movement"], "completion": {"neg": 0.0, "neu": 0.286, "pos": 0.714, "compound": 0.3612}}
+{"prompt": ["movement", "distance", "light", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["light", "distance", "movement", "light", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "touch", "movement", "touch"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "distance", "balance"], "completion": {"neg": 0.0, "neu": 0.804, "pos": 0.196, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "distance", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2732}}
+{"prompt": ["movement", "movement", "noise", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "light", "distance", "movement", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.72, "pos": 0.28, "compound": 0.9041}}
+{"prompt": ["movement", "distance", "balance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "light", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.885, "pos": 0.115, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2732}}
+{"prompt": ["balance", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "noise", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "light", "movement", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2732}}
+{"prompt": ["distance", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.698, "pos": 0.302, "compound": 0.0772}}
+{"prompt": ["movement", "balance", "noise", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech"], "completion": {"neg": 0.0, "neu": 0.625, "pos": 0.375, "compound": 0.6369}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["balance", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "noise", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "noise", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 0.312, "pos": 0.688, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 0.488, "pos": 0.512, "compound": 0.2732}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "noise"], "completion": {"neg": 0.0, "neu": 0.6, "pos": 0.4, "compound": 0.25}}
+{"prompt": ["movement", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.577, "pos": 0.423, "compound": 0.296}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "balance", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.5859}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["light", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "distance", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "light", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "light", "movement"], "completion": {"neg": 0.523, "neu": 0.477, "pos": 0.0, "compound": -0.2944}}
+{"prompt": ["movement", "balance", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "light", "movement", "light"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["light", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "light", "movement", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.561, "pos": 0.439, "compound": 0.5719}}
+{"prompt": ["noise", "movement", "noise", "movement", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "balance"], "completion": {"neg": 0.0, "neu": 0.286, "pos": 0.714, "compound": 0.3612}}
+{"prompt": ["balance", "movement", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["noise", "movement", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "touch", "movement", "touch"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.6249}}
+{"prompt": ["touch", "movement", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["movement", "movement", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "balance", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.286, "pos": 0.714, "compound": 0.3612}}
+{"prompt": ["balance", "movement", "touch", "movement", "touch"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "touch", "balance"], "completion": {"neg": 0.0, "neu": 0.444, "pos": 0.556, "compound": 0.3612}}
+{"prompt": ["movement", "noise", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "noise", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "touch", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["movement", "distance", "distance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "balance", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "balance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 0.286, "pos": 0.714, "compound": 0.3597}}
+{"prompt": ["light", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "distance", "movement", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "noise", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.444, "pos": 0.556, "compound": 0.3612}}
+{"prompt": ["movement", "distance", "balance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.196, "pos": 0.804, "compound": 0.4767}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.623, "neu": 0.377, "pos": 0.0, "compound": -0.5106}}
+{"prompt": ["movement", "movement", "distance", "distance", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.444, "pos": 0.556, "compound": 0.3612}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "balance", "movement", "touch"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["distance", "movement", "distance", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "balance", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "light", "movement", "balance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.1779}}
+{"prompt": ["touch", "movement", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.667, "pos": 0.333, "compound": 0.3612}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2732}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "light", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "light"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.5859}}
+{"prompt": ["movement", "movement", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "light", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "touch", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "light", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.312, "pos": 0.688, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3818}}
+{"prompt": ["movement", "balance", "light", "movement", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "touch", "balance", "light"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "movement", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.5859}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.556, "pos": 0.444, "compound": 0.4939}}
+{"prompt": ["speech", "movement", "light", "movement", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "movement", "distance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "distance", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "light", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "touch", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "movement", "noise", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "distance", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["touch", "balance", "movement", "movement", "movement"], "completion": {"neg": 1.0, "neu": 0.0, "pos": 0.0, "compound": -0.0772}}
+{"prompt": ["movement", "light", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "touch", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "distance", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "distance", "distance", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "distance", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.312, "pos": 0.688, "compound": 0.296}}
+{"prompt": ["speech", "movement", "touch", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.476, "pos": 0.524, "compound": 0.5106}}
+{"prompt": ["distance", "balance", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["movement", "balance", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "distance", "light", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.5267}}
+{"prompt": ["distance", "balance", "movement", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["balance", "light", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["distance", "movement", "distance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "touch", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.4019}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "balance", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "noise", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "touch"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["noise", "movement", "distance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "touch", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "movement", "touch"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "distance", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "noise", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["distance", "touch", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 0.615, "pos": 0.385, "compound": 0.3612}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "movement", "balance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "touch", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "touch", "movement", "touch"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.59, "neu": 0.0, "pos": 0.41, "compound": -0.2732}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2732}}
+{"prompt": ["balance", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "distance", "balance", "movement"], "completion": {"neg": 1.0, "neu": 0.0, "pos": 0.0, "compound": -0.296}}
+{"prompt": ["noise", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2023}}
+{"prompt": ["speech", "speech", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "touch", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "noise", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["balance", "movement", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.238, "pos": 0.762, "compound": 0.4927}}
+{"prompt": ["speech", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "touch"], "completion": {"neg": 0.0, "neu": 0.545, "pos": 0.455, "compound": 0.3612}}
+{"prompt": ["noise", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "movement", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 0.278, "pos": 0.722, "compound": 0.3804}}
+{"prompt": ["movement", "touch", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "balance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["touch", "movement", "balance", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.524, "neu": 0.476, "pos": 0.0, "compound": -0.296}}
+{"prompt": ["balance", "noise", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "distance", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["touch", "movement", "touch", "movement", "balance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["distance", "touch", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "touch", "balance", "movement", "balance"], "completion": {"neg": 0.0, "neu": 0.526, "pos": 0.474, "compound": 0.4019}}
+{"prompt": ["speech", "movement", "touch", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "noise", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "light", "movement", "touch", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "distance", "touch", "movement"], "completion": {"neg": 0.361, "neu": 0.639, "pos": 0.0, "compound": -0.1761}}
+{"prompt": ["touch", "movement", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "light", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "noise", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "distance", "balance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "movement", "noise", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "balance", "light", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "movement", "balance", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["balance", "movement", "movement", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "movement", "movement", "noise"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "distance", "balance"], "completion": {"neg": 1.0, "neu": 0.0, "pos": 0.0, "compound": -0.5106}}
+{"prompt": ["distance", "balance", "movement", "distance", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "distance", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "touch", "movement", "balance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "light", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.5574}}
+{"prompt": ["distance", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "touch", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "movement", "touch", "balance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.6249}}
+{"prompt": ["noise", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "movement", "distance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["distance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "distance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["balance", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "noise", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.4767}}
+{"prompt": ["distance", "light", "distance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "movement", "distance", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "balance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "light", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["distance", "touch", "movement", "distance", "touch"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["balance", "movement", "movement", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "distance", "movement"], "completion": {"neg": 1.0, "neu": 0.0, "pos": 0.0, "compound": -0.4767}}
+{"prompt": ["movement", "distance", "noise", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["distance", "touch", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.0258}}
+{"prompt": ["movement", "touch", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.4019}}
+{"prompt": ["touch", "movement", "balance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "touch", "movement", "touch"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "noise", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "noise"], "completion": {"neg": 0.0, "neu": 0.545, "pos": 0.455, "compound": 0.3612}}
+{"prompt": ["movement", "touch", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.34}}
+{"prompt": ["movement", "balance", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "balance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "balance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "light", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2263}}
+{"prompt": ["noise", "movement", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.704, "pos": 0.296, "compound": 0.2732}}
+{"prompt": ["movement", "light", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "balance", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "movement", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "light", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.256, "pos": 0.744, "compound": 0.4404}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.444, "pos": 0.556, "compound": 0.3612}}
+{"prompt": ["movement", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "touch", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "movement", "movement"], "completion": {"neg": 0.756, "neu": 0.244, "pos": 0.0, "compound": -0.4767}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.286, "pos": 0.714, "compound": 0.3612}}
+{"prompt": ["movement", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "touch", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "touch", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "noise", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "noise", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "touch", "distance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["balance", "movement", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "balance", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "light", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "touch", "movement"], "completion": {"neg": 1.0, "neu": 0.0, "pos": 0.0, "compound": -0.296}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.192, "pos": 0.808, "compound": 0.6369}}
+{"prompt": ["movement", "movement", "touch", "movement", "touch"], "completion": {"neg": 0.0, "neu": 0.213, "pos": 0.787, "compound": 0.5719}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.4404}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["distance", "movement", "distance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.766, "pos": 0.234, "compound": 0.469}}
+{"prompt": ["balance", "movement", "noise", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "light", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "light", "movement", "light"], "completion": {"neg": 0.429, "neu": 0.571, "pos": 0.0, "compound": -0.4588}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.649, "pos": 0.351, "compound": 0.4019}}
+{"prompt": ["movement", "movement", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.4019}}
+{"prompt": ["speech", "speech", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "movement", "movement"], "completion": {"neg": 0.326, "neu": 0.674, "pos": 0.0, "compound": -0.4404}}
+{"prompt": ["movement", "movement", "distance", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "distance", "movement", "distance", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "distance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "noise", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["light", "movement", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["touch", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "touch", "touch"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "light", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "noise", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.612, "pos": 0.388, "compound": 0.2263}}
+{"prompt": ["speech", "speech", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "noise", "movement"], "completion": {"neg": 0.259, "neu": 0.741, "pos": 0.0, "compound": -0.1027}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.312, "pos": 0.688, "compound": 0.296}}
+{"prompt": ["noise", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "distance", "noise", "movement", "distance"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "balance", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.3612}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.5, "pos": 0.5, "compound": 0.6124}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["speech", "speech", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.312, "pos": 0.688, "compound": 0.296}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 1.0, "neu": 0.0, "pos": 0.0, "compound": -0.296}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "light", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.323, "pos": 0.677, "compound": 0.2732}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "touch", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "distance", "movement", "touch", "distance"], "completion": {"neg": 0.0, "neu": 0.52, "pos": 0.48, "compound": 0.4144}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "light", "movement", "distance", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["speech", "speech", "movement", "balance", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "touch", "balance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "touch", "balance", "movement", "touch"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.5859}}
+{"prompt": ["touch", "movement", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "movement", "movement", "noise", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "distance", "balance", "movement"], "completion": {"neg": 1.0, "neu": 0.0, "pos": 0.0, "compound": -0.296}}
+{"prompt": ["movement", "distance", "movement", "touch", "light"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "touch", "movement", "touch"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "touch", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "light", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.296}}
+{"prompt": ["movement", "touch", "movement", "touch", "touch"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "movement", "light", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["noise", "movement", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "movement", "balance", "movement", "balance"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["balance", "movement", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 0.0, "pos": 1.0, "compound": 0.2732}}
+{"prompt": ["movement", "movement", "balance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "noise", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "balance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "movement", "distance", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["movement", "distance", "movement", "distance", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["distance", "distance", "movement", "movement", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
+{"prompt": ["touch", "light", "movement", "touch", "movement"], "completion": {"neg": 0.0, "neu": 1.0, "pos": 0.0, "compound": 0.0}}
