@@ -7,16 +7,16 @@ class  CommandResponder(Responder):
     """
     
     """  
-        
+    #todo all command go in tools which is the langae
+    #eventual even the protocols will be writen in triples and all data in the graph
+    # so it will think in triple both graph and how it is controlled 
     @handle_exceptions 
     def  respond_to_request(self, input, protocol = None):
         """
         
-        """  
-        print(input)
+        """   
         commands = {} 
-        a_input = input.split(":")
-
+        a_input = input.split(":") 
   
         if len(a_input)<= 1: 
            print("ERROR IN REMOTE COMMAND ")
@@ -28,6 +28,7 @@ class  CommandResponder(Responder):
  
 
         if len(a_input) > 2:
+           
            commands["params"] = a_input[2]
       
         if commands["cmd"] == "speak":  
@@ -45,56 +46,45 @@ class  CommandResponder(Responder):
         elif commands["cmd"] == "move":   
             self.send_command( commands["params"] ,self.robot )
 
-        elif a_input[0] == "chat":  
-            #self.behavior.stimuli_time = datetime.datetime.now()
-            prompt =   a_input[1].replace("'", '').replace('"', '').strip()
-                  
+        elif a_input[0] == "chat":   
+          
+            prompt =   a_input[1].replace("'", '').replace('"', '').strip() 
             self.agent.behavior.stimuli("sense", 
                                         "speech", 
-                                        prompt, 
+                                         prompt, 
                                           1, 
-                                        protocol.prior_response ,
-                                        protocol.epoch, 
-                                        protocol.interval, 
-                                        protocol.last_moved,
-                                        protocol.last_talked, 
-                                        protocol.interval) 
-             
-           
+                                         protocol.prior_response ,
+                                         protocol.epoch, 
+                                         datetime.datetime.now(),  
+                                         protocol.last_moved,
+                                         protocol.last_talked, 
+                                         protocol.interval,
+                                         1)  
             response  = self.agent.interactions.responses("sense",
                                                           "speech", 
                                                            a_input[1].replace("'", '').replace('"', '').strip(), 
                                                            self.agent.behavior,
                                                            True, 
-                                                           self.agent.responders["ChatResponder"].get_chat_response)  
-            """   
-            response = {"speech":[]}
-            response["speech"] = [self.agent.responders["ChatResponder"].get_chat_response( prompt,
-                                                                                            self.agent.behavior.mood,   
-                                                                                            [],
-                                                                                            self.agent.behavior.objective,    
-                                                                                            self.agent.behavior.strategy ,  
-                                                                                           ) ]
-            """  
-            # self.agent.responders["ChatResponder"].speak_and_wait(response["speech"][0])  
+                                                           self.agent.responders["ChatResponder"].get_chat_response)   
             self.nerves.set("chat_responses_2","respond>"+ response["speech"][0]) 
+ 
          
-        elif commands["cmd"] == "chat":  
-            #self.behavior.stimuli_time = datetime.datetime.now()
-            print("chat_2", a_input[1].replace("'", '').replace('"', '').strip() )
+        elif commands["cmd"] == "chat":   
+ 
+
+            print("chat_2", a_input[1].replace("'", '').replace('"', '').strip() ) 
 
             response  = self.agent.interactions.responses("sense",
-                                                    "speech", 
-                                                    commands["params"].replace("'", '').replace('"', '').strip(), 
-                                                    self.agent.behavior,
-                                                    True, 
-                                                    self.agent.responders["ChatResponder"].get_chat_response)  
-        
-           
-            self.agent.responders["ChatResponder"].speak_and_wait(response["speech"][0]) 
-
-            self.nerves.set("chat_responses","respond>"+ response["speech"][0]) 
-         
+                                                          "speech", 
+                                                           commands["params"].replace("'", '').replace('"', '').strip(), 
+                                                           self.agent.behavior,
+                                                           True, 
+                                                           self.agent.responders["ChatResponder"].get_chat_response)   
+            
+            if len(response["speech"]) == 0:
+                response["speech"] = ["communication error"]
+            self.nerves.set("chat_responses_2","respond>"+ response["speech"][0])  
+            self.agent.responders["ChatResponder"].speak_and_wait(response["speech"][0])   
      
         elif commands["cmd"] == "video": 
             self.agent.camera.video()
@@ -111,13 +101,8 @@ class  CommandResponder(Responder):
 
         elif commands["cmd"] == "bye":
             self.agent.responders["ChatResponder"].speak_and_wait("bye bye!")
-      
-        elif commands["cmd"] == "inspire":
-            self.agent.responders["ChatResponder"].speak_and_wait("You are great!")
-    
-        elif commands["cmd"].startswith("roll"): 
-            response = self.agent.interactions.built_in_tools("roll " + commands["params"])
-            self.agent.responders["ChatResponder"].speak_and_wait( response["speech"][0]) 
+       
+     
 
         else : 
            print("ERROR IN REMOTE COMMAND ")

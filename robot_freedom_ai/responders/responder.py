@@ -29,17 +29,20 @@ class Responder(object):
         """ 
  
         self.agent         = agent  
-        self.wait_length   = 2400 #800
+        self.wait_length   = 8000 #6000 #4800 #2400 #800
+        self.chat_wait_length   = 3000 #4800 #2400 #800
+        
         self.polling_rate  = agent.polling_rate
         self.robot         = agent.robot
         self.video         = agent.video
         self.settings      = agent.settings
         self.os            = agent.config.OS
         self.config        = agent.config.CONFIG   
-        self.verbose       = agent.config.VERBOSE  
-        self.sequence_format = agent.sequence_format
+        self.verbose       = agent.config.VERBOSE   
         self.nerves        = agent.nerves
-        self.communication = agent.communication
+        self.communication = agent.communication  
 
+        self.movement      = self.agent.movement
+        self.expressions   = self.agent.expressions 
 
-        self.mobility = self.agent.mobility
+        self.cannot_understand  = 0
