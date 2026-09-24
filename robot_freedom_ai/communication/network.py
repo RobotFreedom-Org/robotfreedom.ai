@@ -80,8 +80,7 @@ def auto_discovery():
             devices["hubs"][ip]  = contents.split(":")[1] 
 
         elif contents.startswith("repository:"):
-            devices["repositories"][ip]  = contents.split(":")[1] 
-
+            devices["repositories"][ip]  = contents.split(":")[1]  
 
     return devices
  
@@ -110,7 +109,7 @@ def ping_thread(ip):
         except:
             return False
 
-def map_rf_ips(b_stop_on_hub=True):
+def map_rf_ips(b_stop_on_hub=True, b_print=False):
    
     ip_parts = get_local_ip().split('.')
     base_ip = ip_parts[0] + '.' + ip_parts[1] + '.' + ip_parts[2] + '.'
@@ -156,6 +155,63 @@ def map_rf_ips(b_stop_on_hub=True):
         else :
             if b_hub and b_repository:
                 break
+    except KeyboardInterrupt:
+       print("\nLoop terminated by user.")
+
+    return devices
+
+def map_rf_ips_quick(b_stop_on_hub=False, b_stop_on_repro =False,  b_print=True):
+    """
+    """
+   
+    ip_parts = get_local_ip().split('.')
+    base_ip = ip_parts[0] + '.' + ip_parts[1] + '.' + ip_parts[2] + '.'
+       
+    devices = {}
+    devices["all"]     = {}
+    devices["robots"]  = {}
+    devices["hubs"]    = {}
+    devices["repositories"] = {}
+    b_repository = False
+    b_robot      = False
+    b_hub        = False
+
+    try:
+      for i in range(1, 55):
+        ip = base_ip + '{0}'.format(i)
+        
+        try:  
+            contents = urllib.request.urlopen("http://" + ip + ":8000/whois/", timeout=1).read()
+            contents = str(contents, 'utf-8')   
+        except KeyboardInterrupt:
+            contents = ""  
+            break
+        except:
+            contents = ""  
+
+        if contents.startswith("robot:"):
+            devices["robots"][ip]  = contents.split(":")[1] 
+            b_robot = True 
+            if b_print:
+                print("ROBOT :", ip,  contents.split(":")[1] )
+            
+        elif contents.startswith("hub:"):
+            devices["hubs"][ip]  = contents.split(":")[1] 
+            b_hub = True 
+            if b_print:
+                 print("HUB  :", ip,  contents.split(":")[1] )
+
+        elif contents.startswith("repository:"):
+            devices["repositories"][ip]  = contents.split(":")[1] 
+            b_repository = True
+
+            if b_print:
+                print("REPO  :", ip,  contents.split(":")[1] )
+
+        if b_stop_on_hub : 
+            if b_hub and b_repository:
+                break
+
     except KeyboardInterrupt:
        print("\nLoop terminated by user.")
 

@@ -98,6 +98,7 @@ class HTTPServer(object):
        print("Listening... on ", 
              self.launcher.local_ip ,
                self.server_port   )    
+       
        while True:     
          server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
          server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -156,10 +157,30 @@ class HTTPServer(object):
                     log =  open(filename, 'w')  
                     log.close()
       
-                 elif cmd == "logs":   
+                 elif cmd == "logs-chat":   
                      cmds = cmd  
                      
                      filename =  config.LOGS_PATH +  "chat_ollama.log" 
+                     client_connection.send('HTTP/1.1 200 OK\r\n'.encode())
+                     client_connection.send("Content-Type: file\r\n".encode())
+                     client_connection.send("Accept-Ranges: bytes\r\n\r\n".encode()) 
+                     with open(filename, 'rb') as f:
+                         # Send the file self.robot
+                        # client_connection.send(fileself.robot.encode())
+      
+                         # Send the file data
+                         while True:
+                             data = f.read(1024)
+                             if not data:
+                                 break
+                             client_connection.send(data)
+                 
+                 #elif cmd == "logs-stimuli":  
+                 elif cmd == "logs-actions":   
+                     cmds = cmd  
+                     
+                     memory_path = config.name +"/"
+                     filename    =  config.DATA_PATH + memory_path + "actions.json" #"stimuli.json" 
                      client_connection.send('HTTP/1.1 200 OK\r\n'.encode())
                      client_connection.send("Content-Type: file\r\n".encode())
                      client_connection.send("Accept-Ranges: bytes\r\n\r\n".encode()) 
@@ -201,7 +222,7 @@ class HTTPServer(object):
                      for i in range(2):
                          connected = self.client.connect() 
                          if connected:
-                             resp = getattr(self.base_cmds, "do_%s" % cmd.lower().strip())(params) 
+                             resp = getattr(self.base_cmds, "%s" % cmd.lower().strip())(params) 
                              break
                          else: 
                             connected = self.client.connect() 
@@ -236,6 +257,7 @@ class HTTPServer(object):
                          client_connection.close() 
                  
                  render = False
+
       
              elif "whois" in  arequest[0]: 
                  role = "robot"  

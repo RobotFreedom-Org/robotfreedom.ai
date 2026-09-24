@@ -7,9 +7,7 @@ License: MIT License
 
 import random  
 import time 
-import csv  
-  
- 
+import csv   
  
 class BaseCmds(object):
  
@@ -22,7 +20,7 @@ class BaseCmds(object):
 
         self.config  = config 
         self.robot = self.config.CONFIG["robot"]
-        self.user= self.robot 
+        self.user  = self.robot 
 
         self.nerves = nerves 
         if self.networked == 0:
@@ -31,7 +29,7 @@ class BaseCmds(object):
             self.communication = com 
  
 
-    def __send_cmd(self, key ,  param ):
+    def __send_cmd(self, key, param):
         """
         
         """
@@ -82,8 +80,7 @@ class BaseCmds(object):
         """
         
         """
-        self.robot = arg  
-    
+        self.robot = arg   
     
     def do_mood(self, arg):
         'all signals : Mood' 
@@ -163,8 +160,7 @@ class BaseCmds(object):
         'all signals :  sim_sense light,1'  
         self.__send_cmd("direct_cmd",   "sim_sense:" + arg)  
         return "" 
-    
-    
+     
     
     def do_video(self, arg):
         'Video' 
