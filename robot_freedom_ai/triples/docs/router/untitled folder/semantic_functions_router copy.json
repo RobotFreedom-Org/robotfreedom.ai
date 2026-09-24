@@ -1,0 +1,485 @@
+{"prompt": "I need help regarding calculate thanks", "function": "math", "scores": 0.82}
+{"prompt": "Can you assist with pdf?", "function": "files", "scores": 0.93}
+{"prompt": "can you Can you assist with solve equation?", "function": "math", "scores": 0.82}
+{"prompt": "How do I handle statistics? right now", "function": "data", "scores": 0.81}
+{"prompt": "can you assist with note?", "function": "productivity", "scores": 0.84}
+{"prompt": "please How do I handle translate?", "function": "general", "scores": 0.84}
+{"prompt": "I need help regarding email today", "function": "productivity", "scores": 0.83}
+{"prompt": "i need to Can you assist with debug?", "function": "code", "scores": 0.8}
+{"prompt": "how do i handle ocr?", "function": "files", "scores": 0.86}
+{"prompt": "i need to How do I handle solve equation?", "function": "math", "scores": 0.91}
+{"prompt": "can you assist with run code?", "function": "code", "scores": 0.94}
+{"prompt": "Can you assist with statistics? right now", "function": "data", "scores": 0.85}
+{"prompt": "How do I handle docker? right now", "function": "code", "scores": 0.82}
+{"prompt": "please How do I handle email?", "function": "productivity", "scores": 0.88}
+{"prompt": "please How do I handle read file?", "function": "files", "scores": 0.81}
+{"prompt": "help me How do I handle story?", "function": "general", "scores": 0.98}
+{"prompt": "urgent How do I handle convert?", "function": "math", "scores": 0.97}
+{"prompt": "i need help regarding wikipedia", "function": "search", "scores": 0.96}
+{"prompt": "can u assist with research paper?", "function": "search", "scores": 0.92}
+{"prompt": "can u assist with buy?", "function": "search", "scores": 0.93}
+{"prompt": "Can you assist with regex?", "function": "code", "scores": 0.98}
+{"prompt": "i need help regarding jira", "function": "comms", "scores": 0.94}
+{"prompt": "can you assist with story?", "function": "general", "scores": 0.82}
+{"prompt": "urgent Can you assist with research paper?", "function": "search", "scores": 0.82}
+{"prompt": "How do I handle pdf?", "function": "files", "scores": 0.91}
+{"prompt": "How do I handle solve equation?", "function": "math", "scores": 0.98}
+{"prompt": "Can you assist with email? thanks", "function": "productivity", "scores": 0.84}
+{"prompt": "could you Can you assist with meeting?", "function": "productivity", "scores": 0.84}
+{"prompt": "Help me with meeting today", "function": "productivity", "scores": 0.89}
+{"prompt": "Help me with convert thanks", "function": "math", "scores": 0.83}
+{"prompt": "please Can you assist with wikipedia?", "function": "search", "scores": 0.81}
+{"prompt": "help me with debug", "function": "code", "scores": 0.81}
+{"prompt": "Can you assist with debug?", "function": "code", "scores": 0.87}
+{"prompt": "Help me with csv thanks", "function": "data", "scores": 0.88}
+{"prompt": "I need help regarding story", "function": "general", "scores": 0.88}
+{"prompt": "I need help regarding jira quickly", "function": "comms", "scores": 0.91}
+{"prompt": "How do I handle search online? please", "function": "search", "scores": 0.83}
+{"prompt": "How do I handle todo? today", "function": "productivity", "scores": 0.89}
+{"prompt": "I need help regarding solve equation", "function": "math", "scores": 0.91}
+{"prompt": "Can you assist with translate? right now", "function": "general", "scores": 0.8}
+{"prompt": "i need help regarding calendar", "function": "productivity", "scores": 0.88}
+{"prompt": "how do i handle calendar?", "function": "productivity", "scores": 0.85}
+{"prompt": "How do I handle transcribe? thanks", "function": "files", "scores": 0.97}
+{"prompt": "could you Help me with git", "function": "code", "scores": 0.97}
+{"prompt": "could you Help me with email", "function": "productivity", "scores": 0.98}
+{"prompt": "how do i handle translate?", "function": "general", "scores": 0.84}
+{"prompt": "I need help regarding chart right now", "function": "data", "scores": 0.92}
+{"prompt": "Help me with git", "function": "code", "scores": 0.86}
+{"prompt": "i need help regarding slack", "function": "comms", "scores": 0.99}
+{"prompt": "Can you assist with run code? thanks", "function": "code", "scores": 0.94}
+{"prompt": "How do I handle csv?", "function": "data", "scores": 0.97}
+{"prompt": "can you assist with sql?", "function": "data", "scores": 0.91}
+{"prompt": "urgent How do I handle search online?", "function": "search", "scores": 0.81}
+{"prompt": "could you Can you assist with story?", "function": "general", "scores": 0.92}
+{"prompt": "I need help regarding pdf", "function": "files", "scores": 0.91}
+{"prompt": "help me I need help regarding solve equation", "function": "math", "scores": 0.88}
+{"prompt": "I need help regarding sentiment", "function": "general", "scores": 0.84}
+{"prompt": "could you Help me with slack", "function": "comms", "scores": 0.93}
+{"prompt": "Help me with buy", "function": "search", "scores": 0.8}
+{"prompt": "How do I handle debug?", "function": "code", "scores": 0.86}
+{"prompt": "help me How do I handle debug?", "function": "code", "scores": 0.81}
+{"prompt": "Can you assist with ocr? today", "function": "files", "scores": 0.83}
+{"prompt": "i need to Help me with review code", "function": "code", "scores": 0.86}
+{"prompt": "can you I need help regarding ocr", "function": "files", "scores": 0.96}
+{"prompt": "i need help regarding run code", "function": "code", "scores": 0.84}
+{"prompt": "could you Can you assist with csv?", "function": "data", "scores": 0.85}
+{"prompt": "how do i handle statistics?", "function": "data", "scores": 0.93}
+{"prompt": "Can you assist with read file?", "function": "files", "scores": 0.86}
+{"prompt": "How do I handle chart? today", "function": "data", "scores": 0.86}
+{"prompt": "help me I need help regarding todo", "function": "productivity", "scores": 0.56}
+{"prompt": "Help me with meeting", "function": "productivity", "scores": 0.88}
+{"prompt": "help me How do I handle meeting?", "function": "productivity", "scores": 0.83}
+{"prompt": "Help me with calculate thanks", "function": "math", "scores": 0.84}
+{"prompt": "urgent I need help regarding search online", "function": "search", "scores": 0.88}
+{"prompt": "How do I handle story? quickly", "function": "general", "scores": 0.98}
+{"prompt": "I need help regarding research paper", "function": "search", "scores": 0.87}
+{"prompt": "Help me with calculate right now", "function": "math", "scores": 0.81}
+{"prompt": "i need help regarding csv", "function": "data", "scores": 0.92}
+{"prompt": "could you Can you assist with slack?", "function": "comms", "scores": 0.92}
+{"prompt": "I need help regarding meeting right now", "function": "productivity", "scores": 0.94}
+{"prompt": "How do I handle pdf? today", "function": "files", "scores": 0.91}
+{"prompt": "how do i handle documentation?", "function": "search", "scores": 0.91}
+{"prompt": "i need help regarding git", "function": "code", "scores": 0.88}
+{"prompt": "Help me with sentiment", "function": "general", "scores": 0.89}
+{"prompt": "urgent How do I handle pip install?", "function": "code", "scores": 0.9}
+{"prompt": "How do I handle summarise?", "function": "general", "scores": 0.98}
+{"prompt": "I need help regarding buy quickly", "function": "search", "scores": 0.89}
+{"prompt": "can you Help me with wikipedia", "function": "search", "scores": 0.96}
+{"prompt": "can you I need help regarding regex", "function": "code", "scores": 0.82}
+{"prompt": "Can you assist with documentation? thanks", "function": "search", "scores": 0.85}
+{"prompt": "How do I handle research paper?", "function": "search", "scores": 0.87}
+{"prompt": "Help me with chart thanks", "function": "data", "scores": 0.96}
+{"prompt": "can you Help me with calendar", "function": "productivity", "scores": 0.83}
+{"prompt": "can u assist with jira?", "function": "comms", "scores": 0.84}
+{"prompt": "How do I handle calculate? please", "function": "math", "scores": 0.97}
+{"prompt": "Can you assist with note? please", "function": "productivity", "scores": 0.93}
+{"prompt": "can u assist with slack?", "function": "comms", "scores": 0.98}
+{"prompt": "Can you assist with regex? today", "function": "code", "scores": 0.9}
+{"prompt": "Can you assist with git? right now", "function": "code", "scores": 0.95}
+{"prompt": "can you assist with translate?", "function": "general", "scores": 0.95}
+{"prompt": "How do I handle email?", "function": "productivity", "scores": 0.97}
+{"prompt": "how do i handle review code?", "function": "code", "scores": 0.84}
+{"prompt": "Help me with sql today", "function": "data", "scores": 0.9}
+{"prompt": "I need help regarding calendar quickly", "function": "productivity", "scores": 0.86}
+{"prompt": "can u assist with todo?", "function": "productivity", "scores": 0.96}
+{"prompt": "I need help regarding review code please", "function": "code", "scores": 0.99}
+{"prompt": "Can you assist with research paper? please", "function": "search", "scores": 0.89}
+{"prompt": "Can u assist with run code?", "function": "code", "scores": 0.94}
+{"prompt": "Can you assist with transcribe? quickly", "function": "files", "scores": 0.93}
+{"prompt": "How do I handle chart?", "function": "data", "scores": 0.94}
+{"prompt": "can you I need help regarding story", "function": "general", "scores": 0.9}
+{"prompt": "help me Help me with todo", "function": "productivity", "scores": 0.77}
+{"prompt": "can you assist with calendar?", "function": "productivity", "scores": 0.95}
+{"prompt": "Help me with slack today", "function": "comms", "scores": 0.94}
+{"prompt": "trying to Help me with translate", "function": "general", "scores": 0.97}
+{"prompt": "I need help regarding documentation thanks", "function": "search", "scores": 0.82}
+{"prompt": "Help me with pdf right now", "function": "files", "scores": 0.84}
+{"prompt": "please Can you assist with sql?", "function": "data", "scores": 0.9}
+{"prompt": "Can you assist with jira? quickly", "function": "comms", "scores": 0.83}
+{"prompt": "quickly Can you assist with summarise?", "function": "general", "scores": 0.99}
+{"prompt": "trying to I need help regarding chart", "function": "data", "scores": 0.93}
+{"prompt": "i need to Help me with summarise", "function": "general", "scores": 0.94}
+{"prompt": "Can you assist with calculate? today", "function": "math", "scores": 0.97}
+{"prompt": "Help me with email right now", "function": "productivity", "scores": 0.82}
+{"prompt": "I need help regarding sql", "function": "data", "scores": 0.9}
+{"prompt": "I need help regarding pdf thanks", "function": "files", "scores": 0.89}
+{"prompt": "How do I handle note?", "function": "productivity", "scores": 0.95}
+{"prompt": "How do I handle sentiment? please", "function": "general", "scores": 0.94}
+{"prompt": "Help me with note thanks", "function": "productivity", "scores": 0.94}
+{"prompt": "urgent How do I handle statistics?", "function": "data", "scores": 0.81}
+{"prompt": "trying to Can you assist with chart?", "function": "data", "scores": 0.91}
+{"prompt": "i need to I need help regarding calculate", "function": "math", "scores": 0.83}
+{"prompt": "help me with review code", "function": "code", "scores": 0.84}
+{"prompt": "help me with summarise", "function": "general", "scores": 0.82}
+{"prompt": "I need help regarding explain right now", "function": "general", "scores": 0.8}
+{"prompt": "please Can you assist with buy?", "function": "search", "scores": 0.96}
+{"prompt": "can you Can you assist with jira?", "function": "comms", "scores": 0.91}
+{"prompt": "trying to Can you assist with translate?", "function": "general", "scores": 0.96}
+{"prompt": "can you assist with sentiment?", "function": "general", "scores": 0.96}
+{"prompt": "I need help regarding github issue today", "function": "comms", "scores": 0.84}
+{"prompt": "How do I handle convert? today", "function": "math", "scores": 0.8}
+{"prompt": "trying to How do I handle regex?", "function": "code", "scores": 0.89}
+{"prompt": "Can you assist with meeting? today", "function": "productivity", "scores": 0.98}
+{"prompt": "How do I handle git?", "function": "code", "scores": 0.85}
+{"prompt": "help me Can you assist with search online?", "function": "search", "scores": 0.92}
+{"prompt": "can you assist with todo?", "function": "productivity", "scores": 0.83}
+{"prompt": "urgent Help me with pip install", "function": "code", "scores": 0.89}
+{"prompt": "Can you assist with slack? today", "function": "comms", "scores": 0.94}
+{"prompt": "can u assist with search online?", "function": "search", "scores": 0.89}
+{"prompt": "Can u assist with calendar?", "function": "productivity", "scores": 0.83}
+{"prompt": "could you I need help regarding search online", "function": "search", "scores": 0.67}
+{"prompt": "i need help regarding note", "function": "productivity", "scores": 0.92}
+{"prompt": "Can you assist with solve equation? right now", "function": "math", "scores": 0.89}
+{"prompt": "How do I handle translate? thanks", "function": "general", "scores": 0.9}
+{"prompt": "I need help regarding slack right now", "function": "comms", "scores": 0.85}
+{"prompt": "could you How do I handle calculate?", "function": "math", "scores": 0.87}
+{"prompt": "How do I handle ocr? thanks", "function": "files", "scores": 0.98}
+{"prompt": "I need help regarding convert quickly", "function": "math", "scores": 0.98}
+{"prompt": "I need help regarding meeting", "function": "productivity", "scores": 0.81}
+{"prompt": "How do I handle github issue? today", "function": "comms", "scores": 0.9}
+{"prompt": "trying to Can you assist with docker?", "function": "code", "scores": 0.97}
+{"prompt": "Help me with github issue", "function": "comms", "scores": 0.8}
+{"prompt": "quickly Can you assist with run code?", "function": "code", "scores": 0.8}
+{"prompt": "How do I handle buy? please", "function": "search", "scores": 0.82}
+{"prompt": "How do I handle regex?", "function": "code", "scores": 0.89}
+{"prompt": "can you assist with calculate?", "function": "math", "scores": 0.95}
+{"prompt": "can u assist with sql?", "function": "data", "scores": 0.91}
+{"prompt": "Can you assist with buy? please", "function": "search", "scores": 0.94}
+{"prompt": "How do I handle jira?", "function": "comms", "scores": 0.81}
+{"prompt": "how do i handle search online?", "function": "search", "scores": 0.87}
+{"prompt": "i need help regarding todo", "function": "productivity", "scores": 0.96}
+{"prompt": "How do I handle solve equation? quickly", "function": "math", "scores": 0.92}
+{"prompt": "can u assist with regex?", "function": "code", "scores": 0.85}
+{"prompt": "How do I handle debug? thanks", "function": "code", "scores": 0.82}
+{"prompt": "could you How do I handle explain?", "function": "general", "scores": 0.97}
+{"prompt": "trying to How do I handle buy?", "function": "search", "scores": 0.92}
+{"prompt": "I need help regarding translate thanks", "function": "general", "scores": 0.98}
+{"prompt": "Can you assist with explain? right now", "function": "general", "scores": 0.91}
+{"prompt": "help me How do I handle docker?", "function": "code", "scores": 0.98}
+{"prompt": "can u assist with chart?", "function": "data", "scores": 0.96}
+{"prompt": "I need help regarding sentiment today", "function": "general", "scores": 0.88}
+{"prompt": "how do i handle story?", "function": "general", "scores": 0.94}
+{"prompt": "how do i handle calculate?", "function": "math", "scores": 0.89}
+{"prompt": "i need to How do I handle calendar?", "function": "productivity", "scores": 0.9}
+{"prompt": "can you Can you assist with github issue?", "function": "comms", "scores": 0.9}
+{"prompt": "How do I handle email? please", "function": "productivity", "scores": 0.98}
+{"prompt": "Convert 45 miles to km", "function": "math", "scores": 0.63}
+{"prompt": "I need help regarding git please", "function": "code", "scores": 0.85}
+{"prompt": "i need help regarding documentation", "function": "search", "scores": 0.95}
+{"prompt": "Can you assist with git?", "function": "code", "scores": 0.85}
+{"prompt": "help me with docker", "function": "code", "scores": 0.84}
+{"prompt": "Help me with sql", "function": "data", "scores": 0.82}
+{"prompt": "Help me with research paper quickly", "function": "search", "scores": 0.93}
+{"prompt": "how do i handle github issue?", "function": "comms", "scores": 0.89}
+{"prompt": "Help me with explain", "function": "general", "scores": 0.95}
+{"prompt": "help me with email", "function": "productivity", "scores": 0.97}
+{"prompt": "can u assist with transcribe?", "function": "files", "scores": 0.82}
+{"prompt": "How do I handle wikipedia? please", "function": "search", "scores": 0.95}
+{"prompt": "help me How do I handle transcribe?", "function": "files", "scores": 0.94}
+{"prompt": "please I need help regarding pdf", "function": "files", "scores": 0.83}
+{"prompt": "Can you assist with todo? today", "function": "productivity", "scores": 0.84}
+{"prompt": "trying to Help me with github issue", "function": "comms", "scores": 0.98}
+{"prompt": "can u assist with github issue?", "function": "comms", "scores": 0.83}
+{"prompt": "Help me with regex thanks", "function": "code", "scores": 0.91}
+{"prompt": "Help me with translate quickly", "function": "general", "scores": 0.89}
+{"prompt": "help me with documentation", "function": "search", "scores": 0.94}
+{"prompt": "quickly Help me with pdf", "function": "files", "scores": 0.92}
+{"prompt": "quickly Can you assist with note?", "function": "productivity", "scores": 0.94}
+{"prompt": "How do I handle buy?", "function": "search", "scores": 0.96}
+{"prompt": "How do I handle meeting? quickly", "function": "productivity", "scores": 0.96}
+{"prompt": "how do i handle convert?", "function": "math", "scores": 0.95}
+{"prompt": "How do I handle transcribe?", "function": "files", "scores": 0.82}
+{"prompt": "can u assist with review code?", "function": "code", "scores": 0.88}
+{"prompt": "Help me with wikipedia", "function": "search", "scores": 0.9}
+{"prompt": "i need help regarding convert", "function": "math", "scores": 0.91}
+{"prompt": "Run this and tell me why it crashes please", "function": "code", "scores": 0.78}
+{"prompt": "Can you assist with search online? today", "function": "search", "scores": 0.86}
+{"prompt": "trying to Can you assist with email?", "function": "productivity", "scores": 0.98}
+{"prompt": "I need help regarding transcribe quickly", "function": "files", "scores": 0.99}
+{"prompt": "I need help regarding solve equation thanks", "function": "math", "scores": 0.85}
+{"prompt": "can you Help me with todo", "function": "productivity", "scores": 0.86}
+{"prompt": "how do i handle read file?", "function": "files", "scores": 0.84}
+{"prompt": "i need help regarding explain", "function": "general", "scores": 0.82}
+{"prompt": "trying to Help me with story", "function": "general", "scores": 0.95}
+{"prompt": "How do I handle slack? today", "function": "comms", "scores": 0.83}
+{"prompt": "Can you assist with jira?", "function": "comms", "scores": 0.94}
+{"prompt": "Help me with read file thanks", "function": "files", "scores": 0.84}
+{"prompt": "Help me with run code", "function": "code", "scores": 0.84}
+{"prompt": "Can you assist with sentiment? thanks", "function": "general", "scores": 0.86}
+{"prompt": "I need help regarding calculate please", "function": "math", "scores": 0.59}
+{"prompt": "Can you assist with calendar? right now", "function": "productivity", "scores": 0.9}
+{"prompt": "How do I handle pip install?", "function": "code", "scores": 0.84}
+{"prompt": "could you How do I handle pdf?", "function": "files", "scores": 0.82}
+{"prompt": "Can you assist with review code? thanks", "function": "code", "scores": 0.87}
+{"prompt": "quickly I need help regarding meeting", "function": "productivity", "scores": 0.94}
+{"prompt": "Help me with calendar right now", "function": "productivity", "scores": 0.92}
+{"prompt": "Solve x\u00b2 + 5x + 6 = 0 please", "function": "math", "scores": 0.88}
+{"prompt": "Can you assist with read file? quickly", "function": "files", "scores": 0.95}
+{"prompt": "I need help regarding github issue", "function": "comms", "scores": 0.89}
+{"prompt": "I need help regarding summarise please", "function": "general", "scores": 0.95}
+{"prompt": "please I need help regarding transcribe", "function": "files", "scores": 0.96}
+{"prompt": "could you Help me with solve equation", "function": "math", "scores": 0.86}
+{"prompt": "could you Can you assist with review code?", "function": "code", "scores": 0.91}
+{"prompt": "urgent Can you assist with todo?", "function": "productivity", "scores": 0.97}
+{"prompt": "can u assist with wikipedia?", "function": "search", "scores": 0.91}
+{"prompt": "I need help regarding research paper thanks", "function": "search", "scores": 0.85}
+{"prompt": "Help me with csv", "function": "data", "scores": 0.88}
+{"prompt": "please Solve x\u00b2 + 5x + 6 = 0", "function": "math", "scores": 0.59}
+{"prompt": "i need to I need help regarding csv", "function": "data", "scores": 0.96}
+{"prompt": "can u assist with git?", "function": "code", "scores": 0.94}
+{"prompt": "help me How do I handle ocr?", "function": "files", "scores": 0.97}
+{"prompt": "help me I need help regarding convert", "function": "math", "scores": 0.83}
+{"prompt": "please Help me with research paper", "function": "search", "scores": 0.97}
+{"prompt": "Can you assist with review code?", "function": "code", "scores": 0.98}
+{"prompt": "please Help me with transcribe", "function": "files", "scores": 0.95}
+{"prompt": "can you How do I handle slack?", "function": "comms", "scores": 0.92}
+{"prompt": "could you How do I handle git?", "function": "code", "scores": 0.9}
+{"prompt": "how do i handle sql?", "function": "data", "scores": 0.9}
+{"prompt": "Can you assist with meeting?", "function": "productivity", "scores": 0.89}
+{"prompt": "Can you assist with transcribe?", "function": "files", "scores": 0.83}
+{"prompt": "help me I need help regarding sentiment", "function": "general", "scores": 0.98}
+{"prompt": "Can you assist with csv? thanks", "function": "data", "scores": 0.84}
+{"prompt": "Can you assist with docker? today", "function": "code", "scores": 0.85}
+{"prompt": "trying to I need help regarding read file", "function": "files", "scores": 0.81}
+{"prompt": "can you Help me with meeting", "function": "productivity", "scores": 0.97}
+{"prompt": "can you assist with summarise?", "function": "general", "scores": 0.84}
+{"prompt": "help me Help me with statistics", "function": "data", "scores": 0.89}
+{"prompt": "help me with note", "function": "productivity", "scores": 0.93}
+{"prompt": "please Help me with calculate", "function": "math", "scores": 0.72}
+{"prompt": "Can you assist with pdf? right now", "function": "files", "scores": 0.89}
+{"prompt": "urgent Help me with documentation", "function": "search", "scores": 0.95}
+{"prompt": "Help me with convert", "function": "math", "scores": 0.97}
+{"prompt": "How do I handle review code? today", "function": "code", "scores": 0.92}
+{"prompt": "could you Help me with regex", "function": "code", "scores": 0.95}
+{"prompt": "i need help regarding translate", "function": "general", "scores": 0.86}
+{"prompt": "could you Help me with run code", "function": "code", "scores": 0.84}
+{"prompt": "How do I handle research paper? quickly", "function": "search", "scores": 0.94}
+{"prompt": "urgent How do I handle run code?", "function": "code", "scores": 0.88}
+{"prompt": "can u assist with documentation?", "function": "search", "scores": 0.85}
+{"prompt": "could you Can you assist with documentation?", "function": "search", "scores": 0.96}
+{"prompt": "I need help regarding read file", "function": "files", "scores": 0.9}
+{"prompt": "can you How do I handle sql?", "function": "data", "scores": 0.85}
+{"prompt": "Can you assist with convert? right now", "function": "math", "scores": 0.88}
+{"prompt": "quickly Help me with note", "function": "productivity", "scores": 0.94}
+{"prompt": "Help me with calendar", "function": "productivity", "scores": 0.89}
+{"prompt": "Can you assist with explain?", "function": "general", "scores": 0.91}
+{"prompt": "I need help regarding debug thanks", "function": "code", "scores": 0.86}
+{"prompt": "Help me with story right now", "function": "general", "scores": 0.83}
+{"prompt": "How do I handle regex? right now", "function": "code", "scores": 0.81}
+{"prompt": "trying to Run this and tell me why it crashes", "function": "code", "scores": 0.77}
+{"prompt": "can you assist with statistics?", "function": "data", "scores": 0.86}
+{"prompt": "i need to Help me with search online", "function": "search", "scores": 0.67}
+{"prompt": "could you Help me with calculate", "function": "math", "scores": 0.96}
+{"prompt": "help me with jira", "function": "comms", "scores": 0.84}
+{"prompt": "i need to How do I handle review code?", "function": "code", "scores": 0.86}
+{"prompt": "can you assist with docker?", "function": "code", "scores": 0.99}
+{"prompt": "Help me with search online", "function": "search", "scores": 0.81}
+{"prompt": "I need help regarding statistics quickly", "function": "data", "scores": 0.83}
+{"prompt": "how do i handle run code?", "function": "code", "scores": 0.86}
+{"prompt": "can you How do I handle research paper?", "function": "search", "scores": 0.83}
+{"prompt": "help me I need help regarding git", "function": "code", "scores": 0.85}
+{"prompt": "Help me with pip install today", "function": "code", "scores": 0.93}
+{"prompt": "Can u assist with csv?", "function": "data", "scores": 0.89}
+{"prompt": "How do I handle explain? please", "function": "general", "scores": 0.82}
+{"prompt": "Help me with debug thanks", "function": "code", "scores": 0.92}
+{"prompt": "quickly Help me with sentiment", "function": "general", "scores": 0.87}
+{"prompt": "help me I need help regarding statistics", "function": "data", "scores": 0.81}
+{"prompt": "help me Can you assist with convert?", "function": "math", "scores": 0.95}
+{"prompt": "How do I handle pip install? right now", "function": "code", "scores": 0.95}
+{"prompt": "How do I handle wikipedia?", "function": "search", "scores": 0.9}
+{"prompt": "quickly How do I handle summarise?", "function": "general", "scores": 0.96}
+{"prompt": "urgent I need help regarding pip install", "function": "code", "scores": 0.9}
+{"prompt": "How do I handle note? thanks", "function": "productivity", "scores": 0.89}
+{"prompt": "Can you assist with search online?", "function": "search", "scores": 0.96}
+{"prompt": "can you I need help regarding jira", "function": "comms", "scores": 0.86}
+{"prompt": "can u assist with docker?", "function": "code", "scores": 0.9}
+{"prompt": "How do I handle jira? quickly", "function": "comms", "scores": 0.97}
+{"prompt": "quickly Can you assist with calendar?", "function": "productivity", "scores": 0.83}
+{"prompt": "I need help regarding search online", "function": "search", "scores": 0.82}
+{"prompt": "I need help regarding docker today", "function": "code", "scores": 0.83}
+{"prompt": "could you How do I handle note?", "function": "productivity", "scores": 0.82}
+{"prompt": "i need to Help me with read file", "function": "files", "scores": 0.96}
+{"prompt": "can you assist with wikipedia?", "function": "search", "scores": 0.86}
+{"prompt": "Help me with run code today", "function": "code", "scores": 0.98}
+{"prompt": "can u assist with summarise?", "function": "general", "scores": 0.94}
+{"prompt": "Help me with transcribe thanks", "function": "files", "scores": 0.95}
+{"prompt": "Can you assist with summarise? today", "function": "general", "scores": 0.87}
+{"prompt": "Help me with summarise please", "function": "general", "scores": 0.83}
+{"prompt": "Convert 45 miles to km right now", "function": "math", "scores": 0.64}
+{"prompt": "could you I need help regarding buy", "function": "search", "scores": 0.88}
+{"prompt": "Help me with wikipedia thanks", "function": "search", "scores": 0.97}
+{"prompt": "Solve x\u00b2 + 5x + 6 = 0", "function": "math", "scores": 0.71}
+{"prompt": "i need help regarding ocr", "function": "files", "scores": 0.95}
+{"prompt": "I need help regarding todo quickly", "function": "productivity", "scores": 0.81}
+{"prompt": "could you How do I handle chart?", "function": "data", "scores": 0.99}
+{"prompt": "Help me with sentiment please", "function": "general", "scores": 0.99}
+{"prompt": "Help me with jira right now", "function": "comms", "scores": 0.94}
+{"prompt": "help me Help me with docker", "function": "code", "scores": 0.99}
+{"prompt": "Help me with ocr today", "function": "files", "scores": 0.88}
+{"prompt": "trying to How do I handle csv?", "function": "data", "scores": 0.94}
+{"prompt": "How do I handle read file? quickly", "function": "files", "scores": 0.96}
+{"prompt": "Help me with search online thanks", "function": "search", "scores": 0.83}
+{"prompt": "trying to Help me with csv", "function": "data", "scores": 0.82}
+{"prompt": "help me with ocr", "function": "files", "scores": 0.83}
+{"prompt": "Can you assist with pip install? please", "function": "code", "scores": 0.97}
+{"prompt": "could you I need help regarding email", "function": "productivity", "scores": 0.81}
+{"prompt": "How do I handle explain?", "function": "general", "scores": 0.99}
+{"prompt": "i need to Help me with sql", "function": "data", "scores": 0.84}
+{"prompt": "trying to Help me with ocr", "function": "files", "scores": 0.99}
+{"prompt": "could you I need help regarding documentation", "function": "search", "scores": 0.8}
+{"prompt": "i need help regarding calculate", "function": "math", "scores": 0.82}
+{"prompt": "please How do I handle sentiment?", "function": "general", "scores": 0.94}
+{"prompt": "can you Can you assist with read file?", "function": "files", "scores": 0.86}
+{"prompt": "I need help regarding ocr today", "function": "files", "scores": 0.97}
+{"prompt": "help me with transcribe", "function": "files", "scores": 0.96}
+{"prompt": "can u assist with note?", "function": "productivity", "scores": 0.86}
+{"prompt": "quickly How do I handle documentation?", "function": "search", "scores": 0.87}
+{"prompt": "I need help regarding regex thanks", "function": "code", "scores": 0.83}
+{"prompt": "quickly I need help regarding sql", "function": "data", "scores": 0.82}
+{"prompt": "i need help regarding email", "function": "productivity", "scores": 0.92}
+{"prompt": "can u assist with read file?", "function": "files", "scores": 0.95}
+{"prompt": "can u assist with translate?", "function": "general", "scores": 0.81}
+{"prompt": "Help me with statistics thanks", "function": "data", "scores": 0.92}
+{"prompt": "can you assist with chart?", "function": "data", "scores": 0.88}
+{"prompt": "I need help regarding pip install", "function": "code", "scores": 0.91}
+{"prompt": "i need to How do I handle wikipedia?", "function": "search", "scores": 0.98}
+{"prompt": "can u assist with sentiment?", "function": "general", "scores": 0.96}
+{"prompt": "help me with slack", "function": "comms", "scores": 0.86}
+{"prompt": "quickly I need help regarding run code", "function": "code", "scores": 0.95}
+{"prompt": "help me I need help regarding docker", "function": "code", "scores": 0.91}
+{"prompt": "I need help regarding regex", "function": "code", "scores": 0.81}
+{"prompt": "can you I need help regarding debug", "function": "code", "scores": 0.88}
+{"prompt": "can u assist with ocr?", "function": "files", "scores": 0.93}
+{"prompt": "can u assist with statistics?", "function": "data", "scores": 0.86}
+{"prompt": "Can you assist with csv?", "function": "data", "scores": 0.96}
+{"prompt": "I need help regarding pip install today", "function": "code", "scores": 0.91}
+{"prompt": "I need help regarding wikipedia today", "function": "search", "scores": 0.99}
+{"prompt": "How do I handle git? please", "function": "code", "scores": 0.87}
+{"prompt": "Help me with documentation thanks", "function": "search", "scores": 0.97}
+{"prompt": "Can you assist with github issue? quickly", "function": "comms", "scores": 0.87}
+{"prompt": "I need help regarding sql today", "function": "data", "scores": 0.83}
+{"prompt": "Help me with github issue thanks", "function": "comms", "scores": 0.89}
+{"prompt": "Help me with docker right now", "function": "code", "scores": 0.91}
+{"prompt": "Help me with explain quickly", "function": "general", "scores": 0.9}
+{"prompt": "Can you assist with pip install?", "function": "code", "scores": 0.88}
+{"prompt": "Help me with statistics", "function": "data", "scores": 0.9}
+{"prompt": "Can you assist with chart? quickly", "function": "data", "scores": 0.86}
+{"prompt": "help me with chart", "function": "data", "scores": 0.98}
+{"prompt": "I need help regarding story thanks", "function": "general", "scores": 0.94}
+{"prompt": "Can you assist with story? please", "function": "general", "scores": 0.89}
+{"prompt": "can you assist with research paper?", "function": "search", "scores": 0.86}
+{"prompt": "How do I handle summarise? today", "function": "general", "scores": 0.84}
+{"prompt": "trying to Can you assist with pip install?", "function": "code", "scores": 0.98}
+{"prompt": "how do i handle slack?", "function": "comms", "scores": 0.86}
+{"prompt": "i need help regarding buy", "function": "search", "scores": 0.9}
+{"prompt": "urgent I need help regarding explain", "function": "general", "scores": 0.83}
+{"prompt": "can you Help me with debug", "function": "code", "scores": 0.93}
+{"prompt": "Can you assist with convert?", "function": "math", "scores": 0.89}
+{"prompt": "Help me with todo quickly", "function": "productivity", "scores": 0.84}
+{"prompt": "i need to Help me with buy", "function": "search", "scores": 0.92}
+{"prompt": "urgent Can you assist with explain?", "function": "general", "scores": 0.88}
+{"prompt": "Help me with solve equation", "function": "math", "scores": 0.91}
+{"prompt": "quickly I need help regarding review code", "function": "code", "scores": 0.89}
+{"prompt": "how do i handle todo?", "function": "productivity", "scores": 0.87}
+{"prompt": "please Can you assist with pdf?", "function": "files", "scores": 0.89}
+{"prompt": "please I need help regarding github issue", "function": "comms", "scores": 0.81}
+{"prompt": "Run this and tell me why it crashes", "function": "code", "scores": 0.7}
+{"prompt": "Can you assist with email?", "function": "productivity", "scores": 0.95}
+{"prompt": "quickly I need help regarding translate", "function": "general", "scores": 0.95}
+{"prompt": "can you assist with buy?", "function": "search", "scores": 0.86}
+{"prompt": "can u assist with pip install?", "function": "code", "scores": 0.98}
+{"prompt": "How do I handle sql? today", "function": "data", "scores": 0.93}
+{"prompt": "can u assist with story?", "function": "general", "scores": 0.81}
+{"prompt": "trying to Can you assist with ocr?", "function": "files", "scores": 0.84}
+{"prompt": "Help me with review code today", "function": "code", "scores": 0.9}
+{"prompt": "i need help regarding transcribe", "function": "files", "scores": 0.84}
+{"prompt": "help me I need help regarding research paper", "function": "search", "scores": 0.88}
+{"prompt": "could you I need help regarding wikipedia", "function": "search", "scores": 0.98}
+{"prompt": "help me with read file", "function": "files", "scores": 0.9}
+{"prompt": "Help me with search online quickly", "function": "search", "scores": 0.97}
+{"prompt": "quickly Help me with chart", "function": "data", "scores": 0.84}
+{"prompt": "please I need help regarding note", "function": "productivity", "scores": 0.97}
+{"prompt": "How do I handle csv? right now", "function": "data", "scores": 0.9}
+{"prompt": "help me with pdf", "function": "files", "scores": 0.84}
+{"prompt": "can u assist with calculate?", "function": "math", "scores": 0.99}
+{"prompt": "can u assist with convert?", "function": "math", "scores": 0.85}
+{"prompt": "Can you assist with documentation?", "function": "search", "scores": 0.83}
+{"prompt": "help me with todo", "function": "productivity", "scores": 0.8}
+{"prompt": "can u assist with explain?", "function": "general", "scores": 0.85}
+{"prompt": "How do I handle run code? right now", "function": "code", "scores": 0.97}
+{"prompt": "i need to I need help regarding summarise", "function": "general", "scores": 0.86}
+{"prompt": "How do I handle calendar? quickly", "function": "productivity", "scores": 0.88}
+{"prompt": "Help me with git thanks", "function": "code", "scores": 0.98}
+{"prompt": "Help me with regex", "function": "code", "scores": 0.93}
+{"prompt": "I need help regarding debug", "function": "code", "scores": 0.84}
+{"prompt": "Help me with solve equation quickly", "function": "math", "scores": 0.83}
+{"prompt": "help me I need help regarding slack", "function": "comms", "scores": 0.82}
+{"prompt": "urgent Can you assist with statistics?", "function": "data", "scores": 0.9}
+{"prompt": "can u assist with meeting?", "function": "productivity", "scores": 0.81}
+{"prompt": "could you Can you assist with sentiment?", "function": "general", "scores": 0.87}
+{"prompt": "I need help regarding docker", "function": "code", "scores": 0.92}
+{"prompt": "Can you assist with github issue?", "function": "comms", "scores": 0.82}
+{"prompt": "urgent Help me with jira", "function": "comms", "scores": 0.91}
+{"prompt": "I need help regarding read file thanks", "function": "files", "scores": 0.94}
+{"prompt": "Can you assist with slack?", "function": "comms", "scores": 0.97}
+{"prompt": "help me with research paper", "function": "search", "scores": 0.83}
+{"prompt": "i need to Convert 45 miles to km", "function": "math", "scores": 0.77}
+{"prompt": "Help me with translate", "function": "general", "scores": 0.98}
+{"prompt": "urgent Can you assist with calculate?", "function": "math", "scores": 0.96}
+{"prompt": "Help me with pip install", "function": "code", "scores": 0.81}
+{"prompt": "can u assist with pdf?", "function": "files", "scores": 0.87}
+{"prompt": "I need help regarding csv today", "function": "data", "scores": 0.91}
+{"prompt": "quickly How do I handle jira?", "function": "comms", "scores": 0.87}
+{"prompt": "How do I handle documentation? please", "function": "search", "scores": 0.89}
+{"prompt": "can you I need help regarding calendar", "function": "productivity", "scores": 0.94}
+{"prompt": "Can you assist with sql? thanks", "function": "data", "scores": 0.83}
+{"prompt": "I need help regarding search online today", "function": "search", "scores": 0.82}
+{"prompt": "how do i handle sentiment?", "function": "general", "scores": 0.82}
+{"prompt": "Help me with buy thanks", "function": "search", "scores": 0.84}
+{"prompt": "urgent Can you assist with git?", "function": "code", "scores": 0.87}
+{"prompt": "trying to Help me with convert", "function": "math", "scores": 0.8}
+{"prompt": "could you Can you assist with regex?", "function": "code", "scores": 0.82}
+{"prompt": "Can you assist with debug? right now", "function": "code", "scores": 0.86}
+{"prompt": "Can you assist with ocr?", "function": "files", "scores": 0.96}
+{"prompt": "I need help regarding statistics", "function": "data", "scores": 0.84}
+{"prompt": "I need help regarding run code quickly", "function": "code", "scores": 0.94}
+{"prompt": "how do i handle meeting?", "function": "productivity", "scores": 0.85}
+{"prompt": "i need help regarding summarise", "function": "general", "scores": 0.8}
+{"prompt": "quickly I need help regarding todo", "function": "productivity", "scores": 0.82}
+{"prompt": "Help me with calculate", "function": "math", "scores": 0.81}
+{"prompt": "I need help regarding review code", "function": "code", "scores": 0.99}
+{"prompt": "i need help regarding chart", "function": "data", "scores": 0.87}
+{"prompt": "quickly Can you assist with transcribe?", "function": "files", "scores": 0.97}
+{"prompt": "can you Help me with search online", "function": "search", "scores": 0.91}
+{"prompt": "i need to How do I handle todo?", "function": "productivity", "scores": 0.91}
+{"prompt": "can u assist with email?", "function": "productivity", "scores": 0.98}
+{"prompt": "How do I handle docker?", "function": "code", "scores": 0.82}
+{"prompt": "I need help regarding note quickly", "function": "productivity", "scores": 0.92}
+{"prompt": "trying to How do I handle github issue?", "function": "comms", "scores": 0.93}
+{"prompt": "can u assist with debug?", "function": "code", "scores": 0.88}
+{"prompt": "Can you assist with wikipedia? please", "function": "search", "scores": 0.98}
+{"prompt": "please Help me with explain", "function": "general", "scores": 0.86}
+{"prompt": "help me with story", "function": "general", "scores": 0.97}
+{"prompt": "Can you assist with solve equation?", "function": "math", "scores": 0.91}
+{"prompt": "can u assist with solve equation?", "function": "math", "scores": 0.89}
