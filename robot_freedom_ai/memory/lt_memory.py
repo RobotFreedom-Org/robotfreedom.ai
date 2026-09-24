@@ -13,46 +13,13 @@ License: MIT License
 import glob
 import csv
 import json
-import os  
-import pickle 
-import string   
-import random 
-import sys 
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity 
-import joblib
-import nltk
-from nltk.stem import WordNetLemmatizer  
-nltk.download('popular', quiet=True)  
-
-if __name__ == "__main__": 
-    from lib.text_utilities import *
-else:
-    from .lib.text_utilities import * 
+import os   
+import sys       
  
-
-from nltk.sentiment import SentimentIntensityAnalyzer
-sia = SentimentIntensityAnalyzer() 
- 
-# Preprocessing
-lemmer = WordNetLemmatizer()
-def LemTokens(tokens):
-    """
-    """
-    return [lemmer.lemmatize(token) for token in tokens]
-    
-remove_punct_dict = dict((ord(punct), None) for punct in string.punctuation)
-
-def LemNormalize(text): 
-    """
-    """
-    return LemTokens(nltk.word_tokenize(text.lower().translate(remove_punct_dict)))
-    
-  
 class LTMemory(object):
-
-    def __init__(self,name, config,  low_memory_mode, log=True, repeat_log= True ):
+    
+     
+    def __init__(self, name, config,  low_memory_mode=False, triples= None, load_all=True, log=True, repeat_log= True ):
         """
         
         """     
@@ -61,71 +28,75 @@ class LTMemory(object):
         self.verbose      = False 
         self.low_memory_mode = low_memory_mode
         self.context_db   = False
+        self.triples      = triples
 
         self.config = config
 
-        self.facts_path = "__default/"  
-        try:
-            t = joblib.load( self.config.CHAT_PATH +  self.facts_path  + 'facts.QATfidfVec.sav')
-        except:
-            if not os.path.exists(self.config.CHAT_PATH +  self.facts_path):
-                 os.makedirs(self.config.CHAT_PATH +  self.facts_path)   
-            self.build_models_facts()
-
+        self.facts_path = "__default/"   
         self.personality_path = self.name +"/"
-        try:
-            t = joblib.load( self.config.CHAT_PATH +  self.personality_path  + 'personality.QATfidfVec.sav')
-        except:
-            if not os.path.exists(self.config.CHAT_PATH +  self.personality_path):
-                 os.makedirs(self.config.CHAT_PATH +  self.personality_path)   
-            self.build_models_conversations()
-        
-        self.memory = {}
-        self.memory["facts"]       = {}
-        self.memory["personality"] = {}
-        self.memory["initiate"]    = {} 
-        self.memory["converse"]    = {} 
+
+        self.memory = {}  
+        self.memory["stimuli_resp"]             = self.triples.TrplGraph() 
+        self.memory["prior_conversations"]      = {}
+        self.memory["prior_conversations_base"] = {}
+        self.memory["prior_conversations_rude"] = {} 
+
+        self.memory["definitions"]              = {} 
+        self.memory["facts"]                    = {}   
+        self.memory["jokes"]     = self.triples.TrplGraph()   
+        self.memory["moods"]     = self.triples.TrplGraph()  
 
 
-        self.set_chat_responses = {}
-        self.set_chat_responses["greeting_input"] = ("hello", "hi", "greetings", "sup", "what's up","hey",)
-        self.set_chat_responses["greetings_response"] =  ["hi", "Drem yol lok (hello)","sup","hey", 
-                                                           "greetings fellow dnd lover!",
-                                                          "hi there", "hello", 
-                                                          "I am glad you are talking to me!"]
-        self.set_chat_responses["templates"] = {}
-        self.set_chat_responses["templates"]["feel"] = {"source":"mood"   , "template": "I feel <INSERT>"}
-        self.set_chat_responses["templates"]["day"]  = {"source":"stimuli", "template": "Today this happened: <INSERT>"}
+        self.bad_words = []
+        with open("../data/lib/badwords.txt") as f:
+            for line in f:
+                if line.strip() not in ["hell", "ass", "M"]:
+                    self.bad_words.append(line.strip())
 
-        self.set_chat_responses["queries"]     = {}
-        self.set_chat_responses["queries"]["how do you feel"]      = {"template":"feel"}
-        self.set_chat_responses["queries"]["how are you"]          = {"template":"feel"}
-        self.set_chat_responses["queries"]["how are thing going"]  = {"template":"feel"}
-        self.set_chat_responses["queries"]["whats up"]             = {"template":"day"}
-        self.set_chat_responses["queries"]["how was you day"]      = {"template":"day"}
-        self.set_chat_responses["queries"]["what is happening"]    = {"template":"day"} 
- 
- 
-        convo_init_file = self.config.CHAT_PATH + self.facts_path + "/chat.initiate.json"
-        mapped_tones = set([])
+
+        convo_init_file = self.config.CHAT_PATH + self.facts_path + "mood_dataset.csv"
+        with open(convo_init_file) as f:  
+             for data in f:   
+                row =  data.strip().split(",")    
+                self.memory["moods"].search_tfidf.add(row[1].lower().split(" ") ,
+                                                      row[0].lower().split(" ")) 
+                self.memory["moods"].search_tfidf.add(row[0].lower().split(" "),
+                                                      row[1].lower().split(" ")) 
+
+        convo_init_file = self.config.CHAT_PATH + self.facts_path + "chat.initiate.final.json"
         with open(convo_init_file) as f:  
              for data in f:  
-                try:
-                    row = json.loads(data.strip())
-                
-                    if row["tone"] not in self.memory["initiate"]:
-                         self.memory["initiate"][row["tone"]] = [] 
-                         mapped_tones.add(row["tone"])
-  
-                    if self.low_memory_mode:
-                        if len(self.memory["initiate"][row["tone"]]) >= 10:
-                           break   
-                    self.memory["initiate"][row["tone"]].append(row) 
-                except:
-                     print("\r Row error",  data.strip(), end = "")
-        print(mapped_tones)
-        self.load_models()
-        """
+               try:
+                    row = json.loads(data.strip())  
+                    if row["tone"] == "Witty":
+                      self.memory["jokes"].search_tfidf.add(row["prompt"].lower().split(" ") ,
+                                                            row["completion"].lower().split(" ")) 
+ 
+               except Exception as e: 
+                      print(e)
+                      print("\r Row error",  data.strip(), end = "") 
+
+        if load_all:
+
+            try:
+                t = open( self.config.CHAT_PATH + "reload_false", "r") 
+                self.load_models()  
+                self.load_stimuli_response() 
+                xcv
+
+            except Exception as e:
+                print("Rebuilding Memory" , e) 
+                self.build_models_conversations()
+                self.build_models_facts()
+                self.load_models() 
+                self.load_stimuli_response() 
+                t = open( self.config.CHAT_PATH + "reload_false", "w")
+                t.close()
+        else:
+            self.load_stimuli_response() 
+
+        """ 
+          
         TODO Add love
         {'Appreciative', 'Assertive', 'Inspirational', 'Amused', 'Bitter', 'Acerbic',
           'Aggrieved', 'Appreciative.', 'Animated', 'Altruistic', 'Callous', 'Apologetic', 
@@ -136,154 +107,195 @@ class LTMemory(object):
         """
         return None
     
+    def detect_abuse(self,text):
+        """
+        TDO Has issue with unicode- and unicode is in the facts!
+        """
+        scr = 0.0
+        #_bad = [wrd for wrd in text.split() if wrd in self.bad_words]
+        #if len(_bad) > 0:
+        #    out = open("rejects.log", "w")
+        #    out.write(text + "\n") 
+
+        return text
+
+    def set_persona(self, persona):
+
+        if persona in ["rude" ]: 
+            self.memory["prior_conversations"]   = self.memory["prior_conversations_rude"] 
+        else:      
+            self.memory["prior_conversations"]   = self.memory["prior_conversations_base"]  
+ 
     def build_models_conversations(self):
         """
         
-        """ 
-        input = []
-        response = []
- 
-        root_path = self.config.CHAT_PATH + self.personality_path  
-                                      
-        for  file_path in list(glob.glob(root_path + "*.csv")):         
-            with open(file_path, 'r') as DictReader: 
-            
-              in_data = csv.DictReader(DictReader, 
-                                       delimiter=',', 
-                                       quotechar =  '"',
-                                       skipinitialspace=True,
-                                       quoting=csv.QUOTE_ALL,
-                                       doublequote = True)
-              duels = []
-              for row in in_data:  
-                  if row["actor"] == "human":
-                      res = {"human" : row["value"]}
-                  else:
-                      res["ai"] = row["value"]
-                      duels.append(res)
-                 
-              for row in duels:
-                  input.append(row["human"]    ) 
-                  response.append(row["ai"]    )  
-              print(input[-1])
-         
-        with open(self.config.CHAT_PATH + self.personality_path  + 'personality.input.pkl', 'wb') as f:
-            pickle.dump(input, f)
+        """  
+        #################### NORM ################################### 
         
-        with open(self.config.CHAT_PATH +  self.personality_path  + 'personality.response.pkl', 'wb') as f:
-             pickle.dump(response, f)
-        
-        QATfidfVec = TfidfVectorizer(tokenizer=LemNormalize, 
-                                     ngram_range = (1, 2),
-                                     stop_words='english')
-        qatfidf    = QATfidfVec.fit_transform(input)
-        joblib.dump(qatfidf   , self.config.CHAT_PATH +  self.personality_path  + 'personality.qatfidf.sav')
-        joblib.dump(QATfidfVec, self.config.CHAT_PATH +  self.personality_path  + 'personality.QATfidfVec.sav')
+        self.memory["prior_conversations_base"] = self.triples.TrplGraph()  
+        for  file_path in  [self.config.CHAT_PATH + "norm_convo.json"]:       
+            with open(file_path, 'r') as in_data:   
+                   for line in in_data: 
+                      row = json.loads(line.strip())   
+                      self.memory["prior_conversations_base"].search_tfidf.add(row["prompt"].lower().split(' '),
+                                                                               row["completion"].lower().split(" "))  
  
-    
+        PATH = self.config.PATH + "/scripts/_DONE/" 
+        for filename in glob.glob(PATH + "*.csv"):
+            with open(filename, 'r') as DictReader:  
+                in_data = csv.DictReader(DictReader, 
+                                                     delimiter=',', 
+                                                     quotechar =  '"',
+                                                     skipinitialspace=True,
+                                                     quoting=csv.QUOTE_ALL,
+                                                     doublequote = True) 
+                b_prompt = True
+                for row in in_data:  
+                   if row["actor"] == "all":
+                       continue 
+                   if b_prompt:
+                      b_prompt = False
+                      res={}
+                      res["prompt"] = row["value"]  
+                   else:
+                       b_prompt = True 
+                       res["completion"] = row["value"]  
+                       if res["completion"] is not None and res["prompt"]  is not None: 
+                            self.memory["prior_conversations_base"].search_tfidf.add(res["prompt"].lower().split(' '),
+                                                                                     res["completion"].lower().split(" "))   
+
+
+        PATH = self.config.CHAT_PATH + self.personality_path 
+        for filename in glob.glob(PATH + "*.csv"):
+            with open(filename, 'r') as DictReader:  
+                in_data = csv.DictReader(DictReader, 
+                                                     delimiter=',', 
+                                                     quotechar =  '"',
+                                                     skipinitialspace=True,
+                                                     quoting=csv.QUOTE_ALL,
+                                                     doublequote = True) 
+                b_prompt = True
+                for row in in_data: 
+                   if row["actor"] == "all":
+                       continue 
+                   if b_prompt:
+                      b_prompt = False
+                      res={}
+                      res["prompt"] = row["value"]  
+                   else:
+                       b_prompt = True 
+                       res["completion"] = row["value"] 
+                       if res["completion"] is not None and res["prompt"]  is not None:
+                                 self.memory["prior_conversations_base"].search_tfidf.add(res["prompt"].lower().split(' '),
+                                                                                          res["completion"].lower().split(" "))   
+ 
+        self.memory["prior_conversations_base"].save(self.config.CHAT_PATH + "prior_conversations_base")
+ 
+        print('Query Response model built',  self.config.CHAT_PATH +   self.personality_path  + ' ')
+
+     
+
     def build_models_facts(self):
         """
+        Docstring for build_models_facts
         
-        """
-
-        root_path = self.config.CHAT_PATH + self.facts_path
-
-        input    = []
-        response = [] 
-
-        for file_path in list(glob.glob(root_path + "facts.json")):                                     
-            print("loading", file_path )                                      
-           
-            for line in open(file_path): 
-                row =  json.loads(line) 
-                input.append(row["query"] )
-                response.append(row["response"] )
-            print(input[-1]) 
-         
-        with open(self.config.CHAT_PATH +  self.facts_path  + 'facts.input.pkl', 'wb') as f:
-            pickle.dump(input, f)
+        :param self: Description
+        """  
+        self.memory["facts"] =self.triples.TrplGraph()
+        PATH = self.config.CHAT_PATH     
+        inputs = []
+        responses = []   
+        for  file_path in  [self.config.PATH + "knowledge/facts/facts.json"]:       
+            with open(file_path, 'r') as in_data:   
+                   for line in in_data: 
+                      row = json.loads(line.lower().strip())   
+                      self.memory["facts"].search_tfidf.add(row["prompt"].split(' '),
+                                                            row["completion"].split(" ")) 
+ 
+        self.memory["facts"].save(self.config.PATH + "knowledge/facts/facts")
         
-        with open(self.config.CHAT_PATH + self.facts_path  + 'facts.response.pkl', 'wb') as f:
-             pickle.dump(response, f)
-        
-        QATfidfVec = TfidfVectorizer(tokenizer=LemNormalize, 
-                                     ngram_range = (1, 2),
-                                     stop_words='english')
-        qatfidf    = QATfidfVec.fit_transform(input)
-        joblib.dump(qatfidf   , self.config.CHAT_PATH +   self.facts_path  + 'facts.qatfidf.sav')
-        joblib.dump(QATfidfVec, self.config.CHAT_PATH +   self.facts_path  + 'facts.QATfidfVec.sav')
-        print('Query Response model built')
+        root_path = self.config.CHAT_PATH + self.personality_path   
+        self.memory["definitions"] =self.triples.TrplGraph() 
 
+        for  file_path in  [self.config.PATH + "knowledge/simple_dictionary.json"]:       
+            with open(file_path, 'r') as in_data:   
+                   for line in in_data: 
+                      row = json.loads(line.lower().strip())   
+                      self.memory["definitions"].search_tfidf.add(row["prompt"].split(' '),
+                                                                 row["completion"].split(" ")) 
+
+                      self.memory["definitions"].search_tfidf.add(row["completion"].split(" "),
+                                                                  row["prompt"].split(' ')   ) 
+              
+     
+        self.memory["definitions"].save(self.config.PATH + "knowledge/definitions")    
+
+        
+    def load_stimuli_response(self):
+      
+        self.memory["stimuli_resp"]                = self.triples.TrplGraph() 
+        try:
+             xc 
+             self.memory["stimuli_resp"].load(self.config.PATH  + "stimuli/" + "sense_response") 
+              
+        except:
+             for line in open(self.config.PATH  + "stimuli/" + "stimuli_emotion.json"):
+                  row = json.loads(line.lower().strip())   
+                  self.memory["stimuli_resp"].search_tfidf.add(row["prompt"] ,
+                                                               row["completion"]) 
+             self.memory["stimuli_resp"].save(self.config.PATH  + "stimuli/" + "sense_response") 
         
     def load_models(self): 
         """
         
-        """
-        ### Right side
-        self.memory["facts"]["input"]      = pickle.load(open(self.config.CHAT_PATH + self.facts_path  + 'facts.input.pkl', "rb") )
-        self.memory["facts"]["responses"]  = pickle.load(open(self.config.CHAT_PATH + self.facts_path  + 'facts.response.pkl', "rb") )
-        self.memory["facts"]["qatfidf"]    = joblib.load(self.config.CHAT_PATH      + self.facts_path  + 'facts.qatfidf.sav')
-        self.memory["facts"]["QATfidfVec"] = joblib.load(self.config.CHAT_PATH      + self.facts_path  + 'facts.QATfidfVec.sav') 
-    
-        ## How you have responded in the past
-        self.memory["personality"]["input"]       = pickle.load(open(self.config.CHAT_PATH  + self.personality_path  + 'personality.input.pkl', "rb") )
-        self.memory["personality"]["responses"]   = pickle.load(open(self.config.CHAT_PATH  + self.personality_path  + 'personality.response.pkl', "rb") )
-        self.memory["personality"]["qatfidf"]     = joblib.load(self.config.CHAT_PATH       + self.personality_path  + 'personality.qatfidf.sav')
-        self.memory["personality"]["QATfidfVec"]  = joblib.load(self.config.CHAT_PATH       + self.personality_path  + 'personality.QATfidfVec.sav') 
-        
+        """ 
+         
+        self.memory["prior_conversations"] = self.triples.TrplGraph()
+        self.memory["prior_conversations_base"] = self.triples.TrplGraph()
+        self.memory["prior_conversations_rude"] = self.triples.TrplGraph()
+        self.memory["facts"] = self.triples.TrplGraph()
+        self.memory["definitions"] = self.triples.TrplGraph() 
+  
+
+        self.memory["prior_conversations_base"].load(self.config.CHAT_PATH + "prior_conversations_base")  
+       ## self.memory["prior_conversations_rude"].load(self.config.CHAT_PATH + "prior_conversations_rude")  
+        self.memory["facts"].load(self.config.PATH + "knowledge/facts/" + "facts")  
+        self.memory["definitions"].load(self.config.PATH+ "knowledge/" + "definitions")   
+        self.memory["prior_conversations"]           =   self.memory["prior_conversations_base"]
+ 
+
 
     def _get_input_and_response(self, memory_type , query, max_return=10):
-
-     # try:
-      
-        query = [query]
-        request = self.memory[memory_type]["QATfidfVec"].transform(query) 
-        #request = request.reshape(1, -1)
-        vals    = cosine_similarity(request, self.memory[memory_type]["qatfidf"] ) 
-        idxs = vals.argsort()[0][-max_return:]
  
-        scrs_r = [vals[0][idx] for idx in idxs ]  
-
-        ### Todo then rank based on how close the query is to orginal
-        scrs_q = [vals[0][idx] for idx in idxs ]  
-
-        response = ""   
-
-        if (idxs[-1]==0):  
-            return [response, 0.0] 
-        else:  
-            results = [(self.memory[memory_type]["input"][idxs[i]] , self.memory[memory_type]["responses"][idxs[i]] , scrs_r[i], scrs_q[i]) for i , v in enumerate(idxs) if  scrs_r[i] > .2]
-            return results 
+       
+         query = [self.memory[memory_type].search_tfidf.lemmatise(w) for w in query.split(" ")] 
+         res = self.memory[memory_type].search_tfidf.similarities(query) 
+         return res 
         
-    def _get_top_responses(self, memory_type , user_response, max_return=10):
+    def _get_top_responses(self, 
+                           memory_type , 
+                           query, 
+                           lemmatise = True , 
+                           max_return=10):
         """
-        """
-        user_response = [user_response]
-        request = self.memory[memory_type]["QATfidfVec"].transform(user_response  ) 
-        #request = request.reshape(1, -1)
-        vals    = cosine_similarity(request, self.memory[memory_type]["qatfidf"] )
-         
-        idxs = vals.argsort()[0][-max_return:]
- 
-        scrs = [vals[0][idx] for idx in idxs ]  
-        response = ""   
-
-        if (idxs[-1]==0):  
-            return [response, 0.0] 
-        else:   
-            
-            results = [(self.memory[memory_type]["responses"][idxs[i]] , scrs[i]) for i , v in enumerate(idxs) if  scrs[i] > .2]
-          
-            return results 
- 
-    def query(self, user_response, max_resp =10,  input_types =["personality", "facts"]):
+        """  
+        if lemmatise:
+            query = [self.memory[memory_type].search_tfidf.lemmatise(w) for w in query] 
+        #print( query)
+        res = self.memory[memory_type].search_tfidf.similarities(query) 
+        return res 
+        
+        
+    
+    def query(self, user_response, max_resp =10,  input_types =["prior_conversations", "defitions"]):
       """
       """   
       fin = []
       for stype in input_types:
           resp1  = self._get_input_and_response(stype , user_response, max_resp) 
           fin += resp1   
-      fin = sorted(fin, key=lambda x: x[1], reverse=True)
+          
+      fin = sorted(fin, key=lambda x: x[2], reverse=True)
       fin = fin[:max_resp] 
       return [{"query": q.strip(), "response": r.strip(), "src":s} for  q , r, s, s2  in fin]
 
@@ -295,8 +307,74 @@ class LTMemory(object):
         return self.response(user_response, mood, 
                              tone, topics, objective, lexicon) 
 
+    def stimuli_resp(self, user_response,  cut_off=.7, n=5): 
+       """
+       Docstring for stimuli_resp
+       
+       :param self: Description
+       :param user_response: Description
+       """
+ 
+       resp1 = self._get_top_responses("stimuli_resp" , user_response ,lemmatise=False)  
+       if len(resp1)== 0: 
+          return [{'neg': 0.33, 'neu': .33, 'pos': 0.33, 'compound': 0.0, "query":"failed"}]
+       
+       elif resp1[0][2] == 0.0: 
+          return [{'neg': 0.33, 'neu': .33, 'pos': 0.33, 'compound': 0.0, "query":"failed"}]
+ 
+       return  [resp1[0][1]]
 
-    def response(self, user_response, mood, tone, topics, objective, lexicon):
+
+    def recall(self, user_response,  cut_off=.37, n=5): 
+       """
+       Docstring for emotional_side
+       
+       :param self: Description
+       :param user_response: Description
+       """
+       user_response  = [w.lower() for w in user_response.split(" ")]
+       resp1 = self._get_top_responses("prior_conversations" , 
+                                        user_response, cut_off, n) 
+       resp1 = [[k,  v , s] for k, v, s in resp1]
+       return  resp1 
+
+    def facts(self, topics, cut_off=.38, n=5): 
+        """
+        Docstring for facts
+        
+        :param self: Description
+        :param user_response: Description
+        """
+        res =  []
+        for topic in topics:
+            topic = topic.lower()
+            _res   = self._get_top_responses("facts", 
+                                              [topic],
+                                              cut_off,
+                                              n)
+            res +=  _res
+        return res
+
+    def definition(self, topics, cut_off=.38, n=5): 
+      """
+      Docstring for logical_side
+      
+      :param self: Description
+      :param user_response: Description
+      """
+      res =  [] 
+      for topic in topics: 
+          topic = topic.lower()
+          _res   = self._get_top_responses("definitions", 
+                                            [topic],
+                                            cut_off,
+                                            n)  
+          res.extend(_res)   
+    
+      res = sorted(res, key=lambda x: x[1], reverse=True)
+      return res
+
+    def response(self, user_response, mood, tone, topics, objective, lexicon, n =1):
       """
       """  
  
@@ -312,11 +390,11 @@ class LTMemory(object):
          #b_alt = True
 
       if b_alt:
-         resp1a  = self._get_top_responses("personality" , user_response_alt)
-         resp2a  = self._get_top_responses("facts"       , user_response_alt)
+         resp1a  = self._get_top_responses("prior_conversations" , user_response_alt.split(" "))
+         resp2a  = self._get_top_responses("defitions"           , user_response_alt.split(" "))
 
-      resp1 = self._get_top_responses("personality" , user_response)
-      resp2 = self._get_top_responses("facts"       , user_response)
+      resp1 = self._get_top_responses("prior_conversations" , user_response.split(" "))
+      resp2 = self._get_top_responses("defitions"       , user_response.split(" "))
       # randomize should be in another call 
       if resp1[-1] >= resp2[-1]:
           return self.add_tone(resp1[-1][0], tone)
@@ -330,21 +408,27 @@ if __name__ == "__main__":
  
     os.chdir('../')
     sys.path.insert(0, os.path.abspath('./')) 
-    import config
+    import config 
+    from memory.lt_memory import LTMemory
+    from communication.nerves import Nerves 
 
-    topics = ["cats"]
-    objective = "engage"
-    mood = "happy"
-    tone ="friendly"
-    lexicon = "simple"
-    lt_mem  = LTMemory("squirrel", config,    topics )  
+    from triples.triples     import Triples
+    s_robot       = "squirrel" 
+    nerves        = Nerves(s_robot) 
+    triples       = Triples(agent=s_robot, 
+                            config=  config,
+                            communication=None,
+                            nerves =nerves,
+                            client=False)    
+  
+    lt_mem  = LTMemory("squirrel", config, triples=triples, load_all=True  )  
  
-    user_response =  lt_mem.query("you, feel, cats" )
+    user_response =  lt_mem.recall("do you like cats " )
+    print(user_response) 
+    
+    user_response =  lt_mem.definition(["snow"] )
     print(user_response)
-
-    user_response =  lt_mem.response("how do you feel about cats?" , 'mood', 'tone', 'topics', 'objective',   'lexicon')
-    print(user_response)
-
+  
     """ 
     user_response = "I love cats!"
     print(user_response)
