@@ -14,8 +14,7 @@ License: MIT License
 import sys  
 import time
 import cmd 
-import config  
-from communication.base_cmds      import BaseCmds
+import config   
 
 OS =  config.OS
  
@@ -62,7 +61,8 @@ class Shell(cmd.Cmd):
         else:
             self.communication = {}
              
-        self.base_cmds  = BaseCmds(self.robot, 
+        from triples.triples     import Triple
+        self.triple  = Triple(self.robot, 
                                    self.config,
                                    self.communication,
                                    self.nerves,
@@ -72,7 +72,7 @@ class Shell(cmd.Cmd):
     @handle_exceptions 
     def do_docs(self, arg):
         'all signals :  signals 1' 
-        docs = self.base_cmds.do_docs(arg)
+        docs = self.triples.do_docs(arg)
         for line in docs:
             print(line)  
 
@@ -84,22 +84,22 @@ class Shell(cmd.Cmd):
     @handle_exceptions 
     def do_forward(self, arg):
         'forward 1 ' 
-        self.base_cmds.do_forward(arg)
+        self.triples.do_forward(arg)
 
     @handle_exceptions 
     def do_right(self, arg):
         'right 1 '
-        self.base_cmds.do_right(arg)
+        self.triples.do_right(arg)
 
     @handle_exceptions 
     def do_left(self, arg):
         'left 1 ' 
-        self.base_cmds.do_left(arg)
+        self.triples.do_left(arg)
 
     @handle_exceptions 
     def do_mood(self, arg):
         'all signals : mood' 
-        self.base_cmds.do_left(arg)
+        self.triples.do_left(arg)
     
     @handle_exceptions 
     def do_monitor(self, arg):
@@ -118,25 +118,25 @@ class Shell(cmd.Cmd):
     @handle_exceptions 
     def do_direct_chat(self, arg):
         'all signals : direct_chat "how are you' 
-        val = self.base_cmds.do_direct_chat(arg)
+        val = self.triples.do_direct_chat(arg)
         print(val)
 
     @handle_exceptions 
     def default(self, arg):
         'all signals : direct_chat "how are you' 
-        val = self.base_cmds.do_direct_chat(arg)
+        val = self.triples.do_direct_chat(arg)
         print(val)
 
     @handle_exceptions 
     def do_chat(self, arg):
         'all signals : chat "how are you doing?"' 
-        val = self.base_cmds.do_chat(arg)
+        val = self.triples.do_chat(arg)
         print(val)
 
     @handle_exceptions 
     def do_dinner(self, arg):
         'dinner'
-        val = self.base_cmds.do_dinner(arg)
+        val = self.triples.do_dinner(arg)
         print(val)
     
     @handle_exceptions 
@@ -148,57 +148,57 @@ class Shell(cmd.Cmd):
     @handle_exceptions 
     def do_roll(self, arg):
         'all signals :  roll 6d'  
-        val = self.base_cmds.do_roll(arg)
+        val = self.triples.do_roll(arg)
         print(val)
 
     @handle_exceptions 
     def do_move(self, arg):
         'all signals :  move raise,left,arm @squirrel'  
-        val = self.base_cmds.do_move(arg)
+        val = self.triples.do_move(arg)
         print(val)
 
     @handle_exceptions 
     def do_run(self, arg):
         'all signals :  run ../../data/scripts/__remote_test.csv'    
-        val = self.base_cmds.do_run(arg)
+        val = self.triples.do_run(arg)
         print(val)
 
     @handle_exceptions 
     def do_replay(self, arg):
         'all signals :  run ../../data/scripts/__remote_test.csv'    
-        val = self.base_cmds.do_replay(arg)
+        val = self.triples.do_replay(arg)
         print(val)
 
     @handle_exceptions 
     def do_say(self, arg):
         'say "hello"'  
   
-        val = self.base_cmds.do_speak(arg)
+        val = self.triples.do_speak(arg)
         print(val)
 
     @handle_exceptions 
     def do_speak(self, arg):
         'speak "hello"'  
   
-        val = self.base_cmds.do_speak(arg)
+        val = self.triples.do_speak(arg)
         print(val)
 
     @handle_exceptions 
     def do_snapshot(self, arg):
         'snapshot 1' 
-        val = self.base_cmds.do_snapshot(arg)
+        val = self.triples.do_snapshot(arg)
         print(val)
     
     @handle_exceptions 
     def do_shutdown(self, arg):
         'Stop   and exit:  shutdown'
-        val = self.base_cmds.do_shutdown(arg)
+        val = self.triples.do_shutdown(arg)
         print(val)
          
     @handle_exceptions 
     def do_bye(self, arg):
         'Stop   and exit:  bye'
-        val = self.base_cmds.do_bye(arg)
+        val = self.triples.do_bye(arg)
         print(val)
    
 

@@ -30,7 +30,20 @@ CONFIG = json.loads(data)
 DEFAULT_2_NETWORKED = -1
 if CONFIG["default_to_networked"] == 1:
     DEFAULT_2_NETWORKED = 1
-    
+
+RF_Devs = {}
+try:
+    config_file = open(CONFIG_PATH + "device_config.json")
+except:
+    config_file = open(CONFIG_PATH + "device_config.json", "w")
+    config_file.write("{}\n")
+    config_file.close()
+
+config_file = open(CONFIG_PATH + "device_config.json")
+data = ""
+for line in config_file:
+     data  +=  line 
+RF_Devs = json.loads(data)  
     
 
 OS = "LINUX" 

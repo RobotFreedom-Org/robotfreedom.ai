@@ -6,9 +6,11 @@
 ####    Libraries   ################
  
 import traceback
+ERRORCNT = 0
 
 def handle_exceptions(f):
     def wrapper(*args, **kw):
+        global ERRORCNT
         try:
             return f(*args, **kw)
         except Exception as e:
@@ -19,6 +21,7 @@ def handle_exceptions(f):
             print(kw)
             print(traceback.format_exc()) 
             print("END ERROR ")  
+            ERRORCNT = ERRORCNT+ 1
             raise
             stop
             #exception_handler(self.log, True)

@@ -1,16 +1,42 @@
 # -*- coding: utf-8 -*-
 """
-Description: This script spawns sensors daemons and monitors the cpu usage.
-Author: HipMonsters.com
-Date Created: Jan 1, 2023
-Date Modified: Oct 10, 2024    
+ Description: This script spawns sensors daemons and monitors the cpu usage.
+ Author: HipMonsters.com
+ Version 10.4.5
+ Date Created: Jan 1, 2023
+ Date Modified: Aug 28, 2026    
+---------------------------------------------------------------------------
+ Copyright (c) 2026 HipMonsters.com /RobotFreedom.org 
+ Author: RobotFreedom.org  
+ License: MIT License
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+---------------------------------------------------------------------------
 
  python3 daemon.py -m senses.speech_sound -c SpeechSound -r number_3
  python3 daemon.py -m senses.temperature_humidity -c TemperatureHumidity -r number_3
  python3 daemon.py -m senses.light -c Light -r number_3
- python3 daemon.py -m senses.balance -c Balance -r number_3
- 
+ python3 daemon.py -m senses.balance -c Balance -r number_3  
+ python3 daemon.py -m ai.response -c Response -r number_3
        
+ python3 daemon.py -m visualization.main_display -c MainDisplay -r number_2 -p sentiment,chat_details 
+
 """    
 import os
 import json
@@ -34,6 +60,7 @@ from communication import network
 from communication.updater import Updater 
 from communication.nerves import Nerves 
 from communication.network import get_local_ip
+from devices.tools         import scan_serial_ports
   
 
 def get_pid(name):
@@ -41,7 +68,7 @@ def get_pid(name):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-r", "--robot" , type=str,  default='', required=False)  
-parser.add_argument("-n", "--networked" , type=int,  default=1, required=False)  
+parser.add_argument("-n", "--networked" , type=int,  default=-1, required=False)  
 parser.add_argument("-p", "--protocol"  , type=str,  default='monitor', required=False)  
 parser.add_argument("-m", "--mode"      , type=str,  default='watch', required=False)  
 #image = Image.open("./assets/logo_small.png")  
@@ -69,16 +96,32 @@ class Launcher(object):
         self.updater    = None   
         self.protocol   = protocol
 
-        if protocol =="chat":
+        print("Scanning for serial devices...")
+        time.sleep(2)  
+        self.device_connections = scan_serial_ports(True)
+
+        print(self.device_connections)
+
+        if "RF.Movement" not in self.device_connections :
+           print("RF.Movement not detected. ")
+           answer = input("Rescan y/n?: ")
+           if answer == "y":
+               self.device_connections = scan_serial_ports(True) 
+               print(self.device_connections)
+
+        if protocol == "chat":
             networked = -1
 
         self.networked  = networked
+
+
         self.local_ip   = get_local_ip()
         self.wdir = os.path.dirname(os.path.abspath(__file__))   
 
         self.agent_is_daemon = False
       
         robot = robot.strip()
+
         if robot != "":
             self.robot = robot 
         else:
@@ -100,65 +143,98 @@ class Launcher(object):
 
         if self.settings["hub"] == 1:
             self.b_hub = True  
+
+        if "networked" in self.settings:    
+            if self.settings["networked"] == -1:
+                   self.networked = -1    
             
         self.servers.append("memcached") 
 
         # TODO determine what to start (Should be defined in Yaml)
 
         if self.b_hub and self.b_admin:   
-            self.applications.append("server") 
-            ## do a quick pasue
+            self.applications.append("server")  
             self.applications.append("console") 
             #self.applications.append("http_server")  
 
         elif protocol == "chat":
+               
                self.applications.append("agent") 
-               self.applications.append("safe_chat") 
-               self.applications.append("main_chat_display") 
-               #  "sense.speech_sound",
-               self.daemons = [  "chat_low_en",
+            #   self.applications.append("safe_chat")  
+               self.applications.append("main_display_chat") 
+               self.applications.append("ai_controller")   
+               #"chat_low_en",
+               self.daemons = [ "chat", 
                                 "sense.speech_sound", 
-                                "sense.movement" ,  
-                                "sense.distance"] 
-           
+                                "sense.movement",  
+                                "sense.distance"]  
+               
+             #  self.applications.append("chirp")  
+               self.applications.append("rift")  
+              # self.add_vocialization()
+                   
+
+        elif protocol == "patrol":
+               
+               self.applications.append("agent")  
+               self.applications.append("main_display")   
+               self.applications.append("wearable_sync")  
+               self.daemons = [ "chat", 
+                                "sense.speech_sound", 
+                                "sense.movement",  
+                                "sense.balance" , 
+                                "sense.distance"]  
+                
+               self.applications.append("rift")  
+               self.add_vocialization()
 
         elif self.b_hub:     
-            self.applications.append("server") 
-            #self.applications.append("console")  
+            self.applications.append("server")  
 
         elif  self.b_admin:      
             self.applications.append("console") 
 
 
-        else: 
+        else:
+
             if self.agent_is_daemon == True: 
                self.applications.append("agent") 
+               self.applications.append("wearable_sync")  
+
                if self.config.CONFIG["low_memory_mode"] == 1: 
                     self.applications.append("main_display_lite") 
                else:
                     self.applications.append("main_display") 
+
             else: 
                self.applications.append("agent")  
+               self.applications.append("wearable_sync")   
+               self.applications.append("card_reader")  
+               #self.applications.append("ai_controller")  
+ 
+
                if self.config.CONFIG["low_memory_mode"] == 1: 
                     self.applications.append("main_display_lite") 
                else:
                     self.applications.append("main_display") 
             
+
             if self.config.CONFIG["low_memory_mode"] == 1: 
+
                 self.daemons = ["sense.movement", 
-                                "sense.distance", 
-                                "chirp",
-                                "sound"  ]  
+                                "sense.distance",  
+                                "chirp"  ]   
             else: 
-                self.daemons = ["voice" , 
-                                "chat",
+ 
+                self.daemons = ["chat", 
                                 "sense.speech_sound",
                                 "sense.movement",
                                 "sense.distance" , 
                                 "sense.touch" , 
                                 "sense.light" , 
                                 "sense.balance" , 
-                                "sense.temperature_humidity" ]  
+                                "sense.temperature_humidity"  ]  
+                self.add_vocialization()
 
         self.set_cmds()
 
@@ -188,25 +264,42 @@ class Launcher(object):
         self.updater = Updater(self.ip_repository)
         self.set_cmds()
         
-   
+    def add_vocialization(self):
+
+        if self.settings["voice"]["LINUX"]["voice"]  == "chirp" :
+            self.daemons.append("chirp") 
+        else:
+            self.daemons.append("voice")
 
     def set_cmds(self  ):
         """
         """ 
+
         self.commands["memcached"]         = {"cmd" : ["nohup memcached -l localhost  > ../data/logs/memcached.out"], "subp":-1}
         self.commands["server"]            = {"cmd" : ["python3", "ws_server.py"     ], "subp":-1, "delay": 1}
         self.commands["console"]           = {"cmd" : ["python3", "console.py", "-n " + str(self.networked)   ], "subp":-1}
         self.commands["http_server"]       = {"cmd" : ["python3", "http_server.py"], "subp":-1}
         self.commands["safe_chat"]         = {"cmd" : ["python3", "safe_chat.py"], "subp":-1}
 
+        self.commands["wearable_sync"]     = {"cmd" : ["python3", "./devices/wearable_sync.py"] , "subp":-1}
+        self.commands["card_reader"]       = {"cmd" : ["python3", "./devices/card_reader.py"]   , "subp":-1} 
+        self.commands["ai_controller"]     = {"cmd" : ["python3", "./devices/ai_controller.py"]   , "subp":-1}  
         self.commands["agent"]             = {"cmd" : ["python3", "agent.py"   , "-p " + self.protocol, "-r " + self.robot ,"-n " + str(self.networked) ], "subp":-1}
-         
+       
+       # self.commands["card_reader"]       = {"cmd" : ["python3", "daemon.py", "-m devices.card_reader", "-c CardReader", "-r " + self.robot], "subp":-1} 
+       
+
+        
         self.commands["chat"]              = {"cmd" : ["python3", "daemon.py", "-m ai.response", "-c Response", "-r " + self.robot], "subp":-1} 
         self.commands["chat_low_en"]       = {"cmd" : ["python3", "daemon.py", "-m ai.response", "-c Response", "-r " + self.robot , '-p low_memory_mode'], "subp":-1} 
-       
-        self.commands["voice"]             = {"cmd" : ["python3", "daemon.py", "-m vocalization.voice", "-c Voice" ,"-r " + self.robot ], "subp":-1} 
+        
+        self.commands["rift"]              = {"cmd" : ["python3", "daemon.py", "-m vocalization.rift",  "-c Rift" ,"-r " + self.robot ], "subp":-1}  
+        self.commands["chirp"]             = {"cmd" : ["python3", "daemon.py", "-m vocalization.chirp", "-c Chirp" ,"-r " + self.robot ], "subp":-1}  
+        self.commands["voice"]             = {"cmd" : ["python3", "daemon.py", "-m vocalization.voice", "-c Voice" ,"-r " + self.robot ], "subp":-1}   
         self.commands["sound"]             = {"cmd" : ["python3", "daemon.py", "-m vocalization.sound", "-c Sound" ,"-r " + self.robot ], "subp":-1} 
+
         self.commands["main_display"]      = {"cmd" : ["python3", "daemon.py", "-m visualization.main_display", "-c MainDisplay" ,"-r " + self.robot ], "subp":-1} 
+        self.commands["main_display_chat"]  = {"cmd" : ["python3", "daemon.py", "-m visualization.main_display", "-c MainDisplay" ,"-r " + self.robot , "-p sentiment,chat_details"], "subp":-1} 
         self.commands["main_display_lite"] = {"cmd" : ["python3", "daemon.py", "-m visualization.main_display_lite", "-c MainDisplayLite","-r " + self.robot ], "subp":-1}  
         self.commands["main_chat_display"] = {"cmd" : ["python3", "daemon.py", "-m visualization.main_chat_display", "-c ChatDisplay","-r " + self.robot ], "subp":-1}  
      
@@ -503,12 +596,16 @@ class Launcher(object):
           
         except KeyboardInterrupt:
               print("Users killed launcher. Cleaning up...")
-              for key , cmds in self.daemons.items():
-                  subp = cmds["subp"] 
-                  if subp == -1:
-                      continue  
-                  proc = psutil.Process(subp.pid) 
-                  proc.kill()
+              #for key  in self.daemons: 
+              #  try:  
+              #    cmds = self.commands[key]
+              #    subp = cmds["subp"] 
+              #    if subp == -1:
+              #        continue  
+              #    proc = psutil.Process(subp.pid) 
+              #    proc.kill()
+              #  except:
+              #      pass
               sys.exit() 
 
     def tray_exit(self,icon, query):
@@ -532,6 +629,7 @@ if __name__ == "__main__":
 
     """
     python3 launcher.py  -monitor
+    attendance@presidioknolls.org 
   
     """
     args      = parser.parse_args()  
@@ -542,6 +640,7 @@ if __name__ == "__main__":
     if protocol == "chat":
         networked = -1
 
+    #networked = -1
     launcher = Launcher(robot=robot, 
                         protocol = protocol,
                         networked=networked)

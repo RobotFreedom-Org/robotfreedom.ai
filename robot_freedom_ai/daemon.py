@@ -8,13 +8,11 @@ Version: 8.0
 Platform: RaspberryPi
 License: MIT License  
 """
-  
-import time 
+   
 import json  
 
 import config
-from communication.nerves         import Nerves   
-from memory.lt_memory import   LemNormalize 
+from communication.nerves   import Nerves    
 
 import argparse
 parser = argparse.ArgumentParser()
@@ -41,6 +39,7 @@ class Daemon(object):
            settings = json.loads(data)
  
         _mod          = __import__(module , fromlist=[None] ) 
+
         if param is None:
             self.module   = getattr(_mod, classname )(robot,   nerves, config,  settings ) 
         else:
@@ -60,15 +59,18 @@ if __name__ == "__main__":
     module     = args.module    
     class_name = args.class_name    
     robot      = args.robot    
-    param      = args.param    
+    _params    = args.param    
   
-    if param != "": 
+    if _params != "": 
         
-        params      = {}
-        params[param] =1
-        daemon     = Daemon(module, class_name, robot, params)
+        params        = {}
+
+        for param in _params.split(","):
+            params[param] = 1
+        daemon        = Daemon(module, class_name, robot, params)
     else:
-        daemon     = Daemon(module, class_name, robot)
+        daemon        = Daemon(module, class_name, robot)
+
     daemon.module.serve_forever()
 
  
